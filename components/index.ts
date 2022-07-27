@@ -2,4 +2,7 @@ import Navbar from "./layouts/Navbar";
 import Footer from "./layouts/Footer";
 import FeaturedProduct from "./products/FeaturedProduct";
 
-export { Navbar, Footer, FeaturedProduct };
+// home
+import HeroHome from "./home/HeroHome";
+
+export { Navbar, Footer, FeaturedProduct, HeroHome };
