@@ -4,8 +4,8 @@ import Image from "next/image";
 
 const HeroHome: NextPage = () => {
   return (
-    <div className='my-5'>
-      <div className='row shadow-lg p-3 p-lg-5'>
+    <div className='mb-5 mt-3 shadow-lg'>
+      <div className='row  p-3 p-lg-5 container m-auto'>
         <div className='col-lg-7 d-flex justify-content-end gap-3 flex-column'>
           <h2 className='display-4 fw-bold lh-1 '>
             Lorem ipsum, dolor sit amet consectetur adipisicing elit.

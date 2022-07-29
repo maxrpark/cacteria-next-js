@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../ts/interfaces";
-import { FeaturedProduct, HeroHome } from "../components";
+import {
+  FeaturedProduct,
+  HeroHome,
+  CompanyDetails,
+  Newsletter,
+} from "../components";
 import { useCartContext } from "../context/useCartContext";
+
 interface Props {
   featuredProducts: Product[];
 }
@@ -11,22 +17,29 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
   const { changeName, name } = useCartContext();
 
   return (
-    <>
+    <div>
       <HeroHome />
-      <div className='row g-2 g-lg-3'>
-        {featuredProducts.map((product: Product) => {
-          return (
-            <div
-              style={{ height: "300px" }}
-              className='col-md-6 col-lg-4'
-              key={product.id}
-            >
-              <FeaturedProduct product={product} />
-            </div>
-          );
-        })}
-      </div>
-    </>
+      {/* <main className='container'> */}
+      <main>
+        <div className='row g-2 g-lg-3 my-5 mx-auto container'>
+          {featuredProducts.map((product: Product) => {
+            return (
+              <div
+                style={{ height: "300px" }}
+                className='col-md-6 col-lg-4'
+                key={product.id}
+              >
+                <FeaturedProduct product={product} />
+              </div>
+            );
+          })}
+        </div>
+        <div className='pin'>
+          <Newsletter />
+        </div>
+        <CompanyDetails />
+      </main>
+    </div>
   );
 };
 

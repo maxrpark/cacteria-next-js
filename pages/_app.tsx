@@ -12,9 +12,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <CartProvider>
         <Navbar />
-        <div className='container'>
-          <Component {...pageProps} />
-        </div>
+        {/* <div className='container'> */}
+        <Component {...pageProps} />
+        {/* </div> */}
       </CartProvider>
       <Footer />
     </>

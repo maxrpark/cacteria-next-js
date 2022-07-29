@@ -22,3 +22,10 @@ export interface SingleProduct {
   fields: productFields;
   id: string;
 }
+
+export interface CompanyDetail {
+  id: number;
+  text: string;
+  title: string;
+  image: string;
+}
