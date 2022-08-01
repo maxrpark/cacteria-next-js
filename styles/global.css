@@ -8,6 +8,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+/* global */
+.section-divition {
+  height: 10vh;
+}
 
 /* Home */
 .single-detail-section {

@@ -7,10 +7,6 @@ gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
 const Newsletter: NextPage = () => {
   const newsLetterAnimation = () => {
-    gsap.set(".section-form", {
-      yPercent: gsap.utils.wrap([150, -150]),
-    });
-
     gsap.to(".newsletter-title", {
       ease: "none",
       text: { value: "20% in the first <br /> purchase" },
@@ -41,22 +37,21 @@ const Newsletter: NextPage = () => {
     tl.to("#newsletter__single-section", {
       yPercent: -100,
       ease: "none",
-    })
-      .to(
-        ".newsletter-text",
-        {
-          opacity: 1,
-        },
-        0.2
-      )
-      .to(
-        ".section-form",
-        {
-          yPercent: 0,
-          immediateRender: false,
-        },
-        0.4
-      );
+    }).to(
+      ".newsletter-text",
+      {
+        opacity: 1,
+      },
+      0.2
+    );
+    // .to(
+    //   ".section-form",
+    //   {
+    //     yPercent: 0,
+    //     immediateRender: false,
+    //   },
+    //   0.4
+    // );
   };
 
   useEffect(() => {
@@ -64,10 +59,10 @@ const Newsletter: NextPage = () => {
   }, []);
 
   return (
-    <section className='newsletter-container d-flex flex-column position-relative'>
-      <div className='newsletter__single-section  h-100 row  align-items-center p-2 p-md-4 bg-white'>
-        <div className='container overflow-hidden  row  align-items-center p-2 p-md-4'>
-          <div className='order-md-2 section-form col-md-6 container mx-auto'>
+    <section className='newsletter-container d-flex align-items-center flex-column position-relative'>
+      <div className='container newsletter__single-section  h-100 row  align-items-center p-2 p-md-4 my-auto bg-white'>
+        <div className='  overflow-hidden  h-100   row  align-items-center p-2 p-md-4 '>
+          <div className=' order-md-2 section-form col-md-6 container mx-auto '>
             <h2
               className='display-3 fw-bold lh-3 pl mx-auto '
               style={{ maxWidth: "clamp(480px, 15vh, 300px)" }}
