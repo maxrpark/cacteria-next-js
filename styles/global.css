@@ -25,7 +25,7 @@ a {
   flex-direction: column;
   gap: 5rem;
 }
-.details-container .single-detail-section:nth-child(odd) {
+.details-container .details-wrapper:nth-child(odd) .single-detail-section {
   flex-direction: row-reverse !important;
 }
 

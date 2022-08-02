@@ -9,11 +9,11 @@ const SingleDetailsSection: NextPage<CompanyDetail> = ({
 }) => {
   return (
     <div className='single-detail-section row'>
-      <div className='single-detail-section_text col-md-6'>
-        <h4>{title}</h4>
-        <p>{text}</p>
+      <div className='item single-detail-section_text col-md-6'>
+        <h4 className='detail-title'>{title}</h4>
+        <p className='detail-text'>{text}</p>
       </div>
-      <div className=' image-container col-md-6'>
+      <div className='item image-container col-md-6'>
         <img src={image} alt='' />
       </div>
     </div>

@@ -18,8 +18,10 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
 
   return (
     <div>
-      <HeroHome />
+      {/* <HeroHome /> */}
       <main>
+        <div className='section-divition'></div>
+        <div className='section-divition'></div>
         <div className='section-divition'></div>
         {/* <div className='row g-2 g-lg-3 my-5 mx-auto container'>
           {featuredProducts.map((product: Product) => {
