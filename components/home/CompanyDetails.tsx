@@ -1,11 +1,8 @@
+import { useEffect, useRef } from "react";
 import type { NextPage } from "next";
 import SingleDetailsSection from "./SingleDetailsSection";
 import { companyDetails } from "../../public/data";
-import { useEffect, useRef } from "react";
-const { gsap } = require("gsap/dist/gsap");
-const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
-const { TextPlugin } = require("gsap/dist/TextPlugin");
-gsap.registerPlugin(ScrollTrigger, TextPlugin);
+import { companyDetailsAnimations } from "../../utils/animations";
 
 const CompanyDetails: NextPage = () => {
   const sections = useRef<HTMLDivElement[]>([]);
@@ -15,49 +12,13 @@ const CompanyDetails: NextPage = () => {
     }
   };
 
-  const companyDetailsAnimations = () => {
-    sections.current.forEach((section, idx) => {
-      gsap.set(section, {
-        xPercent: idx % 2 == 0 ? 100 : -100,
-      });
-      // const title = section.querySelector(`.detail-title`);
-      // const text = section.querySelector(`.detail-text`);
-      const image = section.querySelector(".image-container img");
-
-      const tl = gsap.timeline({ ease: "none" });
-
-      tl.to(section, {
-        xPercent: 0,
-      })
-        .to(
-          image,
-          {
-            scale: 1,
-          },
-          0
-        )
-        .to(image, {
-          y: "-20%",
-        });
-
-      ScrollTrigger.create({
-        trigger: section,
-        start: "top 80%",
-        toggleActions: "play none none reverse",
-        // end: () => "+=" + section.offsetHeight,
-        scrub: 0.5,
-        animation: tl,
-      });
-    });
-  };
-
   useEffect(() => {
-    companyDetailsAnimations();
+    companyDetailsAnimations(sections.current);
   }, []);
 
   return (
     <section className='container details-wrapper my-4'>
-      <h2 className=' my-5'>
+      <h2 className=' my-5 text-center'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h2>
       <div className='details-container overflow-hidden'>
