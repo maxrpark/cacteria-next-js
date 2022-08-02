@@ -20,30 +20,33 @@ const CompanyDetails: NextPage = () => {
       gsap.set(section, {
         xPercent: idx % 2 == 0 ? 100 : -100,
       });
-      const title = section.querySelector(`.detail-title`);
-      const text = section.querySelector(`.detail-text`);
-      const image = section.querySelector(".image-container");
+      // const title = section.querySelector(`.detail-title`);
+      // const text = section.querySelector(`.detail-text`);
+      const image = section.querySelector(".image-container img");
 
       const tl = gsap.timeline({ ease: "none" });
 
       tl.to(section, {
         xPercent: 0,
-      }).to(image, {
-        scale: 1.5,
-      });
+      })
+        .to(
+          image,
+          {
+            scale: 1,
+          },
+          0
+        )
+        .to(image, {
+          y: "-20%",
+        });
 
       ScrollTrigger.create({
         trigger: section,
-        start: "top center",
+        start: "top 80%",
         toggleActions: "play none none reverse",
-        // stagger: 2,
-        // end: "+=300",
-        end: () => "+=" + section.offsetWidth,
-        markers: true,
+        // end: () => "+=" + section.offsetHeight,
         scrub: 0.5,
         animation: tl,
-        pin: ".details-wrapper",
-        // pinSpacing: true,
       });
     });
   };
