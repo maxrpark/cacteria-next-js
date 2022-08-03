@@ -6,6 +6,7 @@ import {
   HeroHome,
   CompanyDetails,
   Newsletter,
+  Testimonials,
 } from "../components";
 import { useCartContext } from "../context/useCartContext";
 
@@ -18,6 +19,9 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
 
   return (
     <div>
+      <Testimonials />
+      {/* 
+      
       <HeroHome />
       <main>
         <div className='section-divition'></div>
@@ -41,7 +45,7 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
         <div className='section-divition'></div>
         <CompanyDetails />
         <div className='section-divition'></div>
-      </main>
+      </main> */}
     </div>
   );
 };
