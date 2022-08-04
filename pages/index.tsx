@@ -19,10 +19,9 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
 
   return (
     <div>
-      {/* <HeroHome /> */}
+      <HeroHome />
       <main>
-        {/* <div className='section-divition'></div>
-        <div className='row g-2 g-lg-3 my-5 mx-auto container'>
+        <div className='row g-2 g-lg-3 mx-auto container section-divition'>
           {featuredProducts.map((product: Product) => {
             return (
               <div
@@ -35,13 +34,8 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
             );
           })}
         </div>
-        <div className='section-divition'></div>
-        <div className='pin'>
-          <Newsletter />
-        </div>
-        <div className='section-divition'></div>
+        <Newsletter />
         <CompanyDetails />
-        <div className='section-divition'></div> */}
         <Testimonials />
       </main>
     </div>

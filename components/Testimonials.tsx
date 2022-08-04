@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import type { NextPage } from "next";
 import { testimonials } from "./../public/data";
+import { ImQuotesRight } from "react-icons/im";
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
 const { Draggable } = require("gsap/dist/Draggable");
@@ -38,7 +39,7 @@ const Testimonials: NextPage = () => {
     draggableCarrousel();
   }, [mainContainer.current, minX]);
   return (
-    <section className=' bg-dark'>
+    <section className=' bg-dark section-divition'>
       <div ref={mainContainer} className=' container overflow-hidden'>
         <div
           style={{ width: "fit-content" }}
@@ -52,19 +53,22 @@ const Testimonials: NextPage = () => {
                 style={{ height: "400px", width: "90vw", maxWidth: "500px" }}
                 className='single-testimony card flex-shrink-0 d-flex justify-content align-items-center p-3'
               >
-                <img
-                  style={{
-                    height: "200px",
-                    width: "200px",
-                  }}
-                  className='rounded-circle shadow'
-                  src={el.image}
-                  alt=''
-                />
+                <div>
+                  <img
+                    style={{
+                      height: "190px",
+                      width: "190px",
+                    }}
+                    className='rounded-circle shadow'
+                    src={el.image}
+                    alt=''
+                  />
+                </div>
                 <div className='details text-center' style={{ width: "300px" }}>
-                  <h3 className='my-2'>{el.title}</h3>
-                  <p className='mt-3'>{el.text}</p>
-                  <p>{el.name}</p>
+                  <p className='mt-2 mb-0 '>{el.name}</p>
+                  <h3 className='my-2 '>{el.title}</h3>
+                  <p className=''>{el.text}</p>
+                  <ImQuotesRight className=' display-6' />
                 </div>
               </div>
             );

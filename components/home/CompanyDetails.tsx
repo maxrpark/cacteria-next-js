@@ -17,7 +17,7 @@ const CompanyDetails: NextPage = () => {
   }, []);
 
   return (
-    <section className='container details-wrapper my-4'>
+    <section className='container details-wrapper section-divition'>
       <h2 className=' my-5 text-center'>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h2>
