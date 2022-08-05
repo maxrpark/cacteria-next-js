@@ -41,7 +41,7 @@ const Testimonials: NextPage = () => {
   return (
     <section
       style={{ height: "500px" }}
-      className='bg-dark  section-divition d-flex justify-content-center align-items-center'
+      className='bg-dark  d-flex justify-content-center align-items-center'
     >
       <div ref={mainContainer} className='p-0 container overflow-hidden'>
         <div

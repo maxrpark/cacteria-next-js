@@ -11,7 +11,7 @@ const Newsletter: NextPage = () => {
     <div className='pin section-divition'>
       <section className='newsletter-container d-flex align-items-center flex-column position-relative'>
         <div className='container newsletter__single-section  h-100 row  align-items-center p-2 p-md-4 my-auto bg-white'>
-          <div className='  overflow-hidden  h-100   row  align-items-center p-2 p-md-4 '>
+          <div className='  overflow-hidden  h-100 row  align-items-center p-2 p-md-4 '>
             <div className=' order-md-2 section-form col-md-6 container mx-auto '>
               <h2
                 className='display-3 fw-bold lh-3 pl mx-auto '

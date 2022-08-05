@@ -8,6 +8,7 @@ import {
   Newsletter,
   Testimonials,
   Contact,
+  SectionTitle,
 } from "../components";
 import { useCartContext } from "../context/useCartContext";
 interface Props {
@@ -19,8 +20,8 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
   return (
     <div>
       <HeroHome />
-
       <main>
+        <SectionTitle />
         <div className='row g-2 g-lg-3 mx-auto container section-divition'>
           {featuredProducts.map((product: Product) => {
             return (
@@ -35,8 +36,14 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
           })}
         </div>
         <Newsletter />
-        <CompanyDetails />
+        <SectionTitle />
+        <div className='section-divition'>
+          <CompanyDetails />
+        </div>
+
+        <SectionTitle />
         <Testimonials />
+        {/* <SectionTitle /> */}
         <Contact />
       </main>
     </div>

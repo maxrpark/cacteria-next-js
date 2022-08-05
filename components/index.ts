@@ -3,6 +3,7 @@ import Footer from "./layouts/Footer";
 import FeaturedProduct from "./products/FeaturedProduct";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
+import SectionTitle from "./SectionTitle";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -18,4 +19,5 @@ export {
   Newsletter,
   Testimonials,
   Contact,
+  SectionTitle,
 };

@@ -2,8 +2,8 @@ import type { NextPage } from "next";
 
 const Footer: NextPage = () => {
   return (
-    <div className='container'>
-      <footer className='py-5'>
+    <div className='bg-dark text-bg-light'>
+      <footer className='container  py-5'>
         <div className='row'>
           <div className='col-2'>
             <h5>Section</h5>
