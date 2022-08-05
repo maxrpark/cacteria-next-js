@@ -20,7 +20,7 @@ const Newsletter: NextPage = () => {
                 Monthly discounts, tips and promotions.
               </h2>
             </div>
-            <form className=' order-md-1 section-form col-md-6 container mx-auto'>
+            <form className='order-md-1 section-form col-md-6 container mx-auto'>
               <h3 className='text-center mb-4'>Subscribe to our newsletter</h3>
               <div className='row gap-2'>
                 <div className='col-12'>

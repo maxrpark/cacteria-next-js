@@ -58,3 +58,15 @@ a {
 .newsletter-text {
   opacity: 0;
 }
+
+/* Contact section */
+textarea {
+  height: 160px;
+  resize: none;
+}
+
+@media screen and (min-width: 960px) {
+  .contact-form-area {
+    padding-left: 3rem;
+  }
+}

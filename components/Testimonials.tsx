@@ -39,12 +39,15 @@ const Testimonials: NextPage = () => {
     draggableCarrousel();
   }, [mainContainer.current, minX]);
   return (
-    <section className=' bg-dark section-divition'>
-      <div ref={mainContainer} className=' container overflow-hidden'>
+    <section
+      style={{ height: "500px" }}
+      className='bg-dark  section-divition d-flex justify-content-center align-items-center'
+    >
+      <div ref={mainContainer} className='p-0 container overflow-hidden'>
         <div
           style={{ width: "fit-content" }}
           ref={carrouselWrapper}
-          className='p-4 d-flex gap-3'
+          className='p-3 d-flex gap-3'
         >
           {testimonials.map((el) => {
             return (
