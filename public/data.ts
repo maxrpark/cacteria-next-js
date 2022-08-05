@@ -4,19 +4,19 @@ export const companyDetails: CompanyDetail[] = [
   {
     id: 1,
     title: "Title 1",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, vel?",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius autem velit ullam inventore. Praesentium unde eum nam? Perspiciatis enim cupiditate eaque assumenda. Ea, odit deleniti cum magni eos perspiciatis magnam? ",
     image: "/static/images/cactus-flowers.jpg",
   },
   {
     id: 2,
     title: "Title 2",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, vel?",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius autem velit ullam inventore. Praesentium unde eum nam? Perspiciatis enim cupiditate eaque assumenda. Ea, odit deleniti cum magni eos perspiciatis magnam? ",
     image: "/static/images/cacteria-bg-2.jpeg",
   },
   {
     id: 3,
     title: "Title 3",
-    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, vel?",
+    text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius autem velit ullam inventore. Praesentium unde eum nam? Perspiciatis enim cupiditate eaque assumenda. Ea, odit deleniti cum magni eos perspiciatis magnam? ",
     image: "/static/images/cacteria-bg-3.jpeg",
   },
 ];

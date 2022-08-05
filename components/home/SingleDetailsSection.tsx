@@ -10,8 +10,13 @@ const SingleDetailsSection: NextPage<CompanyDetail> = ({
   return (
     <div className='single-detail-section row'>
       <div className='item single-detail-section_text col-md-6'>
-        <h4 className='detail-title'>{title}</h4>
-        <p className='detail-text'>{text}</p>
+        <h4 className='detail-title display-4'>{title}</h4>
+        <p
+          style={{ lineHeight: "2rem" }}
+          className='detail-text h5 text-secondary'
+        >
+          {text}
+        </p>
       </div>
       <div className='item image-container col-md-6'>
         <img src={image} alt='' />
