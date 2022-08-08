@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
     <div>
       <HeroHome />
       <main>
-        <SectionTitle />
+        <SectionTitle text='Featured Products' />
         <div className='row g-2 g-lg-3 mx-auto container section-divition'>
           {featuredProducts.map((product: Product) => {
             return (
@@ -36,12 +36,12 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
           })}
         </div>
         <Newsletter />
-        <SectionTitle />
+        <SectionTitle text='Why us?' />
         <div className='section-divition'>
           <CompanyDetails />
         </div>
 
-        <SectionTitle />
+        <SectionTitle text='Testimonials' />
         <Testimonials />
         {/* <SectionTitle /> */}
         <Contact />

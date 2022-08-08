@@ -5,7 +5,11 @@ const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
 
 gsap.registerPlugin(ScrollTrigger);
 
-const SectionTitle: NextPage = () => {
+interface Props {
+  text: string;
+}
+
+const SectionTitle: NextPage<Props> = ({ text }) => {
   const sectionsTitle = useRef<HTMLDivElement[]>([]);
 
   const addToRef = (el: HTMLDivElement) => {
@@ -38,11 +42,11 @@ const SectionTitle: NextPage = () => {
   }, []);
   return (
     <div className='section-title-container p-0' ref={addToRef}>
-      <h2 className='section-title display-1 fw-bold lh-3 front-text'>
-        SectionTitle
+      <h2 className='section-title display-1 fw-bold lh-3 front-text text-capitalize'>
+        {text}
       </h2>
-      <h2 className='clipped section-title display-1 fw-bold lh-3 bg-dark text-white'>
-        SectionTitle
+      <h2 className='clipped section-title display-1 fw-bold lh-3 bg-dark text-white text-capitalize'>
+        {text}
       </h2>
     </div>
   );
