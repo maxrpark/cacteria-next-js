@@ -1,8 +1,6 @@
 img {
   object-fit: cover;
   width: 100%;
-  /* max-height: 100%;
-  max-width: 100%; */
 }
 a {
   text-decoration: none;
@@ -11,6 +9,10 @@ a {
 /* global */
 .section-divition {
   margin: 10vh 0;
+}
+
+.page-height {
+  min-height: 90vh;
 }
 
 /* Home */
