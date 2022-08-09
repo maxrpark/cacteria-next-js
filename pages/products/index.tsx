@@ -17,34 +17,36 @@ const Products: NextPage<Props> = ({ products }) => {
   return (
     <main className='container m-auto page-height'>
       <h2>Products all</h2>
-      {products
-        .map((item) => {
-          const { name, url, desc, id } = item;
-          return (
-            <div
-              style={{ height: "200px" }}
-              className='col-6 col-md-3 col-lg-3'
-              key={id}
-            >
-              <Link
-                href={`/products/${id}`}
-                className='col-12 col-md-6 col-lg-4'
+      <div className='row g-0'>
+        {products
+          .map((item) => {
+            const { name, url, desc, id } = item;
+            return (
+              <div
+                key={id}
+                className='product-single col-4 col-md-4 position-relative'
               >
-                <div className='w-100 h-100'>
-                  <Image
-                    priority
-                    src={url}
-                    alt='Picture of the author'
-                    width={200}
-                    height={200}
-                    layout='responsive'
-                  />
-                </div>
-              </Link>
-            </div>
-          );
-        })
-        .slice(0, 1)}
+                <Link href={`/products/${id}`}>
+                  <div className='w-100 h-100'>
+                    <Image
+                      priority
+                      src={url}
+                      alt='Picture of the author'
+                      width={200}
+                      height={200}
+                      layout='responsive'
+                    />
+                    <div
+                      style={{ height: "100%", width: "100%" }}
+                      className='position-absolute bg-black product-options'
+                    ></div>
+                  </div>
+                </Link>
+              </div>
+            );
+          })
+          .slice(0, 1)}
+      </div>
     </main>
   );
 };

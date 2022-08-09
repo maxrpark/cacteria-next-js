@@ -99,3 +99,17 @@ textarea {
 .section-title:nth-child(2) {
   clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
+
+/* PRODUCT PAGE */
+.product-single {
+  overflow: hidden;
+}
+.product-options {
+  transition: all 0.3s linear;
+  bottom: 0;
+  left: 0;
+  transform: translateY(100%);
+}
+.product-single:hover .product-options {
+  transform: translateY(0);
+}
