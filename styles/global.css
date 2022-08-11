@@ -1,3 +1,7 @@
+:root {
+  --transition-1: all 0.3s linear;
+}
+
 img {
   object-fit: cover;
   width: 100%;
@@ -111,7 +115,7 @@ textarea {
   top: 0;
   clip-path: circle(3.9% at 90% 10%);
   background: rgb(0, 0, 0);
-  transition: all 0.3s linear;
+  transition: var(--transition-1);
 }
 .product-options__readmore {
   position: absolute;
@@ -121,7 +125,7 @@ textarea {
   color: white;
   right: 6.5%;
   top: 6.5%;
-  transition: all 0.3s linear;
+  transition: var(--transition-1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -139,4 +143,17 @@ textarea {
 .product-options:hover .product-options__readmore {
   transform: rotate(90deg);
   background: transparent;
+}
+
+.product-icon {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: var(--transition-1);
+}
+.product-icon:hover {
+  background: #5c636a;
 }

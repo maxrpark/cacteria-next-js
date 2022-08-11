@@ -35,10 +35,10 @@ const Products: NextPage<Props> = ({ products }) => {
   }, []);
   return (
     <main className='container products-wrapper m-auto page-height'>
-      <h2>Products all</h2>
+      <h2 className='display-2 lead'>Our Products</h2>
       <div className='row g-0'>
         {products.map((item) => {
-          const { name, url, desc, id } = item;
+          const { name, url, desc, id, price } = item;
           return (
             <div
               key={id}
@@ -55,13 +55,28 @@ const Products: NextPage<Props> = ({ products }) => {
                     layout='responsive'
                   />
                 </Link>
-                <div className='product-options'>
-                  <p className='product-options__readmore'>
+                <div className='product-options text-light p-3 d-flex flex-column justify-content-around align-items-center'>
+                  <p className='product-options__readmore '>
                     <CgMoreVertical className='product-options__readmore-icon' />
                   </p>
-                  <BsShareFill />
-                  <button className='btn btn-secondary'>add to cart</button>
-                  <BsSearch />
+                  <div
+                    style={{ height: "100%" }}
+                    className='text-center d-flex flex-column justify-content-center align-items-center'
+                  >
+                    <p className='m-0 '>{name}</p>
+                    <p className='m-0'>${price}</p>
+                  </div>
+                  <div className='d-flex justify-content-center align-items-center gap-3'>
+                    <div className='product-icon'>
+                      <BsShareFill />
+                    </div>
+                    <button className='btn btn-secondary btn-sm'>
+                      add to cart
+                    </button>
+                    <div className='product-icon'>
+                      <BsSearch />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

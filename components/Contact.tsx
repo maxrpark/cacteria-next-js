@@ -3,7 +3,7 @@ import { NextPage } from "next";
 
 const Contact: NextPage = () => {
   return (
-    <section className='row container  justify-content-between section-divition p-3'>
+    <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
       <div className=' order-md-2 col-lg-7 contact-form-area'>
         <h3 className='text-center'>Get in touch</h3>
         <form className=''>
