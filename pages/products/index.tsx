@@ -35,10 +35,10 @@ const Products: NextPage<Props> = ({ products }) => {
   }, []);
   return (
     <main className='container products-wrapper m-auto page-height'>
-      <h2 className='display-2 lead'>Our Products</h2>
+      <h2 className='display-2 fw-bold lh-1 mb-3 mt-4'>Our Products</h2>
       <div className='row g-0'>
         {products.map((item) => {
-          const { name, url, desc, id, price } = item;
+          const { name, url, id, price } = item;
           return (
             <div
               key={id}
@@ -59,18 +59,17 @@ const Products: NextPage<Props> = ({ products }) => {
                   <p className='product-options__readmore '>
                     <CgMoreVertical className='product-options__readmore-icon' />
                   </p>
-                  <div
-                    style={{ height: "100%" }}
-                    className='text-center d-flex flex-column justify-content-center align-items-center'
-                  >
-                    <p className='m-0 '>{name}</p>
-                    <p className='m-0'>${price}</p>
+                  <div className='product-options__dsc text-center d-md-flex flex-column justify-content-center align-items-center'>
+                    <p className='m-0 display-5 '>{name}</p>
+                    <p className='m-0 display-6 d-none d-md-block fw-bold'>
+                      ${price}
+                    </p>
                   </div>
-                  <div className='d-flex justify-content-center align-items-center gap-3'>
+                  <div className='product-icon-wrapper d-none d-md-flex  justify-content-center align-items-center gap-3 mb-4'>
                     <div className='product-icon'>
                       <BsShareFill />
                     </div>
-                    <button className='btn btn-secondary btn-sm'>
+                    <button className='btn btn-secondary btn-dm'>
                       add to cart
                     </button>
                     <div className='product-icon'>

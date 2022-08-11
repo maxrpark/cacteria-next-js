@@ -17,12 +17,12 @@ const HeroHome: NextPage = () => {
           </p>
           <div className='btn-container gap-2 d-flex justify-content-md-start flex-column flex-lg-row mt-4 '>
             <Link href={"/products"}>
-              <button className='btn btn-primary text-capitalize px-4 me-md-2 fw-bold'>
+              <button className='btn btn-secondary text-capitalize px-4 me-md-2 fw-bold'>
                 Products
               </button>
             </Link>
             <Link href={"/about"}>
-              <button className='btn btn-outline-primary text-capitalize px-4 me-md-2 fw-bold'>
+              <button className='btn btn-outline-secondary text-capitalize px-4 me-md-2 fw-bold'>
                 About
               </button>
             </Link>
