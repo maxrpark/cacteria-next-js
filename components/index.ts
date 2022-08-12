@@ -4,6 +4,7 @@ import FeaturedProduct from "./products/FeaturedProduct";
 import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import SectionTitle from "./SectionTitle";
+import BreadCrumbs from "./layouts/BreadCrumbs";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -22,4 +23,5 @@ export {
   Contact,
   SectionTitle,
   SingleGridProduct,
+  BreadCrumbs,
 };
