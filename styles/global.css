@@ -10,6 +10,10 @@ a {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  text-decoration: none;
+  color: inherit;
+}
 /* global */
 .section-divition {
   margin: 10vh 0;
@@ -157,7 +161,6 @@ textarea {
   background: transparent;
 }
 .product-options__dsc {
-  /* transform: translateY(-100px) scale(0.8); */
   opacity: 0;
   transition: var(--transition-1);
 }
@@ -167,7 +170,7 @@ textarea {
   opacity: 1;
 }
 .product-icon-wrapper {
-  transform: translateY(100px);
+  /* transform: translateY(100px); */
   transition: var(--transition-1);
 }
 

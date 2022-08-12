@@ -9,6 +9,7 @@ import SectionTitle from "./SectionTitle";
 import HeroHome from "./home/HeroHome";
 import CompanyDetails from "./home/CompanyDetails";
 import Newsletter from "./home/Newsletter";
+import SingleGridProduct from "./products/SingleGridProduct";
 
 export {
   Navbar,
@@ -20,4 +21,5 @@ export {
   Testimonials,
   Contact,
   SectionTitle,
+  SingleGridProduct,
 };
