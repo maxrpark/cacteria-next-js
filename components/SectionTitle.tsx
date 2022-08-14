@@ -24,15 +24,15 @@ const SectionTitle: NextPage<Props> = ({ text }) => {
       const tl = gsap.timeline();
       ScrollTrigger.create({
         trigger: element,
-        start: "top center",
+        start: "bottom 100%",
         toggleActions: "play none none reverse",
-        end: () => "+=200",
+        end: () => "+=400",
         scrub: 0.5,
         animation: tl,
       });
       tl.to(clipped, {
         clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-      }).to(titles, {
+      }).to(element, {
         background: "#212529",
       });
     });

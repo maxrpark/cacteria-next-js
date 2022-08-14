@@ -16,14 +16,16 @@ const SingleGridProduct: NextPage<Props> = ({ id, url, name, price }) => {
     <div className='product-single col-4 col-md-4 position-relative'>
       <div className='w-100 h-100'>
         <Link href={`/products/${id}`}>
-          <Image
-            priority
-            src={url}
-            alt='Picture of the author'
-            width={200}
-            height={200}
-            layout='responsive'
-          />
+          <div>
+            <Image
+              priority
+              src={url}
+              alt='Picture of the author'
+              width={200}
+              height={200}
+              layout='responsive'
+            />
+          </div>
         </Link>
         <div className='product-options text-light p-3 d-flex flex-column justify-content-around align-items-center'>
           <p className='product-options__readmore '>

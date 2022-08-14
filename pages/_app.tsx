@@ -4,7 +4,11 @@ import "../styles/global.css";
 import type { AppProps } from "next/app";
 import { Footer, Navbar } from "../components";
 import { CartProvider } from "../context/useCartContext";
+import { useEffect } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    require("bootstrap/dist/js/bootstrap.bundle.min.js");
+  }, []);
   return (
     <>
       <Head>
