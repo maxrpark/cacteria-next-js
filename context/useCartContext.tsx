@@ -1,22 +1,37 @@
-import React, { useContext, useReducer, useEffect } from "react";
+import React, { useContext, useEffect, useReducer } from "react";
 import cart_reducer from "../reducers/cart_reducer";
+import { CartInitialState } from "../ts/states/initialsStates/cartState";
+import { ActionsType } from "../ts/states/action-types";
+import { Product } from "../ts/interfaces";
+
+interface cartItem extends Product {
+  id: string;
+  amount: string;
+}
+
+let getLocalStorage = () => {
+  if (typeof window !== "undefined") {
+    let cart = localStorage.getItem("cart-cacteria");
+
+    if (cart) {
+      return JSON.parse(localStorage.getItem("cart-cacteria") as string);
+    } else {
+      return [];
+    }
+  }
+};
 
 type Props = {
   children: React.ReactNode;
 };
 
 interface CartContextInterface {
-  total: number;
-  name: string;
-  changeName: (value: string) => void;
+  cart: cartItem[];
+  addToCart: (id: string, amount: number, product: any) => void;
 }
-interface CartInitialState {
-  total: number;
-  name: string;
-}
+
 const InitialState = {
-  total: 0,
-  name: "Max",
+  cart: getLocalStorage(),
 };
 
 const CartContext = React.createContext({} as CartContextInterface);
@@ -27,14 +42,23 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     InitialState as CartInitialState
   );
 
-  const changeName = (value: string) => {
+  const addToCart = (id: string, amount: number, product: any) => {
     dispatch({
-      type: "CHANGE_NAME",
-      payload: value,
+      type: ActionsType.ADD_TO_CART,
+      payload: {
+        id,
+        amount,
+        product,
+      },
     });
   };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(state.cart));
+  }, [state.cart]);
+
   return (
-    <CartContext.Provider value={{ ...state, changeName }}>
+    <CartContext.Provider value={{ ...state, addToCart }}>
       {children}
     </CartContext.Provider>
   );

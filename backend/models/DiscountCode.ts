@@ -22,10 +22,6 @@ const discountCodeSchema = new Schema({
   },
 });
 
-// const DiscountCode = discountCodeSchema
-//   ? model<discountCodeInt>("DiscountCode")
-//   : model<discountCodeInt>("DiscountCode", discountCodeSchema);
-
 let DiscountCode: mongoose.Model<discountCodeInt>;
 try {
   DiscountCode = model<discountCodeInt>("DiscountCode");

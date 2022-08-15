@@ -10,13 +10,12 @@ import {
   Contact,
   SectionTitle,
 } from "../components";
-import { useCartContext } from "../context/useCartContext";
+
 interface Props {
   featuredProducts: Product[];
 }
 
 const Home: NextPage<Props> = ({ featuredProducts }) => {
-  const { changeName, name } = useCartContext();
   return (
     <div>
       <HeroHome />

@@ -23,12 +23,6 @@ const NewsletterEmailSchema = new Schema({
   },
 });
 
-// const NewsletterEmails = NewsletterEmailSchema
-//   ? model<newsletterEmailInt>("NewsletterEmails")
-//   : model<newsletterEmailInt>("NewsletterEmails", NewsletterEmailSchema);
-
-// export default NewsletterEmails;
-
 let NewsletterEmails: mongoose.Model<newsletterEmailInt>;
 try {
   NewsletterEmails = model<newsletterEmailInt>("NewsletterEmails");
