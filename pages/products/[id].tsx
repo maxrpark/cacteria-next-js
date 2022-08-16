@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import { SingleProduct, cartItem } from "../../ts/interfaces";
-import { BreadCrumbs } from "../../components";
+import { AmountButtons, BreadCrumbs } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 
 interface Props {
@@ -38,7 +38,14 @@ const Product: NextPage<Props> = ({ product }) => {
             <h2>{name}</h2>
             <p className='lead'>{desc}</p>
           </div>
-          <h2 onClick={() => addToCart({ ...item, amount: 1 })}>add to cart</h2>
+
+          <AmountButtons />
+          <button
+            className='btn btn-outline-secondary w-100 text-uppercase'
+            onClick={() => addToCart({ ...item, amount: 1 })}
+          >
+            add to cart
+          </button>
         </div>
       </section>
     </main>

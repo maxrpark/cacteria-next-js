@@ -5,6 +5,7 @@ import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 import SectionTitle from "./SectionTitle";
 import BreadCrumbs from "./layouts/BreadCrumbs";
+import AmountButtons from "./AmountButtons";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -24,4 +25,5 @@ export {
   SectionTitle,
   SingleGridProduct,
   BreadCrumbs,
+  AmountButtons,
 };
