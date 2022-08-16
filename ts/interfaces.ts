@@ -1,3 +1,5 @@
+import Product from "../pages/products/[id]";
+
 export interface Product {
   id: string;
   category: string;
@@ -6,6 +8,9 @@ export interface Product {
   name: string;
   url: string;
   price: number;
+}
+export interface cartItem extends Product {
+  amount: number;
 }
 
 export interface productFields {

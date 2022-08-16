@@ -1,14 +1,12 @@
-import { Product } from "../../interfaces";
+import { cartItem } from "../../interfaces";
 import { ActionsType } from "../action-types";
 
 interface AddToCartPayload {
-  id: string;
-  amount: number;
-  product: Product;
+  product: any;
 }
 interface ADD_TO_CARD {
   type: ActionsType.ADD_TO_CART;
-  payload: AddToCartPayload;
+  payload: cartItem;
 }
 
 export type Actions = ADD_TO_CARD;

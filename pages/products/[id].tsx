@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
-import { SingleProduct, Product } from "../../ts/interfaces";
+import { SingleProduct, cartItem } from "../../ts/interfaces";
 import { BreadCrumbs } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 
@@ -14,7 +14,7 @@ const Product: NextPage<Props> = ({ product }) => {
   const { name, desc, price, category, feature } = product.fields;
   const url = product.fields.image[0].url;
 
-  const item: Product = {
+  const item: cartItem = {
     id: product.id,
     name,
     url,
@@ -22,6 +22,7 @@ const Product: NextPage<Props> = ({ product }) => {
     price,
     desc,
     feature,
+    amount: 1,
   };
 
   return (
@@ -37,7 +38,7 @@ const Product: NextPage<Props> = ({ product }) => {
             <h2>{name}</h2>
             <p className='lead'>{desc}</p>
           </div>
-          <h2 onClick={() => addToCart(product.id, 1, item)}>add to cart</h2>
+          <h2 onClick={() => addToCart({ ...item, amount: 1 })}>add to cart</h2>
         </div>
       </section>
     </main>
@@ -47,7 +48,7 @@ const Product: NextPage<Props> = ({ product }) => {
 export const getStaticPaths = async () => {
   const res = await axios("https://cacteria.netlify.app/api/cacteria");
   const data = await res.data;
-  const paths = data.map((item: any) => {
+  const paths = data.map((item: SingleProduct) => {
     return {
       params: { id: item.id },
     };

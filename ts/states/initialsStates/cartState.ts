@@ -1,8 +1,4 @@
-import { Product } from "../../interfaces";
-interface cartItem extends Product {
-  id: string;
-  amount: number;
-}
+import { cartItem } from "../../interfaces";
 
 export interface CartInitialState {
   cart: cartItem[] | any;
