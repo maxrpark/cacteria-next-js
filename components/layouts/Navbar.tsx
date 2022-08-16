@@ -1,14 +1,14 @@
 import type { NextPage } from "next";
 import Link from "next/link";
+import { useCartContext } from "../../context/useCartContext";
 
 const Navbar: NextPage = () => {
+  const { total_items } = useCartContext();
   return (
     <>
       <nav className='navbar navbar-expand-lg bg-light'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='#'>
-            Navbar
-          </a>
+          <a className='navbar-brand' href='#'></a>
           <button
             className='navbar-toggler'
             type='button'
