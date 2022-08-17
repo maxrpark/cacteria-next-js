@@ -8,15 +8,14 @@ interface Props {
 
 const BreadCrumbs: NextPage<Props> = ({ name }) => {
   const router = useRouter();
-  console.log(router.pathname.split("/")[1]);
 
   return (
     <>
       <Link href='/'>home</Link>
       //
-      <Link href='products'>{router.pathname.split("/")[1]}</Link>
+      <Link href='/products'>{router.pathname.split("/")[1]}</Link>
       //
-      {name && <Link href='products'>{name}</Link>}
+      {name && <Link href='/products'>{name}</Link>}
     </>
   );
 };

@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import { SingleProduct, cartItem } from "../../ts/interfaces";
 import { AmountButtons, BreadCrumbs } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
-
+import Link from "next/link";
 interface Props {
   product: SingleProduct;
 }
@@ -13,6 +13,23 @@ const Product: NextPage<Props> = ({ product }) => {
   const { addToCart } = useCartContext();
   const { name, desc, price, category, feature } = product.fields;
   const url = product.fields.image[0].url;
+  const [amount, setAmount] = useState(1);
+
+  const increase = () => {
+    setAmount((oldAmount) => {
+      let newAmount = oldAmount + 1;
+      return newAmount;
+    });
+  };
+  const decrease = () => {
+    setAmount((oldAmount) => {
+      let newAmount = oldAmount - 1;
+      if (newAmount < 1) {
+        newAmount = 1;
+      }
+      return newAmount;
+    });
+  };
 
   const item: cartItem = {
     id: product.id,
@@ -39,13 +56,19 @@ const Product: NextPage<Props> = ({ product }) => {
             <p className='lead'>{desc}</p>
           </div>
 
-          <AmountButtons />
-          <button
-            className='btn btn-outline-secondary w-100 text-uppercase'
-            onClick={() => addToCart({ ...item, amount: 1 })}
-          >
-            add to cart
-          </button>
+          <AmountButtons
+            increase={increase}
+            decrease={decrease}
+            amount={amount}
+          />
+          <Link href='/cart'>
+            <div
+              className='btn btn-outline-secondary my-3 w-100 text-uppercase'
+              onClick={() => addToCart({ ...item, amount })}
+            >
+              add to cart
+            </div>
+          </Link>
         </div>
       </section>
     </main>
