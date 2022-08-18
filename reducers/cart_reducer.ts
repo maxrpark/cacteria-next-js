@@ -23,8 +23,7 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       } else {
         return { ...state, cart: [...state.cart, action.payload] };
       }
-    case ActionsType.GET_CART:
-      return { ...state, cart: action.payload };
+
     case ActionsType.COUNT_CART_TOTALS:
       const { total_amount, total_items } = state.cart.reduce(
         (

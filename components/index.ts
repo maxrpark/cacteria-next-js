@@ -6,6 +6,7 @@ import Contact from "./Contact";
 import SectionTitle from "./SectionTitle";
 import BreadCrumbs from "./layouts/BreadCrumbs";
 import AmountButtons from "./AmountButtons";
+import PageTitle from "./layouts/PageTitle";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -26,4 +27,5 @@ export {
   SingleGridProduct,
   BreadCrumbs,
   AmountButtons,
+  PageTitle,
 };

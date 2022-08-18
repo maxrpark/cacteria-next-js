@@ -8,7 +8,9 @@ const Navbar: NextPage = () => {
     <>
       <nav className='navbar navbar-expand-lg bg-light'>
         <div className='container-fluid'>
-          <a className='navbar-brand' href='#'></a>
+          <a className='navbar-brand' href='#'>
+            {total_items}
+          </a>
           <button
             className='navbar-toggler'
             type='button'

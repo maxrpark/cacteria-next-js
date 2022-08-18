@@ -51,18 +51,6 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   };
 
   useEffect(() => {
-    let cart;
-    let cartExist = localStorage.getItem("cart-cacteria");
-
-    if (cartExist) {
-      cart = JSON.parse(localStorage.getItem("cart-cacteria") as string);
-    } else {
-      cart = [];
-    }
-    dispatch({ type: ActionsType.GET_CART, payload: cart });
-  }, []);
-
-  useEffect(() => {
     dispatch({ type: ActionsType.COUNT_CART_TOTALS });
     localStorage.setItem("cart-cacteria", JSON.stringify(state.cart));
   }, [state.cart]);
