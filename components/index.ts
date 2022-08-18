@@ -14,6 +14,9 @@ import CompanyDetails from "./home/CompanyDetails";
 import Newsletter from "./home/Newsletter";
 import SingleGridProduct from "./products/SingleGridProduct";
 
+// cart
+import CartItem from "./cart/CartItem";
+
 export {
   Navbar,
   Footer,
@@ -28,4 +31,5 @@ export {
   BreadCrumbs,
   AmountButtons,
   PageTitle,
+  CartItem,
 };

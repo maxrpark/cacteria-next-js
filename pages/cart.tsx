@@ -2,10 +2,11 @@ import type { NextPage } from "next";
 import { useEffect, useState } from "react";
 import { useCartContext } from "../context/useCartContext";
 import Link from "next/link";
-import { PageTitle } from "../components";
+import { PageTitle, CartItem } from "../components";
+import { cartItem } from "../ts/interfaces";
 
 const cart: NextPage = () => {
-  const { cart } = useCartContext();
+  const { cart, total_amount } = useCartContext();
   const [cartItems, setCartItems] = useState() as any;
 
   useEffect(() => {
@@ -32,9 +33,24 @@ const cart: NextPage = () => {
     );
   }
   return (
-    <div className='page-height'>
+    <main className='container m-auto page-height'>
       <PageTitle title={"cart"} />
-    </div>
+      <div className='row p-2 justify-content-between'>
+        <div className='col-lg-7'>
+          {cart.map((item: cartItem) => {
+            return <CartItem {...item} />;
+          })}
+        </div>
+        <div
+          className='col-lg-4 border-1 border-dark border rounded
+        p-3 '
+        >
+          <h2>Total</h2>
+          <h2>${total_amount}</h2>
+          <button className='btn btn-outline-secondary'>Checkout</button>
+        </div>
+      </div>
+    </main>
   );
 };
 
