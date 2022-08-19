@@ -24,6 +24,30 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
         return { ...state, cart: [...state.cart, action.payload] };
       }
 
+    case ActionsType.REMOVE_CART_ITEM:
+      state.cart = state.cart.filter(
+        (item: cartItem) => item.id !== action.payload
+      );
+      return { ...state };
+
+    case ActionsType.TOGGLE_ITEM_AMOUNT:
+      const { id, type } = action.payload;
+      console.log(id);
+      const updatedCart = state.cart.map((item: cartItem) => {
+        if (item.id === id) {
+          if (type === "inc") {
+            item.amount + 1;
+          } else if (type === "dec") {
+            item.amount - 1;
+          }
+          return item;
+        } else {
+          return item;
+        }
+      });
+
+      return { ...state, cart: updatedCart };
+
     case ActionsType.COUNT_CART_TOTALS:
       const { total_amount, total_items } = state.cart.reduce(
         (

@@ -36,18 +36,25 @@ const cart: NextPage = () => {
     <main className='container m-auto page-height'>
       <PageTitle title={"cart"} />
       <div className='row p-2 justify-content-between'>
-        <div className='col-lg-7'>
+        <div className='col-lg-8'>
           {cart.map((item: cartItem) => {
-            return <CartItem {...item} />;
+            return <CartItem key={item.id} {...item} />;
           })}
         </div>
         <div
-          className='col-lg-4 border-1 border-dark border rounded
+          style={{ maxHeight: "300px" }}
+          className='col-lg-3 d-flex justify-content-between flex-lg-column text-center border-1 border-dark border rounded
         p-3 '
         >
-          <h2>Total</h2>
-          <h2>${total_amount}</h2>
-          <button className='btn btn-outline-secondary'>Checkout</button>
+          <h2 className='my-0 d-flex justify-content-center align-items-center'>
+            Total
+          </h2>
+          <h2 className='my-0 d-flex justify-content-center align-items-center'>
+            ${total_amount}
+          </h2>
+          <button className='btn btn-outline-secondary btn-lg btn-block'>
+            Checkout
+          </button>
         </div>
       </div>
     </main>

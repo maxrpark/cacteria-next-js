@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
 import AmountButtons from "../AmountButtons";
 import Image from "next/image";
-import { cartItem } from "../../ts/interfaces";
-
+import { FaTrash } from "react-icons/fa";
+import { useCartContext } from "../../context/useCartContext";
 interface Props {
   id: string;
   category: string;
@@ -23,18 +23,19 @@ const CartItem: NextPage<Props> = ({
   price,
   amount,
 }) => {
+  const { removeCartItem, toggleItemAmount } = useCartContext();
   const increase = () => {
-    console.log("inc");
+    toggleItemAmount(id, "inc");
   };
   const decrease = () => {
-    console.log("dec");
+    toggleItemAmount(id, "dec");
   };
   return (
     <div
       style={{ minHeight: "80px" }}
       className='row align-items-center border-1 border-dark border-bottom my-4 py-2'
     >
-      <div className='col-6 col-md-4 d-flex  justify-content-start gap-2'>
+      <div className='col-5 col-md-4 d-flex  justify-content-start gap-2'>
         <div className=' d-none d-md-block '>
           <Image src={url} alt='' width={70} height={70} />
         </div>
@@ -43,7 +44,7 @@ const CartItem: NextPage<Props> = ({
           <small className='m-0 d-none d-md-block'>Price: ${price}</small>
         </div>
       </div>
-      <div className='col-3 col-md-4'>
+      <div className='col-4 col-md-4'>
         <AmountButtons
           increase={increase}
           decrease={decrease}
@@ -51,8 +52,11 @@ const CartItem: NextPage<Props> = ({
         />
       </div>
 
-      <div className='col-3 col-md-4 text-center'>
+      <div className='col-2 p-0 col-md-3 text-center '>
         <h3 className='m-0'>${price * amount}</h3>
+      </div>
+      <div onClick={() => removeCartItem(id)} className='col-1 text-center'>
+        <FaTrash className=' text-danger' />
       </div>
     </div>
   );

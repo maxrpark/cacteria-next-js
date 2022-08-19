@@ -12,7 +12,7 @@ interface Props {
 
 const AmountButtons: NextPage<Props> = ({ increase, decrease, amount }) => {
   return (
-    <div className='d-flex justify-content-center align-items-center gap-2'>
+    <div className='d-flex justify-content-center align-items-center gap-3'>
       <button className='btn btn-secondary btn-sm' onClick={increase}>
         <MdOutlineKeyboardArrowUp />
       </button>

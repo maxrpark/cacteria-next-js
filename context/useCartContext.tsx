@@ -25,6 +25,8 @@ interface CartContextInterface {
   total_items: number;
   total_amount: number;
   addToCart: (product: cartItem) => void;
+  removeCartItem: (id: string) => void;
+  toggleItemAmount: (id: string, type: string) => void;
 }
 
 const InitialState = {
@@ -49,6 +51,21 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
       },
     });
   };
+  const removeCartItem = (id: string) => {
+    dispatch({
+      type: ActionsType.REMOVE_CART_ITEM,
+      payload: id,
+    });
+  };
+  const toggleItemAmount = (id: string, type: string) => {
+    dispatch({
+      type: ActionsType.TOGGLE_ITEM_AMOUNT,
+      payload: {
+        id,
+        type,
+      },
+    });
+  };
 
   useEffect(() => {
     dispatch({ type: ActionsType.COUNT_CART_TOTALS });
@@ -56,7 +73,9 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   }, [state.cart]);
 
   return (
-    <CartContext.Provider value={{ ...state, addToCart }}>
+    <CartContext.Provider
+      value={{ ...state, addToCart, removeCartItem, toggleItemAmount }}
+    >
       {children}
     </CartContext.Provider>
   );
