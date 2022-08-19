@@ -56,7 +56,7 @@ const CartItem: NextPage<Props> = ({
         <h3 className='m-0'>${price * amount}</h3>
       </div>
       <div onClick={() => removeCartItem(id)} className='col-1 text-center'>
-        <FaTrash className=' text-danger' />
+        <FaTrash className='cursor text-danger' />
       </div>
     </div>
   );

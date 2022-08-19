@@ -52,9 +52,11 @@ const cart: NextPage = () => {
           <h2 className='my-0 d-flex justify-content-center align-items-center'>
             ${total_amount}
           </h2>
-          <button className='btn btn-outline-secondary btn-lg btn-block'>
-            Checkout
-          </button>
+          <Link href='/checkout'>
+            <button className='btn btn-outline-secondary btn-lg btn-block'>
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </main>

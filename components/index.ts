@@ -16,6 +16,7 @@ import SingleGridProduct from "./products/SingleGridProduct";
 
 // cart
 import CartItem from "./cart/CartItem";
+import CheckoutForm from "./CheckoutForm";
 
 export {
   Navbar,
@@ -32,4 +33,5 @@ export {
   AmountButtons,
   PageTitle,
   CartItem,
+  CheckoutForm,
 };
