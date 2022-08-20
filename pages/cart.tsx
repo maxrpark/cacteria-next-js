@@ -43,7 +43,7 @@ const cart: NextPage = () => {
         </div>
         <div
           style={{ maxHeight: "300px" }}
-          className='col-lg-3 d-flex justify-content-between flex-lg-column text-center border-1 border-dark border rounded
+          className='col-lg-3 d-flex justify-content-between flex-column gap-3 text-center border-1 border-dark border rounded
         p-3 '
         >
           <h2 className='my-0 d-flex justify-content-center align-items-center'>
