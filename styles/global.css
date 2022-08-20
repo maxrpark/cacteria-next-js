@@ -205,14 +205,6 @@ textarea {
   padding-top: 12px;
   text-align: center;
 }
-#payment-element {
-  margin-bottom: 24px;
-  border-width: 1px;
-  border-style: inset;
-  padding: 1rem;
-  border-color: rgb(118, 118, 118);
-  background-color: white;
-}
 /* Buttons and links */
 button {
   background: #5469d4;

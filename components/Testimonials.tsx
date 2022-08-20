@@ -21,20 +21,20 @@ const Testimonials: NextPage = () => {
     });
   };
 
-  const setminXFunc = () => {
+  const setMinXFunc = () => {
     setMinX(
       carrouselWrapper.current!.offsetWidth - mainContainer.current!.offsetWidth
     );
   };
 
   useEffect(() => {
-    window.addEventListener("resize", setminXFunc);
-    return () => window.removeEventListener("resize", setminXFunc);
+    window.addEventListener("resize", setMinXFunc);
+    return () => window.removeEventListener("resize", setMinXFunc);
   });
 
   useEffect(() => {
     if (mainContainer.current) {
-      setminXFunc();
+      setMinXFunc();
     }
     draggableCarrousel();
   }, [mainContainer.current, minX]);

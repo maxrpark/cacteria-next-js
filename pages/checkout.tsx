@@ -2,19 +2,18 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { CheckoutForm } from "../components";
+import { CheckoutForm, PageTitle } from "../components";
+import { useCartContext } from "../context/useCartContext";
 let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 const checkout = () => {
+  const { total_amount } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
 
   const getPaymentIntent = async () => {
     try {
-      let res = await axios.post(
-        "http://localhost:3000/api/checkout-sessions",
-        {
-          amount: 200,
-        }
-      );
+      let res = await axios.post("/api/checkout-sessions", {
+        amount: total_amount,
+      });
       setClientSecret(res.data);
     } catch (error) {
       console.log(error);
@@ -22,19 +21,26 @@ const checkout = () => {
   };
 
   useEffect(() => {
-    getPaymentIntent();
-  }, []);
+    if (total_amount) {
+      getPaymentIntent();
+    }
+  }, [total_amount]);
 
   if (!clientSecret) {
-    return <h2>Loading</h2>;
+    return (
+      <div className=' page-height'>
+        <h2>Loading</h2>
+      </div>
+    );
   }
   return (
-    <>
-      <h2>{clientSecret}</h2>
+    <main className='container page-height'>
+      <PageTitle title={"checkout"} />
+      <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
       <Elements stripe={stripePromise} options={{ clientSecret }}>
         <CheckoutForm clientSecret={clientSecret} />
       </Elements>
-    </>
+    </main>
   );
 };
 
