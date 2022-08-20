@@ -1,3 +1,3 @@
 import newsletterSubscription from "./newsletterSubscription";
-
-export { newsletterSubscription };
+import sendPurchaseEmail from "./sendPurchaseMsg";
+export { newsletterSubscription, sendPurchaseEmail };
