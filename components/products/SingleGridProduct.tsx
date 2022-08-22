@@ -5,6 +5,17 @@ import { BsShareFill, BsSearch } from "react-icons/bs";
 import { CgMoreVertical } from "react-icons/cg";
 import { useCartContext } from "../../context/useCartContext";
 import { cartItem } from "../../ts/interfaces";
+import { useRef } from "react";
+
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  PinterestShareButton,
+  PinterestIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "next-share";
+import gsap from "gsap";
 interface Props {
   item: cartItem;
 }
@@ -12,6 +23,28 @@ interface Props {
 const SingleGridProduct: NextPage<Props> = ({ item }) => {
   const { id, url, name, price } = item;
   const { addToCart } = useCartContext();
+  const shareContainer = useRef<HTMLDivElement>(null);
+
+  shareContainer.current?.addEventListener("mouseenter", () => {
+    const shareBtns = shareContainer.current?.querySelectorAll(".shareIcon");
+    shareBtns?.forEach((el, idx) => {
+      gsap.to(el, {
+        yPercent: -110 * idx,
+        opacity: 1,
+        zIndex: 1,
+      });
+    });
+  });
+  shareContainer.current?.addEventListener("mouseleave", () => {
+    const shareBtns = shareContainer.current?.querySelectorAll(".shareIcon");
+    shareBtns?.forEach((el) => {
+      gsap.to(el, {
+        yPercent: 0,
+        opacity: 0,
+        zIndex: 0,
+      });
+    });
+  });
 
   return (
     <div className='product-single col-4 col-md-4 position-relative'>
@@ -39,10 +72,42 @@ const SingleGridProduct: NextPage<Props> = ({ item }) => {
             <p className='m-0 display-6 d-none d-md-block fw-bold'>${price}</p>
           </div>
           <div className='product-icon-wrapper d-none d-md-flex  justify-content-center align-items-center gap-3 mb-4'>
-            <div className='product-icon'>
+            <div ref={shareContainer} className='product-icon'>
               <BsShareFill />
+              <div className='shareIcon'>
+                <FacebookShareButton
+                  url={"https://github.com/next-share"}
+                  quote={
+                    "next-share is a social share buttons for your next React apps."
+                  }
+                  hashtag={"#nextshare"}
+                >
+                  <FacebookIcon size={32} round />
+                </FacebookShareButton>
+              </div>
+              <div className='shareIcon'>
+                <PinterestShareButton
+                  url={"https://github.com/next-share"}
+                  media={
+                    "next-share is a social share buttons for your next React apps."
+                  }
+                >
+                  <PinterestIcon size={32} round />
+                </PinterestShareButton>
+              </div>
+              <div className='shareIcon'>
+                <TwitterShareButton
+                  url={"https://github.com/next-share"}
+                  title={
+                    "next-share is a social share buttons for your next React apps."
+                  }
+                >
+                  <TwitterIcon size={32} round />
+                </TwitterShareButton>
+              </div>
             </div>
             <button
+              style={{ maxWidth: "110px" }}
               onClickCapture={() => addToCart(item)}
               className='btn btn-secondary btn-dm'
             >

@@ -174,7 +174,6 @@ textarea {
   opacity: 1;
 }
 .product-icon-wrapper {
-  /* transform: translateY(100px); */
   transition: var(--transition-1);
 }
 
@@ -185,13 +184,18 @@ textarea {
 
 .product-icon {
   border-radius: 50%;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #6c757d;
   transition: var(--transition-1);
+}
+.shareIcon {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
 }
 .product-icon:hover {
   background: #5c636a;
