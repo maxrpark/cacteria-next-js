@@ -3,15 +3,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { BsShareFill, BsSearch } from "react-icons/bs";
 import { CgMoreVertical } from "react-icons/cg";
-
+import { useCartContext } from "../../context/useCartContext";
+import { cartItem } from "../../ts/interfaces";
 interface Props {
-  id: string;
-  url: string;
-  name: string;
-  price: number;
+  item: cartItem;
 }
 
-const SingleGridProduct: NextPage<Props> = ({ id, url, name, price }) => {
+const SingleGridProduct: NextPage<Props> = ({ item }) => {
+  const { id, url, name, price } = item;
+  const { addToCart } = useCartContext();
+
   return (
     <div className='product-single col-4 col-md-4 position-relative'>
       <div className='w-100 h-100'>
@@ -41,7 +42,12 @@ const SingleGridProduct: NextPage<Props> = ({ id, url, name, price }) => {
             <div className='product-icon'>
               <BsShareFill />
             </div>
-            <button className='btn btn-secondary btn-dm'>add to cart</button>
+            <button
+              onClickCapture={() => addToCart(item)}
+              className='btn btn-secondary btn-dm'
+            >
+              add to cart
+            </button>
             <Link href={`/products/${id}`}>
               <div className='product-icon'>
                 <BsSearch />

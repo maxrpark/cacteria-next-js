@@ -23,7 +23,7 @@ const CartItem: NextPage<Props> = ({
   price,
   amount,
 }) => {
-  const { removeCartItem, toggleItemAmount } = useCartContext();
+  const { removeCartItem, toggleItemAmount, addToCart } = useCartContext();
   const increase = () => {
     toggleItemAmount(id, "inc");
   };

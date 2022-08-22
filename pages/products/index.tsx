@@ -35,7 +35,9 @@ const Products: NextPage<Props> = ({ products }) => {
       <h2 className='display-2 fw-bold lh-1 mb-3 mt-4'>Our Products</h2>
       <div className='row g-0'>
         {products.map((item) => {
-          return <SingleGridProduct key={item.id} {...item} />;
+          return (
+            <SingleGridProduct key={item.id} item={{ ...item, amount: 1 }} />
+          );
         })}
       </div>
     </main>
