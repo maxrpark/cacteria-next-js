@@ -1,19 +1,13 @@
 import type { NextPage } from "next";
 import { useEffect, useRef } from "react";
 import { BsShareFill } from "react-icons/bs";
+import { shareIcons } from "../public/shareIconsData";
 
 import gsap from "gsap";
-import {
-  FacebookShareButton,
-  FacebookIcon,
-  PinterestShareButton,
-  PinterestIcon,
-  TwitterShareButton,
-  TwitterIcon,
-} from "next-share";
 
 const ShareIconsProduct: NextPage = () => {
   const shareContainer = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
     shareContainer.current?.addEventListener("mouseenter", () => {
       const shareBtns = shareContainer.current?.querySelectorAll(".shareIcon");
@@ -25,13 +19,17 @@ const ShareIconsProduct: NextPage = () => {
         });
       });
     });
-    shareContainer.current?.addEventListener("mouseleave", () => {
-      const shareBtns = shareContainer.current?.querySelectorAll(".shareIcon");
-      shareBtns?.forEach((el) => {
-        gsap.to(el, {
-          yPercent: 0,
-          opacity: 0,
-          zIndex: 0,
+    const wrappers = document.querySelectorAll(".product-icon-wrapper")!;
+    wrappers.forEach((wrapper) => {
+      wrapper.addEventListener("mouseleave", () => {
+        const shareBtns =
+          shareContainer.current?.querySelectorAll(".shareIcon");
+        shareBtns?.forEach((el) => {
+          gsap.to(el, {
+            yPercent: 0,
+            zIndex: -1,
+            opacity: 0,
+          });
         });
       });
     });
@@ -40,37 +38,17 @@ const ShareIconsProduct: NextPage = () => {
     <div ref={shareContainer} className='product-icon'>
       <BsShareFill />
       <>
-        <div className='shareIcon'>
-          <FacebookShareButton
-            url={"https://github.com/next-share"}
-            quote={
-              "next-share is a social share buttons for your next React apps."
-            }
-            hashtag={"#nextshare"}
-          >
-            <FacebookIcon size={32} round />
-          </FacebookShareButton>
-        </div>
-        <div className='shareIcon'>
-          <PinterestShareButton
-            url={"https://github.com/next-share"}
-            media={
-              "next-share is a social share buttons for your next React apps."
-            }
-          >
-            <PinterestIcon size={32} round />
-          </PinterestShareButton>
-        </div>
-        <div className='shareIcon'>
-          <TwitterShareButton
-            url={"https://github.com/next-share"}
-            title={
-              "next-share is a social share buttons for your next React apps."
-            }
-          >
-            <TwitterIcon size={32} round />
-          </TwitterShareButton>
-        </div>
+        {shareIcons.map((icon: any) => {
+          const { Wrapper, Icon, url, id, hashtag } = icon;
+
+          return (
+            <div key={id} className='shareIcon'>
+              <Wrapper url={url} hashtag={hashtag}>
+                <Icon size={32} round />
+              </Wrapper>
+            </div>
+          );
+        })}
       </>
     </div>
   );

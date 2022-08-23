@@ -57,5 +57,3 @@ export const testimonials = [
     image: "/static/images/testimonials/testimonial-5.jpg",
   },
 ];
-
-export const shareIcons = [{ id: 1 }, { id: 1 }, { id: 1 }];
