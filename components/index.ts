@@ -20,6 +20,7 @@ import SingleGridProduct from "./products/SingleGridProduct";
 // cart
 import CartItem from "./cart/CartItem";
 import CheckoutForm from "./CheckoutForm";
+import ShareIconsProduct from "./ShareIconsProduct";
 
 export {
   Navbar,
@@ -38,4 +39,5 @@ export {
   CartItem,
   CheckoutForm,
   FormRow,
+  ShareIconsProduct,
 };
