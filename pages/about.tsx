@@ -5,7 +5,7 @@ const About: NextPage = () => {
   return (
     <main className='container page-height'>
       <PageTitle title='about' />
-      <section>
+      <section className='my-5'>
         <SectionTitle text={"Our History"} />
         <div className='my-4'>
           <p
@@ -35,23 +35,19 @@ const About: NextPage = () => {
             magni adipisci saepe porro dolore in, rerum minus tempora laborum
             laboriosam! Unde tempora similique doloribus aspernatur, qui omnis.
           </p>
-        </div>
-      </section>
-      <section>
-        <SectionTitle text={"What our clients say"} />
-        <div className='my-4'>
           <p
             style={{ maxWidth: "900px", lineHeight: "2rem" }}
             className='m-auto my-4 lg-base'
           >
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
             quasi praesentium, debitis eos, omnis nemo explicabo eum sequi
-            quidem magni voluptatibus, excepturi dolorum illo. Earum, modi quia.
+            quidem magni voluptatibus, excepturi dolorum illo. Earum, modi quia
+            magni adipisci saepe porro dolore in, rerum minus tempora laborum
+            laboriosam! Unde tempora similique doloribus aspernatur, qui omnis.
           </p>
         </div>
-        <Testimonials />
       </section>
-      <section>
+      <section className='my-5'>
         <SectionTitle text={"Our Mission"} />
         <div className='my-4'>
           <p
@@ -77,6 +73,20 @@ const About: NextPage = () => {
             laboriosam! Unde tempora similique doloribus aspernatur, qui omnis.
           </p>
         </div>
+      </section>
+      <section className='my-5'>
+        <SectionTitle text={"What our clients say"} />
+        <div className='my-4'>
+          <p
+            style={{ maxWidth: "900px", lineHeight: "2rem" }}
+            className='m-auto my-4 lg-base'
+          >
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas
+            quasi praesentium, debitis eos, omnis nemo explicabo eum sequi
+            quidem magni voluptatibus, excepturi dolorum illo. Earum, modi quia.
+          </p>
+        </div>
+        <Testimonials />
       </section>
     </main>
   );
