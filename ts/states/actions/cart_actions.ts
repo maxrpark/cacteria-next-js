@@ -21,8 +21,13 @@ interface TOGGLE_ITEM_AMOUNT {
   payload: ToggleAmountPayload;
 }
 
+interface CLEAR_CART {
+  type: ActionsType.CLEAR_CART;
+}
+
 export type Actions =
   | ADD_TO_CARD
   | COUNT_CART_TOTALS
   | REMOVE_CART_ITEM
-  | TOGGLE_ITEM_AMOUNT;
+  | TOGGLE_ITEM_AMOUNT
+  | CLEAR_CART;

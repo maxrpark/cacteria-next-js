@@ -2,7 +2,7 @@ import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../../ts/interfaces";
 import { useLayoutEffect } from "react";
-import { SingleGridProduct } from "../../components";
+import { PageTitle, SingleGridProduct } from "../../components";
 
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
@@ -32,7 +32,7 @@ const Products: NextPage<Props> = ({ products }) => {
   }, []);
   return (
     <main className='container products-wrapper m-auto page-height'>
-      <h2 className='display-2 fw-bold lh-1 mb-3 mt-4'>Our Products</h2>
+      <PageTitle title='Our Products' />
       <div className='row g-0'>
         {products.map((item) => {
           return (

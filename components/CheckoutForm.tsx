@@ -2,6 +2,9 @@ import type { NextPage } from "next";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
 import { FormRow } from "./";
+import { useCartContext } from "../context/useCartContext";
+import { useRouter } from "next/router";
+
 interface Props {
   clientSecret: any;
 }
@@ -15,6 +18,9 @@ const customerValues: CheckOutValues = {
 };
 
 const CheckoutForm: NextPage<Props> = ({ clientSecret }) => {
+  const { clearCart } = useCartContext();
+  const router = useRouter();
+
   const [customerDetails, setCustomerDetails] = useState(customerValues);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +54,12 @@ const CheckoutForm: NextPage<Props> = ({ clientSecret }) => {
       switch (paymentIntent?.status) {
         case "succeeded":
           setIsSuccess(true);
+
+          setTimeout(() => {
+            clearCart();
+            router.replace("/success-message");
+          }, 2000);
+
           setMessage(
             "Payment succeeded! Check your email to see your orders details"
           );

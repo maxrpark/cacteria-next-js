@@ -15,7 +15,7 @@ const SingleGridProduct: NextPage<Props> = ({ item }) => {
   const { addToCart } = useCartContext();
 
   return (
-    <div className='product-single col-4 col-md-4 position-relative'>
+    <div className='product-single col-4 col-md-4 position-relative cursor'>
       <div className='w-100 h-100'>
         <Link href={`/products/${id}`}>
           <div>

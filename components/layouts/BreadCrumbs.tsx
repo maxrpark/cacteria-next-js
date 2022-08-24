@@ -8,15 +8,18 @@ interface Props {
 
 const BreadCrumbs: NextPage<Props> = ({ name }) => {
   const router = useRouter();
+  const routeName = router.pathname.split("/")[1];
 
   return (
-    <>
-      <Link href='/'>home</Link>
-      //
-      <Link href='/products'>{router.pathname.split("/")[1]}</Link>
-      //
-      {name && <Link href='/products'>{name}</Link>}
-    </>
+    <div className='d-flex justify-content-start align-items-center gap-2'>
+      <Link href='/'>
+        <p className='text-capitalize'> home</p>
+      </Link>
+      <Link href={`/${routeName}`}>
+        <p className='text-capitalize'> / {routeName}</p>
+      </Link>
+      {name && <p className='d-inline'> / {name}</p>}
+    </div>
   );
 };
 

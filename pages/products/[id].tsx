@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import { SingleProduct, cartItem } from "../../ts/interfaces";
-import { AmountButtons, BreadCrumbs } from "../../components";
+import { AmountButtons, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import Link from "next/link";
 interface Props {
@@ -44,31 +44,33 @@ const Product: NextPage<Props> = ({ product }) => {
 
   return (
     <main className='container m-auto page-height'>
-      <h2 className='display-2 fw-bold lh-1 mt-4'>{name}</h2>
-      <BreadCrumbs name={name} />
+      <PageTitle title={name} name={name} />
       <section className='row '>
-        <div className='col-md-6 col-lg-8'>
+        <div className='col-12 col-lg-8'>
           <img src={url} alt='' />
         </div>
-        <div className='col-md-6 col-lg-4 d-flex flex-column justify-content-between align-items-center p-4 pb-0'>
+        <div className='col-12 col-lg-4 d-flex flex-column justify-content-between align-items-center p-4 pb-0'>
           <div>
             <h2>{name}</h2>
             <p className='lead'>{desc}</p>
           </div>
-
-          <AmountButtons
-            increase={increase}
-            decrease={decrease}
-            amount={amount}
-          />
-          <Link href='/cart'>
-            <div
-              className='btn btn-outline-secondary my-3 w-100 text-uppercase'
-              onClick={() => addToCart({ ...item, amount })}
-            >
-              add to cart
+          <div className='w-100'>
+            <div className='d-flex justify-content-center align-items-center'>
+              <AmountButtons
+                increase={increase}
+                decrease={decrease}
+                amount={amount}
+              />
             </div>
-          </Link>
+            <Link href='/cart'>
+              <div
+                className='btn btn-outline-secondary my-3 w-100 text-uppercase'
+                onClick={() => addToCart({ ...item, amount })}
+              >
+                add to cart
+              </div>
+            </Link>
+          </div>
         </div>
       </section>
     </main>

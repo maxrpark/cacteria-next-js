@@ -50,6 +50,9 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
 
       return { ...state, cart: updatedCart };
 
+    case ActionsType.CLEAR_CART:
+      return { ...state, cart: [] };
+
     case ActionsType.COUNT_CART_TOTALS:
       const { total_amount, total_items } = state.cart.reduce(
         (
