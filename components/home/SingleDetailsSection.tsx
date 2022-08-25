@@ -1,6 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 import { CompanyDetail } from "../../ts/interfaces";
+import style from "./SingleDetailsSection.module.css";
 
 const SingleDetailsSection: NextPage<CompanyDetail> = ({
   text,
@@ -8,17 +9,16 @@ const SingleDetailsSection: NextPage<CompanyDetail> = ({
   title,
 }) => {
   return (
-    <div className='single-detail-section row'>
-      <div className='item single-detail-section_text col-md-6'>
-        <h4 className='detail-title display-4'>{title}</h4>
-        <p
-          style={{ lineHeight: "2rem" }}
-          className='detail-text h5 text-secondary'
-        >
+    <div className={`row`}>
+      <div className={`item col-md-6`}>
+        <h4 className={`display-4`}>{title}</h4>
+        <p style={{ lineHeight: "2rem" }} className={`h5 text-secondary`}>
           {text}
         </p>
       </div>
-      <div className='item image-container col-md-6'>
+      <div
+        className={`${style["image-container"]} item image-container col-md-6`}
+      >
         <img src={image} alt='' />
       </div>
     </div>

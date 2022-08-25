@@ -28,10 +28,10 @@ a:hover {
 }
 
 /* Home */
-.single-detail-section {
+/* .single-detail-section {
   height: fit-content;
-}
-.image-container {
+} */
+/* .image-container {
   height: 300px;
   display: flex;
   justify-content: center;
@@ -46,7 +46,7 @@ a:hover {
   transform: translate(-50%, -50%) scale(0.5);
   height: 600px;
   width: 600px;
-}
+} */
 
 .details-container {
   display: flex;

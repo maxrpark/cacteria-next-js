@@ -24,6 +24,7 @@ interface CartContextInterface {
   cart: cartItem[];
   total_items: number;
   total_amount: number;
+  orderSucceeded: boolean;
   addToCart: (product: cartItem) => void;
   removeCartItem: (id: string) => void;
   toggleItemAmount: (id: string, type: string) => void;
@@ -34,6 +35,7 @@ const InitialState = {
   cart: getLocalStorage(),
   total_items: 0,
   total_amount: 0,
+  orderSucceeded: false,
 };
 
 const CartContext = React.createContext({} as CartContextInterface);

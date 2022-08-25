@@ -1,0 +1,28 @@
+.single-detail-section {
+  height: fit-content;
+}
+.image-container {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.image-container img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.5);
+  height: 600px;
+  width: 600px;
+}
+
+.details-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.details-container .details-wrapper:nth-child(odd) .single-detail-section {
+  flex-direction: row-reverse !important;
+}
