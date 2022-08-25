@@ -1,10 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
+import style from "./Contact.module.css";
 
 const Contact: NextPage = () => {
   return (
     <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
-      <div className=' order-md-2 col-lg-7 contact-form-area'>
+      <div className={` order-md-2 col-lg-7 ${style.contactFormArea}`}>
         <h3 className='text-center'>Get in touch</h3>
         <form className=''>
           <div className='form-group my-2'>
@@ -37,7 +38,7 @@ const Contact: NextPage = () => {
           <div className='form-group my-2'>
             <label htmlFor='exampleFormControlTextarea1'>Your messege</label>
             <textarea
-              className='form-control'
+              className={`${style.textarea} form-control`}
               id='exampleFormControlTextarea1'
             ></textarea>
           </div>

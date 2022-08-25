@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import { useEffect } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
+import style from "./Newsletter.module.css";
 
 const Newsletter: NextPage = () => {
   useEffect(() => {
@@ -9,8 +10,12 @@ const Newsletter: NextPage = () => {
 
   return (
     <div className='pin section-divition'>
-      <section className='newsletter-container d-flex align-items-center flex-column position-relative'>
-        <div className='container newsletter__single-section  h-100 row  align-items-center p-2 p-md-4 my-auto bg-white'>
+      <section
+        className={`${style.newsletterContainer} newsletter-container d-flex align-items-center flex-column position-relative`}
+      >
+        <div
+          className={`${style.newsletterSingleSection} container  h-100 row  align-items-center p-2 p-md-4 my-auto bg-white`}
+        >
           <div className='  overflow-hidden  h-100 row  align-items-center p-2 p-md-4 '>
             <div className=' order-md-2 section-form col-md-6 container mx-auto '>
               <h2
@@ -47,13 +52,17 @@ const Newsletter: NextPage = () => {
         </div>
         <div
           id='newsletter__single-section'
-          className='newsletter__single-section   h-100 d-flex flex-column align-items-center justify-content-center bg-dark text-white'
+          className={`${style.newsletterSingleSection} h-100 d-flex flex-column align-items-center justify-content-center bg-dark text-white`}
         >
           <h2
             className='newsletter-title display-3 fw-bold lh-1 text-center p-2'
             style={{ fontSize: "clamp(6vh, 14vh, 48px)" }}
           ></h2>
-          <h3 className='newsletter-text text-center mt-4'>Interested?</h3>
+          <h3
+            className={`${style.newsletterText} newsletter-text text-center mt-4`}
+          >
+            Interested?
+          </h3>
         </div>
       </section>
     </div>

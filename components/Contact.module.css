@@ -1,0 +1,10 @@
+.textarea {
+  height: 160px;
+  resize: none;
+}
+
+@media screen and (min-width: 960px) {
+  .contactFormArea {
+    padding-left: 3rem;
+  }
+}

@@ -1,0 +1,8 @@
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+.detailsContainer .detailsWrapper:nth-child(odd) .single-detail-section {
+  flex-direction: row-reverse !important;
+}

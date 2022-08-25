@@ -9,7 +9,7 @@ const SingleDetailsSection: NextPage<CompanyDetail> = ({
   title,
 }) => {
   return (
-    <div className={`row`}>
+    <div className={`row single-detail-section`}>
       <div className={`item col-md-6`}>
         <h4 className={`display-4`}>{title}</h4>
         <p style={{ lineHeight: "2rem" }} className={`h5 text-secondary`}>

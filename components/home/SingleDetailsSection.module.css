@@ -18,11 +18,11 @@
   width: 600px;
 }
 
-.details-container {
+/* .details-container {
   display: flex;
   flex-direction: column;
   gap: 5rem;
 }
 .details-container .details-wrapper:nth-child(odd) .single-detail-section {
   flex-direction: row-reverse !important;
-}
+} */
