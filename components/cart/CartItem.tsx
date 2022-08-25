@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import AmountButtons from "../AmountButtons";
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa";
@@ -13,7 +12,7 @@ interface Props {
   price: number;
   amount: number;
 }
-const CartItem: NextPage<Props> = ({
+const CartItem: React.FC<Props> = ({
   id,
   category,
   desc,

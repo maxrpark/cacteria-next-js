@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { Product } from "../../ts/interfaces";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,7 +6,7 @@ interface Props {
   product: Product;
 }
 
-const FeaturedProduct: NextPage<Props> = ({ product }) => {
+const FeaturedProduct: React.FC<Props> = ({ product }) => {
   const { name, url, desc, id } = product;
 
   return (

@@ -1,6 +1,4 @@
-import type { NextPage } from "next";
-
-const Footer: NextPage = () => {
+const Footer: React.FC = () => {
   return (
     <div className='bg-dark text-bg-light'>
       <footer className='container  py-5'>

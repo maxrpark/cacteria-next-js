@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -6,7 +5,7 @@ interface Props {
   name?: String;
 }
 
-const BreadCrumbs: NextPage<Props> = ({ name }) => {
+const BreadCrumbs: React.FC<Props> = ({ name }) => {
   const router = useRouter();
   const routeName = router.pathname.split("/")[1];
 

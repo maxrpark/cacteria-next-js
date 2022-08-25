@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
 import { FormRow } from "./";
@@ -17,7 +16,7 @@ const customerValues: CheckOutValues = {
   name: "",
 };
 
-const CheckoutForm: NextPage<Props> = ({ clientSecret }) => {
+const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
   const { clearCart } = useCartContext();
   const router = useRouter();
 

@@ -1,9 +1,8 @@
-import type { NextPage } from "next";
 import { useEffect } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
 import style from "./Newsletter.module.css";
 
-const Newsletter: NextPage = () => {
+const Newsletter: React.FC = () => {
   useEffect(() => {
     newsLetterAnimation();
   }, []);

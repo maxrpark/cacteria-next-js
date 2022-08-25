@@ -1,7 +1,7 @@
-import type { NextPage } from "next";
 import { useEffect, useRef } from "react";
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
+import style from "./SectionTitle.module.css";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -9,7 +9,7 @@ interface Props {
   text: string;
 }
 
-const SectionTitle: NextPage<Props> = ({ text }) => {
+const SectionTitle: React.FC<Props> = ({ text }) => {
   const sectionsTitle = useRef<HTMLDivElement[]>([]);
 
   const addToRef = (el: HTMLDivElement) => {
@@ -41,11 +41,15 @@ const SectionTitle: NextPage<Props> = ({ text }) => {
     sectionTitleAnimation();
   }, []);
   return (
-    <div className='section-title-container p-0' ref={addToRef}>
-      <h2 className='section-title display-1 fw-bold lh-3 front-text text-capitalize'>
+    <div className={`${style.sectionTitleContainer} p-0`} ref={addToRef}>
+      <h2
+        className={`${style.sectionTitle} display-1 fw-bold lh-3 front-text text-capitalize`}
+      >
         {text}
       </h2>
-      <h2 className='clipped section-title display-1 fw-bold lh-3 bg-dark text-white text-capitalize'>
+      <h2
+        className={`clipped ${style.sectionTitle} display-1 fw-bold lh-3 bg-dark text-white text-capitalize`}
+      >
         {text}
       </h2>
     </div>

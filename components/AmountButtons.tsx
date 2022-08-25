@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import {
   MdOutlineKeyboardArrowUp,
   MdOutlineKeyboardArrowDown,
@@ -10,7 +9,7 @@ interface Props {
   amount: number;
 }
 
-const AmountButtons: NextPage<Props> = ({ increase, decrease, amount }) => {
+const AmountButtons: React.FC<Props> = ({ increase, decrease, amount }) => {
   return (
     <div className='d-flex justify-content-center align-items-center gap-3'>
       <button className='btn btn-secondary btn-sm' onClick={increase}>

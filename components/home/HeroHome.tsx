@@ -1,8 +1,7 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import Image from "next/image";
 
-const HeroHome: NextPage = () => {
+const HeroHome: React.FC = () => {
   return (
     <div className='mb-5 mt-3 shadow-lg'>
       <div className='row  p-3 p-lg-5 container m-auto'>

@@ -1,8 +1,6 @@
-import React from "react";
-import { NextPage } from "next";
 import style from "./Contact.module.css";
 
-const Contact: NextPage = () => {
+const Contact: React.FC = () => {
   return (
     <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
       <div className={` order-md-2 col-lg-7 ${style.contactFormArea}`}>

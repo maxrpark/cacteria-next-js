@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import BreadCrumbs from "./BreadCrumbs";
 
 interface Props {
@@ -6,7 +5,7 @@ interface Props {
   title: string;
 }
 
-const PageTitle: NextPage<Props> = ({ name, title }) => {
+const PageTitle: React.FC<Props> = ({ name, title }) => {
   return (
     <div>
       <h2 className='display-2 fw-bold lh-1 mb-1 mt-4 text-capitalize'>

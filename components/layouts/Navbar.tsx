@@ -1,8 +1,7 @@
-import type { NextPage } from "next";
 import Link from "next/link";
 import { useCartContext } from "../../context/useCartContext";
 
-const Navbar: NextPage = () => {
+const Navbar: React.FC = () => {
   const { total_items } = useCartContext();
   return (
     <>

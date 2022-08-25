@@ -1,6 +1,3 @@
-import type { NextPage } from "next";
-import { ChangeEvent } from "react";
-
 interface Props {
   name: string;
   type: string;
@@ -9,7 +6,7 @@ interface Props {
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormRow: NextPage<Props> = ({
+const FormRow: React.FC<Props> = ({
   name,
   type,
   value,

@@ -1,11 +1,10 @@
-import type { NextPage } from "next";
 import { useEffect, useRef } from "react";
 import { BsShareFill } from "react-icons/bs";
 import { shareIcons } from "../public/shareIconsData";
 
 import gsap from "gsap";
 
-const ShareIconsProduct: NextPage = () => {
+const ShareIconsProduct: React.FC = () => {
   const shareContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

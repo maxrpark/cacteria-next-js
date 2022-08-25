@@ -1,9 +1,7 @@
-import React from "react";
-import type { NextPage } from "next";
 import { CompanyDetail } from "../../ts/interfaces";
 import style from "./SingleDetailsSection.module.css";
 
-const SingleDetailsSection: NextPage<CompanyDetail> = ({
+const SingleDetailsSection: React.FC<CompanyDetail> = ({
   text,
   image,
   title,

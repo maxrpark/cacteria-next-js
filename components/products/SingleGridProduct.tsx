@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BsSearch } from "react-icons/bs";
@@ -10,7 +9,7 @@ interface Props {
   item: cartItem;
 }
 
-const SingleGridProduct: NextPage<Props> = ({ item }) => {
+const SingleGridProduct: React.FC<Props> = ({ item }) => {
   const { id, url, name, price } = item;
   const { addToCart } = useCartContext();
 

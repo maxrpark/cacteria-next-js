@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import type { NextPage } from "next";
 import { testimonials } from "./../public/data";
 import { ImQuotesRight } from "react-icons/im";
 const { gsap } = require("gsap/dist/gsap");
@@ -9,7 +8,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(Draggable, ScrollTrigger);
 }
 
-const Testimonials: NextPage = () => {
+const Testimonials: React.FC = () => {
   const mainContainer = useRef<HTMLDivElement>(null);
   const carrouselWrapper = useRef<HTMLDivElement>(null);
   const [minX, setMinX] = useState(0);
