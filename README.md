@@ -58,7 +58,7 @@
 ### Success Page
 
 - [x] Create layout
-- [ ] Styles
+- [x] Styles
 
 ### Auth
 

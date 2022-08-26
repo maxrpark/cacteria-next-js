@@ -28,8 +28,8 @@ const checkout = () => {
 
   if (!clientSecret) {
     return (
-      <div className=' page-height'>
-        <h2>Loading</h2>
+      <div className='page-height d-flex justify-content-center align-items-center'>
+        <h2 className='text-center'>Loading</h2>
       </div>
     );
   }
