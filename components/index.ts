@@ -10,6 +10,7 @@ import BreadCrumbs from "./common/BreadCrumbs";
 import AmountButtons from "./AmountButtons";
 import PageTitle from "./common/PageTitle";
 import FormRow from "./common/FormRow";
+import ShareIconsSingleProduct from "./products/ShareIconsSingleProduct";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -40,4 +41,5 @@ export {
   CheckoutForm,
   FormRow,
   ShareIconsProduct,
+  ShareIconsSingleProduct,
 };

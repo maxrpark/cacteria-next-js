@@ -13,7 +13,7 @@
 - [x] Page Title
 - [x] Section Title
 - [x] Testimonial
-- [ ] Contact layout
+- [x] Contact layout
 - [ ] Contact form create api
 - [ ] Navbar
 - [ ] Footer
@@ -34,7 +34,7 @@
 
 - [x] Create layout
 - [x] single product component
-  - [ ] Add few more styles to singleProduct
+  - [x] Add few more styles to singleProduct
 - [ ] filter products gsap Flip
 
 ### Single Product Page

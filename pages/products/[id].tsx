@@ -2,7 +2,11 @@ import React, { useState } from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
 import { SingleProduct, cartItem } from "../../ts/interfaces";
-import { AmountButtons, PageTitle } from "../../components";
+import {
+  AmountButtons,
+  PageTitle,
+  ShareIconsSingleProduct,
+} from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import Link from "next/link";
 interface Props {
@@ -73,6 +77,7 @@ const Product: NextPage<Props> = ({ product }) => {
           </div>
         </div>
       </section>
+      <ShareIconsSingleProduct />
     </main>
   );
 };
