@@ -17,6 +17,7 @@
 - [ ] Contact form create api
 - [ ] Navbar
 - [ ] Footer
+- [ ] Protected routes (success page and checkout)
 
 ### Home Page
 
@@ -45,7 +46,7 @@
 ### Cart Page
 
 - [x] Create layout
-- [ ] Check Styles
+- [x] Check Styles
 
 ### Checkout Page
 

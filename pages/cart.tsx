@@ -22,7 +22,7 @@ const cart: NextPage = () => {
   }
   if (!cartItems?.length) {
     return (
-      <div className='page-height'>
+      <div className='page-height d-flex flex-column justify-content-center align-items-center'>
         <h2>Your cart is empty</h2>
         <Link href='/products' className=''>
           <button className='btn btn-secondary text-capitalize px-4 me-md-2'>
@@ -33,7 +33,7 @@ const cart: NextPage = () => {
     );
   }
   return (
-    <main className='container m-auto page-height'>
+    <main className='container m-auto page-height position-relative'>
       <PageTitle title={"cart"} />
       <div className='row p-2 justify-content-between'>
         <div className='col-lg-8'>
@@ -44,7 +44,7 @@ const cart: NextPage = () => {
         <div
           style={{ maxHeight: "300px" }}
           className='col-lg-3 d-flex justify-content-between flex-column gap-3 text-center border-1 border-dark border rounded
-        p-3 '
+        p-3 mt-4 sticky-top '
         >
           <h2 className='my-0 d-flex justify-content-center align-items-center'>
             Total
