@@ -3,6 +3,7 @@ import { FormEvent, useState } from "react";
 import { FormRow } from "./";
 import { useCartContext } from "../context/useCartContext";
 import { useRouter } from "next/router";
+import style from "./CheckoutForm.module.css";
 
 interface Props {
   clientSecret: any;
@@ -90,7 +91,7 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
     <form
       style={{ maxWidth: "550px" }}
       onSubmit={handleSubmit}
-      className='border-1 border-dark border rounded p-4 m-auto'
+      className={`${style.checkoutForm} border-1 border-dark border rounded p-4 m-auto`}
     >
       <div className='d-flex flex-column gap-2 justify-content-center'>
         <FormRow
@@ -108,13 +109,13 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
         <CardElement className='form-control' />
       </div>
       <button
-        className='mt-3'
+        className={`${style.checkoutBtn} mt-3`}
         disabled={isLoading || !stripe || !elements || isSuccess}
         id='submit'
       >
         <span id='button-text'>
           {isLoading ? (
-            <div className='spinner ' id='spinner'></div>
+            <div className={style.spinner} id='spinner'></div>
           ) : (
             "Pay now"
           )}
@@ -122,8 +123,8 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
       </button>
       {message && (
         <div
-          className={`${
-            isError ? "text-danger" : "text-success"
+          className={`${isError ? "text-danger" : "text-success"} ${
+            style.paymentMessage
           } d-flex justify-content-center align-items-center`}
           id='payment-message'
         >

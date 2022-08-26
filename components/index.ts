@@ -3,13 +3,13 @@ import Testimonials from "./Testimonials";
 import Contact from "./Contact";
 
 // common
-import Navbar from "./layouts/Navbar";
-import Footer from "./layouts/Footer";
+import Navbar from "./common/Navbar";
+import Footer from "./common/Footer";
 import SectionTitle from "./SectionTitle";
-import BreadCrumbs from "./layouts/BreadCrumbs";
+import BreadCrumbs from "./common/BreadCrumbs";
 import AmountButtons from "./AmountButtons";
-import PageTitle from "./layouts/PageTitle";
-import FormRow from "./layouts/FormRow";
+import PageTitle from "./common/PageTitle";
+import FormRow from "./common/FormRow";
 
 // home
 import HeroHome from "./home/HeroHome";

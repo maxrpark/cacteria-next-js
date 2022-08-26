@@ -1,0 +1,83 @@
+/* PRODUCT PAGE */
+.productSingle {
+  overflow: hidden;
+}
+.productOptions {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  clip-path: circle(3.9% at 90% 10%);
+  background: rgb(0, 0, 0);
+  transition: var(--transition-1);
+}
+.productOptionsReadMore {
+  position: absolute;
+  background: rgb(0, 0, 0);
+  width: 7%;
+  height: 7%;
+  color: white;
+  right: 6.5%;
+  top: 6.5%;
+  transition: var(--transition-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 768px) {
+  .productOptionsDsc {
+    height: 100%;
+  }
+}
+
+.productOptionsReadMoreIcon {
+  width: 50%;
+  height: 50%;
+}
+.productOptions:hover {
+  clip-path: circle(120.7% at 84% 14%);
+  background: rgb(0, 0, 0, 0.5);
+  transition: all 0.5s linear;
+}
+.productOptions:hover .productOptionsReadMore {
+  transform: rotate(90deg);
+  background: transparent;
+}
+
+.productOptions:hover .productOptionsReadMore {
+  transform: rotate(90deg);
+  background: transparent;
+}
+.productOptionsDsc {
+  opacity: 0;
+  transition: var(--transition-1);
+}
+
+.productOptions:hover .productOptionsDsc {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+.productIconWrapper {
+  transition: var(--transition-1);
+}
+
+.productOptions:hover .productIconWrapper {
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
+.productIcon {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #6c757d;
+  transition: var(--transition-1);
+}
+.productIcon:hover {
+  background: #5c636a;
+}

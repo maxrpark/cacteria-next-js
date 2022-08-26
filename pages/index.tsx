@@ -42,7 +42,6 @@ const Home: NextPage<Props> = ({ featuredProducts }) => {
 
         <SectionTitle text='Testimonials' />
         <Testimonials />
-        {/* <SectionTitle /> */}
         <Contact />
       </main>
     </div>
