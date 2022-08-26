@@ -1,8 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState, FormEvent } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
 import style from "./Newsletter.module.css";
+import { FormRow } from "../";
+import { useGlobalContext } from "../../context/useGlobalContext";
+
+interface newsLetterValues {
+  email: string;
+  name: string;
+}
+
+const userFormValues: newsLetterValues = {
+  email: "",
+  name: "",
+};
 
 const Newsletter: React.FC = () => {
+  const { subscribeToNewsletter } = useGlobalContext();
+
+  const [userValues, setUserValues] = useState(userFormValues);
+
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserValues({
+      ...userValues,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleFormSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (!userValues.name || !userValues.email) {
+      console.log("please provide all values");
+    } else {
+      subscribeToNewsletter(userValues);
+    }
+  };
   useEffect(() => {
     newsLetterAnimation();
   }, []);
@@ -28,22 +59,26 @@ const Newsletter: React.FC = () => {
               <h3 className='text-center mb-4'>Subscribe to our newsletter</h3>
               <div className='row gap-2'>
                 <div className='col-12'>
-                  <input
-                    type='text'
-                    className='form-control'
-                    placeholder='First name'
+                  <FormRow
+                    name='email'
+                    type='email'
+                    value={userValues.email}
+                    handleChange={handleFormChange}
                   />
                 </div>
                 <div className='col-12'>
-                  <input
-                    type='email'
-                    className='form-control'
-                    id='inputEmail4'
-                    placeholder='Email'
+                  <FormRow
+                    name='name'
+                    type='text'
+                    value={userValues.name}
+                    handleChange={handleFormChange}
                   />
                 </div>
               </div>
-              <button className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'>
+              <button
+                onClick={(e) => handleFormSubmit(e)}
+                className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'
+              >
                 Submit
               </button>
             </form>

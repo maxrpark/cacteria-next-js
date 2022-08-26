@@ -38,9 +38,8 @@ const subscribeEmail = async (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         res.status(StatusCodes.BAD_REQUEST).json({ msg: "Already subscribed" });
       }
-    } catch (error) {
-      console.log(error);
-      res.status(StatusCodes.OK).json({ msg: error });
+    } catch (error: any) {
+      res.status(StatusCodes.BAD_REQUEST).json({ msg: error.message });
     }
   } else {
     res.status(StatusCodes.BAD_REQUEST).json({ msg: "Method not allow" });
