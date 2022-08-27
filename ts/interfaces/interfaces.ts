@@ -22,7 +22,7 @@ export interface productFields {
   image: [{ url: string }];
 }
 
-export interface SingleProduct {
+export interface SingleProductInt {
   createdTime: string;
   fields: productFields;
   id: string;

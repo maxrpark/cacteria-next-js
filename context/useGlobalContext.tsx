@@ -4,19 +4,16 @@ import global_reducer from "../reducers/global_reducer";
 import { newsletterFieldsInt } from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
+import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
 
 type Props = {
   children: React.ReactNode;
 };
 interface globalContextInterface {
-  newsLetterFormValues: newsletterFieldsInt;
-  subscribeToNewsletter: (data: any) => void;
-  handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-interface GlobalInitialState {
   isLoading: boolean;
   newsLetterFormValues: newsletterFieldsInt;
+  subscribeToNewsletter: () => void;
+  handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 const initialState: GlobalInitialState = {
@@ -47,12 +44,24 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     });
   };
 
-  const subscribeToNewsletter = async (data: any) => {
+  const subscribeToNewsletter = async () => {
+    dispatch({
+      type: ActionsType.FORM_SUBMITTED,
+    });
     try {
-      const res = await axios.post("/api/newsletter-subscribe", { ...data });
-      console.log(res.data.msg);
+      const res = await axios.post(
+        "/api/newsletter-subscribe",
+        state.newsLetterFormValues
+      );
+      dispatch({
+        type: ActionsType.NEWSLETTER_SUBSCRIPTION_SUCCESS,
+      });
+      console.log(res);
     } catch (error: any) {
       console.log(error.response.data.msg);
+      dispatch({
+        type: ActionsType.NEWSLETTER_SUBSCRIPTION_ERROR,
+      });
     }
   };
 

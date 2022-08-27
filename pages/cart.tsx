@@ -20,7 +20,7 @@ const cart: NextPage = () => {
       </div>
     );
   }
-  if (!cartItems?.length) {
+  if (!cartItems?.length || total_amount === 0) {
     return (
       <div className='page-height d-flex flex-column justify-content-center align-items-center'>
         <h2>Your cart is empty</h2>

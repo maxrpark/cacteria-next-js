@@ -14,6 +14,7 @@
 - [x] Section Title
 - [x] Testimonial
 - [x] Contact layout
+- [ ] Notification Component
 - [ ] Contact form create api
 - [ ] Navbar
 - [ ] Footer
@@ -21,7 +22,7 @@
 
 ### Home Page
 
-- [ ] Newsletter.tsx connect with api/newsletter-subscribe
+- [x] Newsletter.tsx connect with api/newsletter-subscribe
 - [x] Create layout
 - [x] Hero Component
 - [x] Company details Component

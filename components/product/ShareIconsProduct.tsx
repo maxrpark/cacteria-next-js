@@ -1,10 +1,14 @@
 import { useEffect, useRef } from "react";
 import { BsShareFill } from "react-icons/bs";
-import { shareIcons } from "../public/shareIconsData";
+import { shareIcons } from "../../public/shareIconsData";
 
 import gsap from "gsap";
 
-const ShareIconsProduct: React.FC = () => {
+interface Props {
+  productID: string;
+}
+
+const ShareIconsProduct: React.FC<Props> = ({ productID }) => {
   const shareContainer = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -42,7 +46,7 @@ const ShareIconsProduct: React.FC = () => {
 
           return (
             <div key={id} className='shareIcon'>
-              <Wrapper url={url} hashtag={hashtag}>
+              <Wrapper url={url + productID} hashtag={hashtag}>
                 <Icon size={32} round />
               </Wrapper>
             </div>

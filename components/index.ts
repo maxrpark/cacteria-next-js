@@ -21,7 +21,10 @@ import SingleGridProduct from "./products/SingleGridProduct";
 // cart
 import CartItem from "./cart/CartItem";
 import CheckoutForm from "./CheckoutForm";
-import ShareIconsProduct from "./ShareIconsProduct";
+import ShareIconsProduct from "./product/ShareIconsProduct";
+
+// Product
+import SingleProduct from "./product/SingleProduct";
 
 export {
   Navbar,
@@ -42,4 +45,5 @@ export {
   FormRow,
   ShareIconsProduct,
   ShareIconsSingleProduct,
+  SingleProduct,
 };

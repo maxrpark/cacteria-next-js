@@ -1,5 +1,4 @@
 import { ActionsType } from "../action-types";
-import { newsletterFieldsInt } from "../../interfaces";
 
 export interface HandleFormInt {
   name: string;
@@ -12,4 +11,18 @@ interface HANDLE_FORM_INPUT {
   payload: HandleFormInt;
 }
 
-export type Actions = HANDLE_FORM_INPUT;
+interface FORM_SUBMITTED {
+  type: ActionsType.FORM_SUBMITTED;
+}
+interface NEWSLETTER_SUBSCRIPTION_SUCCESS {
+  type: ActionsType.NEWSLETTER_SUBSCRIPTION_SUCCESS;
+}
+interface NEWSLETTER_SUBSCRIPTION_ERROR {
+  type: ActionsType.NEWSLETTER_SUBSCRIPTION_ERROR;
+}
+
+export type Actions =
+  | HANDLE_FORM_INPUT
+  | FORM_SUBMITTED
+  | NEWSLETTER_SUBSCRIPTION_SUCCESS
+  | NEWSLETTER_SUBSCRIPTION_ERROR;

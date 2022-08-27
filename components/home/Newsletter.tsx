@@ -7,27 +7,13 @@ import { useGlobalContext } from "../../context/useGlobalContext";
 let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Newsletter: React.FC = () => {
-  const { subscribeToNewsletter, handleFormChange, newsLetterFormValues } =
-    useGlobalContext();
+  const {
+    subscribeToNewsletter,
+    handleFormChange,
+    newsLetterFormValues,
+    isLoading,
+  } = useGlobalContext();
 
-  // const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setUserValues({
-  //     ...userValues,
-  //     [e.target.name]: e.target.value,
-  //   });
-  // };
-
-  const handleFormSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    // if (!userValues.name || !userValues.email) {
-    //   console.log("please provide all values");
-    // } else if (!regex.test(userValues.email)) {
-    //   console.log("enter valid email");
-    // } else {
-    //   subscribeToNewsletter(userValues);
-    // }
-  };
   useEffect(() => {
     newsLetterAnimation();
   }, []);
@@ -73,10 +59,21 @@ const Newsletter: React.FC = () => {
               </div>
               <button
                 type='submit'
-                onClick={(e) => handleFormSubmit(e)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  subscribeToNewsletter();
+                }}
                 className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'
               >
-                Submit
+                {isLoading ? (
+                  <span
+                    className='spinner-border spinner-border-sm'
+                    role='status'
+                    aria-hidden='true'
+                  ></span>
+                ) : (
+                  "Submit"
+                )}
               </button>
             </form>
           </div>

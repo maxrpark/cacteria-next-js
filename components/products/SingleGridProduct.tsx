@@ -4,7 +4,7 @@ import { BsSearch } from "react-icons/bs";
 import { CgMoreVertical } from "react-icons/cg";
 import { useCartContext } from "../../context/useCartContext";
 import { cartItem } from "../../ts/interfaces/interfaces";
-import ShareIconsProduct from "../ShareIconsProduct";
+import ShareIconsProduct from "../product/ShareIconsProduct";
 import style from "./SingleGridProduct.module.css";
 
 interface Props {
@@ -49,7 +49,7 @@ const SingleGridProduct: React.FC<Props> = ({ item }) => {
           <div
             className={`${style.productIconWrapper} product-icon-wrapper d-none d-md-flex  justify-content-center align-items-center gap-3 mb-4`}
           >
-            <ShareIconsProduct />
+            <ShareIconsProduct productID={id} />
             <button
               style={{ maxWidth: "110px" }}
               onClickCapture={() => addToCart(item)}

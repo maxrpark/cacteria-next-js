@@ -97,12 +97,14 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
         <FormRow
           name='email'
           type='email'
+          formName='customerDetails'
           value={customerDetails.email}
           handleChange={handleFormChange}
         />
         <FormRow
           name='name'
           type='text'
+          formName='customerDetails'
           value={customerDetails.name}
           handleChange={handleFormChange}
         />
