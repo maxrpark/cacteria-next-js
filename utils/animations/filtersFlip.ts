@@ -1,9 +1,16 @@
+import { Product } from "../../ts/interfaces/interfaces";
 const { gsap } = require("gsap/dist/gsap");
-
 const { Flip } = require("gsap/dist/Flip");
 
+interface FiltersInterface {
+  category: string;
+}
+
 gsap.registerPlugin(Flip);
-const updateFilterAnimation = (products: any, filters: any) => {
+const updateFilterAnimation = (
+  products: Product[],
+  filters: FiltersInterface
+) => {
   let tempFilterList = [...products];
   let items = gsap.utils.toArray(".product-single");
   let state = Flip.getState(items);
@@ -26,7 +33,7 @@ const updateFilterAnimation = (products: any, filters: any) => {
     scale: true,
     absolute: false,
     ease: "power1.inOut",
-    onEnter: (elements: any) => {
+    onEnter: (elements: HTMLDivElement) => {
       {
         gsap.fromTo(
           elements,
@@ -35,7 +42,7 @@ const updateFilterAnimation = (products: any, filters: any) => {
         );
       }
     },
-    onLeave: (elements: any) =>
+    onLeave: (elements: HTMLDivElement) =>
       gsap.fromTo(
         elements,
         { opacity: 1, scale: 1 },
