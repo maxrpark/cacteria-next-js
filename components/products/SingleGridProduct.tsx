@@ -17,7 +17,8 @@ const SingleGridProduct: React.FC<Props> = ({ item }) => {
 
   return (
     <div
-      className={`${style.productSingle} product-single col-4 col-md-4 position-relative cursor`}
+      id={item.id}
+      className={`${style.productSingle} product-single col-4 col-md-4 position-relative cursor `}
     >
       <div className='w-100 h-100'>
         <Link href={`/products/${id}`}>

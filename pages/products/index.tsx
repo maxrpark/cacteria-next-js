@@ -1,18 +1,23 @@
 import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../../ts/interfaces/interfaces";
-import { useLayoutEffect } from "react";
-import { PageTitle, SingleGridProduct } from "../../components";
+import { ChangeEvent, useLayoutEffect, useState } from "react";
+import { Filters, PageTitle, SingleGridProduct } from "../../components";
 
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
+const { Flip } = require("gsap/dist/Flip");
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, Flip);
+import { updateFilterAnimation } from "../../utils/animations";
 
 interface Props {
   products: Product[];
+  allCategories: string[];
 }
-const Products: NextPage<Props> = ({ products }) => {
+const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
+  const [filters, setFilters] = useState({ category: "all" });
+
   const productsAnimation = () => {
     const tl = gsap.timeline({ delay: 0.5 });
     gsap.set(".product-single", {
@@ -27,12 +32,28 @@ const Products: NextPage<Props> = ({ products }) => {
     });
   };
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    let target = e.target as HTMLButtonElement;
+
+    setFilters((oldValues) => {
+      let newValue = {
+        ...oldValues,
+        [target.name]: target.value,
+      };
+      return newValue;
+    });
+  };
+
+  useLayoutEffect(() => {
+    updateFilterAnimation(products, filters);
+  }, [filters]);
   useLayoutEffect(() => {
     productsAnimation();
   }, []);
   return (
     <main className='container products-wrapper m-auto page-height'>
       <PageTitle title='Our Products' />
+      <Filters allCategories={allCategories} handleClick={handleClick} />
       <div className='row g-0'>
         {products.map((item) => {
           return (
@@ -49,9 +70,15 @@ export async function getStaticProps() {
     const res = await axios("https://cacteria.netlify.app/api/cacteria");
     const data = await res.data;
 
+    const allCategories = [
+      "all",
+      ...new Set(data.map((item: Product) => item.category)),
+    ];
+
     return {
       props: {
         products: data,
+        allCategories,
       },
     };
   } catch (error) {
@@ -59,4 +86,4 @@ export async function getStaticProps() {
   }
 }
 
-export default Products;
+export default ProductsPage;

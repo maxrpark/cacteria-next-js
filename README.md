@@ -36,13 +36,13 @@
 - [x] Create layout
 - [x] single product component
   - [x] Add few more styles to singleProduct
-- [ ] filter products gsap Flip
+- [x] filter products gsap Flip
 
 ### Single Product Page
 
 - [x] Create layout
 - [x] Add cart to card
-- [ ] share icons
+- [x] share icons
 
 ### Cart Page
 

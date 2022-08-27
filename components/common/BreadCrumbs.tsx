@@ -12,12 +12,12 @@ const BreadCrumbs: React.FC<Props> = ({ name }) => {
   return (
     <div className='d-flex justify-content-start align-items-center gap-2'>
       <Link href='/'>
-        <p className='text-capitalize'> home</p>
+        <p className='text-capitalize cursor'> home</p>
       </Link>
       <Link href={`/${routeName}`}>
-        <p className='text-capitalize'> / {routeName}</p>
+        <p className='text-capitalize cursor'> / {routeName}</p>
       </Link>
-      {name && <p className='d-inline'> / {name}</p>}
+      {name && <p className='d-inline cursor'> / {name}</p>}
     </div>
   );
 };
