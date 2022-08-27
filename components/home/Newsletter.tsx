@@ -1,38 +1,32 @@
-import { useEffect, useState, FormEvent } from "react";
+import { useEffect, FormEvent } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
 import style from "./Newsletter.module.css";
 import { FormRow } from "../";
 import { useGlobalContext } from "../../context/useGlobalContext";
 
-interface newsLetterValues {
-  email: string;
-  name: string;
-}
-
-const userFormValues: newsLetterValues = {
-  email: "",
-  name: "",
-};
+let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Newsletter: React.FC = () => {
-  const { subscribeToNewsletter } = useGlobalContext();
+  const { subscribeToNewsletter, handleFormChange, newsLetterFormValues } =
+    useGlobalContext();
 
-  const [userValues, setUserValues] = useState(userFormValues);
-
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserValues({
-      ...userValues,
-      [e.target.name]: e.target.value,
-    });
-  };
+  // const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setUserValues({
+  //     ...userValues,
+  //     [e.target.name]: e.target.value,
+  //   });
+  // };
 
   const handleFormSubmit = (e: FormEvent) => {
     e.preventDefault();
-    if (!userValues.name || !userValues.email) {
-      console.log("please provide all values");
-    } else {
-      subscribeToNewsletter(userValues);
-    }
+
+    // if (!userValues.name || !userValues.email) {
+    //   console.log("please provide all values");
+    // } else if (!regex.test(userValues.email)) {
+    //   console.log("enter valid email");
+    // } else {
+    //   subscribeToNewsletter(userValues);
+    // }
   };
   useEffect(() => {
     newsLetterAnimation();
@@ -62,7 +56,8 @@ const Newsletter: React.FC = () => {
                   <FormRow
                     name='email'
                     type='email'
-                    value={userValues.email}
+                    formName='newsLetterFormValues'
+                    value={newsLetterFormValues.email}
                     handleChange={handleFormChange}
                   />
                 </div>
@@ -70,12 +65,14 @@ const Newsletter: React.FC = () => {
                   <FormRow
                     name='name'
                     type='text'
-                    value={userValues.name}
+                    formName='newsLetterFormValues'
+                    value={newsLetterFormValues.name}
                     handleChange={handleFormChange}
                   />
                 </div>
               </div>
               <button
+                type='submit'
                 onClick={(e) => handleFormSubmit(e)}
                 className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'
               >

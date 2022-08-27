@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
-import { SingleProduct, cartItem } from "../../ts/interfaces";
+import { SingleProduct, cartItem } from "../../ts/interfaces/interfaces";
 import {
   AmountButtons,
   PageTitle,

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "../context/useCartContext";
 import Link from "next/link";
 import { PageTitle, CartItem } from "../components";
-import { cartItem } from "../ts/interfaces";
+import { cartItem } from "../ts/interfaces/interfaces";
 
 const cart: NextPage = () => {
   const { cart, total_amount } = useCartContext();

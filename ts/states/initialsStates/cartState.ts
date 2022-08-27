@@ -1,4 +1,4 @@
-import { cartItem } from "../../interfaces";
+import { cartItem } from "../../interfaces/interfaces";
 
 export interface CartInitialState {
   cart: cartItem[];

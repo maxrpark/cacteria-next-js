@@ -1,4 +1,4 @@
-import { cartItem } from "../../interfaces";
+import { cartItem } from "../../interfaces/interfaces";
 import { ActionsType } from "../action-types";
 
 interface ToggleAmountPayload {

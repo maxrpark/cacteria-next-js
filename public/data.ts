@@ -1,4 +1,4 @@
-import { CompanyDetail } from "../ts/interfaces";
+import { CompanyDetail } from "../ts/interfaces/interfaces";
 
 export const companyDetails: CompanyDetail[] = [
   {

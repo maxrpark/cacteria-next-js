@@ -1,5 +1,5 @@
 import sendEmail from "./sendEmail";
-import { cartItem } from "../../ts/interfaces";
+import { cartItem } from "../../ts/interfaces/interfaces";
 
 interface successEmailInterface {
   email: "string";

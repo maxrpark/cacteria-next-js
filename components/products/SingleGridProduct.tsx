@@ -3,7 +3,7 @@ import Link from "next/link";
 import { BsSearch } from "react-icons/bs";
 import { CgMoreVertical } from "react-icons/cg";
 import { useCartContext } from "../../context/useCartContext";
-import { cartItem } from "../../ts/interfaces";
+import { cartItem } from "../../ts/interfaces/interfaces";
 import ShareIconsProduct from "../ShareIconsProduct";
 import style from "./SingleGridProduct.module.css";
 

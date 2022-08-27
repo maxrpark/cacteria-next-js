@@ -1,4 +1,4 @@
-import Product from "../pages/products/[id]";
+import Product from "../../pages/products/[id]";
 
 export interface Product {
   id: string;

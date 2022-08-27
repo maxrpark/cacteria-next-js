@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 import cart_reducer from "../reducers/cart_reducer";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
 import { ActionsType } from "../ts/states/action-types";
-import { cartItem } from "../ts/interfaces";
+import { cartItem } from "../ts/interfaces/interfaces";
 
 let getLocalStorage = () => {
   if (typeof window !== "undefined") {

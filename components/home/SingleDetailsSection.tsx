@@ -1,4 +1,4 @@
-import { CompanyDetail } from "../../ts/interfaces";
+import { CompanyDetail } from "../../ts/interfaces/interfaces";
 import style from "./SingleDetailsSection.module.css";
 
 const SingleDetailsSection: React.FC<CompanyDetail> = ({

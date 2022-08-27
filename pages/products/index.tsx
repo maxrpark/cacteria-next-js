@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import axios from "axios";
-import { Product } from "../../ts/interfaces";
+import { Product } from "../../ts/interfaces/interfaces";
 import { useLayoutEffect } from "react";
 import { PageTitle, SingleGridProduct } from "../../components";
 

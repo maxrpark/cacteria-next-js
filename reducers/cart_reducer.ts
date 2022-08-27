@@ -1,7 +1,7 @@
 import { Actions } from "../ts/states/actions/cart_actions";
 import { ActionsType } from "../ts/states/action-types";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
-import { cartItem } from "../ts/interfaces";
+import { cartItem } from "../ts/interfaces/interfaces";
 
 const cart_reducer = (state: CartInitialState, action: Actions) => {
   switch (action.type) {

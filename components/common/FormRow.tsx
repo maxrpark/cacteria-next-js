@@ -2,6 +2,7 @@ interface Props {
   name: string;
   type: string;
   value: string;
+  formName: string;
   labelText?: string;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
@@ -11,6 +12,7 @@ const FormRow: React.FC<Props> = ({
   type,
   value,
   labelText,
+  formName,
   handleChange,
 }) => {
   return (
@@ -20,9 +22,11 @@ const FormRow: React.FC<Props> = ({
         type={type}
         value={value}
         name={name}
+        id={formName}
         className='form-control'
         placeholder={name}
         onChange={handleChange}
+        required
       />
     </div>
   );

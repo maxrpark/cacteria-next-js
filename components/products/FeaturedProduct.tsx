@@ -1,4 +1,4 @@
-import { Product } from "../../ts/interfaces";
+import { Product } from "../../ts/interfaces/interfaces";
 import Image from "next/image";
 import Link from "next/link";
 
