@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { useCartContext } from "../context/useCartContext";
+import { useCartContext } from "../../context/useCartContext";
 import Link from "next/link";
-import { PageTitle, CartItem, CartTotal } from "../components";
-import { cartItem } from "../ts/interfaces/interfaces";
+import { PageTitle, CartItem, CartTotal } from "../../components";
+import { cartItem } from "../../ts/interfaces/interfaces";
 
 const CartPage: NextPage = () => {
   const { cart, total_amount } = useCartContext();

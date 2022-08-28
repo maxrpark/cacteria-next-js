@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { PageTitle, SectionTitle, Testimonials } from "../components";
+import { PageTitle, SectionTitle, Testimonials } from "../../components";
 
 const About: NextPage = () => {
   return (
