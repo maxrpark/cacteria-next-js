@@ -2,7 +2,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import AmountButtons from "../AmountButtons";
 import { useCartContext } from "../../context/useCartContext";
-import { cartItem, Product } from "../../ts/interfaces/interfaces";
+import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
 
 const SingleProduct: React.FC<Product> = ({
   name,
@@ -16,14 +16,11 @@ const SingleProduct: React.FC<Product> = ({
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 
-  const item: cartItem = {
+  const item: CartItemInt = {
     id,
     name,
-    url,
-    category,
+    image: url,
     price,
-    desc,
-    feature,
     amount: 1,
   };
 

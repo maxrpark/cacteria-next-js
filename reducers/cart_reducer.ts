@@ -1,19 +1,18 @@
 import { Actions } from "../ts/states/actions/cart_actions";
 import { ActionsType } from "../ts/states/action-types";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
-import { cartItem } from "../ts/interfaces/interfaces";
+import { CartItemInt } from "../ts/interfaces/interfaces";
 
 const cart_reducer = (state: CartInitialState, action: Actions) => {
   switch (action.type) {
     case ActionsType.ADD_TO_CART:
       const tempItem = state.cart.find(
-        (item: cartItem) => item.id === action.payload.id
+        (item: CartItemInt) => item.id === action.payload.id
       );
       if (tempItem) {
-        const tempCart = state.cart.map((item: cartItem) => {
+        const tempCart = state.cart.map((item: CartItemInt) => {
           if (item.id === action.payload.id) {
             let newAmount = item.amount + action.payload.amount;
-            console.log("amount updated");
             return { ...item, amount: newAmount };
           } else {
             return item;
@@ -26,13 +25,13 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
 
     case ActionsType.REMOVE_CART_ITEM:
       state.cart = state.cart.filter(
-        (item: cartItem) => item.id !== action.payload
+        (item: CartItemInt) => item.id !== action.payload
       );
       return { ...state };
 
     case ActionsType.TOGGLE_ITEM_AMOUNT:
       const { id, type } = action.payload;
-      const updatedCart = state.cart.map((item: cartItem) => {
+      const updatedCart = state.cart.map((item: CartItemInt) => {
         if (item.id === id) {
           if (type === "inc") {
             let newAmount = item.amount++;
@@ -57,7 +56,7 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       const { total_amount, total_items } = state.cart.reduce(
         (
           total: { total_amount: number; total_items: number },
-          item: cartItem
+          item: CartItemInt
         ) => {
           const { amount, price } = item;
           total.total_items += amount;

@@ -5,11 +5,11 @@ import { useCartContext } from "../../context/useCartContext";
 interface Props {
   id: string;
   name: string;
-  url: string;
+  image: string;
   price: number;
   amount: number;
 }
-const CartItem: React.FC<Props> = ({ id, name, url, price, amount }) => {
+const CartItem: React.FC<Props> = ({ id, name, image, price, amount }) => {
   const { removeCartItem, toggleItemAmount } = useCartContext();
   const increase = () => {
     toggleItemAmount(id, "inc");
@@ -24,7 +24,7 @@ const CartItem: React.FC<Props> = ({ id, name, url, price, amount }) => {
     >
       <div className='col-5 col-md-4 d-flex  justify-content-start gap-2'>
         <div className=' d-none d-md-block '>
-          <Image src={url} alt='' width={70} height={70} />
+          <Image src={image} alt='' width={70} height={70} />
         </div>
         <div className=''>
           <p className='m-0 '>{name}</p>

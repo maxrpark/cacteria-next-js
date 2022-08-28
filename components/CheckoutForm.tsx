@@ -9,14 +9,6 @@ import style from "./CheckoutForm.module.css";
 interface Props {
   clientSecret: any;
 }
-interface CheckOutValues {
-  email: string;
-  name: string;
-}
-const customerValues: CheckOutValues = {
-  email: "",
-  name: "",
-};
 
 const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
   const { clearCart } = useCartContext();

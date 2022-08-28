@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { useCartContext } from "../../context/useCartContext";
 import Link from "next/link";
 import { PageTitle, CartItem, CartTotal } from "../../components";
-import { cartItem } from "../../ts/interfaces/interfaces";
+import { CartItemInt } from "../../ts/interfaces/interfaces";
 
 const CartPage: NextPage = () => {
   const { cart, total_amount } = useCartContext();
@@ -37,7 +37,7 @@ const CartPage: NextPage = () => {
       <PageTitle title={"cart"} />
       <div className='row p-2 justify-content-between'>
         <div className='col-lg-8'>
-          {cart.map((item: cartItem) => {
+          {cart.map((item: CartItemInt) => {
             return <CartItem key={item.id} {...item} />;
           })}
         </div>

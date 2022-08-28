@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useReducer } from "react";
 import cart_reducer from "../reducers/cart_reducer";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
 import { ActionsType } from "../ts/states/action-types";
-import { cartItem } from "../ts/interfaces/interfaces";
+import { CartItemInt } from "../ts/interfaces/interfaces";
 
 let getLocalStorage = () => {
   if (typeof window !== "undefined") {
@@ -21,11 +21,11 @@ type Props = {
 };
 
 interface CartContextInterface {
-  cart: cartItem[];
+  cart: CartItemInt[];
   total_items: number;
   total_amount: number;
   orderSucceeded: boolean;
-  addToCart: (product: cartItem) => void;
+  addToCart: (product: CartItemInt) => void;
   removeCartItem: (id: string) => void;
   toggleItemAmount: (id: string, type: string) => void;
   clearCart: () => void;
@@ -46,7 +46,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     InitialState as CartInitialState
   );
 
-  const addToCart = (product: cartItem) => {
+  const addToCart = (product: CartItemInt) => {
     dispatch({
       type: ActionsType.ADD_TO_CART,
       payload: {

@@ -9,7 +9,11 @@ export interface Product {
   url: string;
   price: number;
 }
-export interface cartItem extends Product {
+export interface CartItemInt {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
   amount: number;
 }
 
