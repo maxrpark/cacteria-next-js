@@ -1,10 +1,10 @@
-import { useEffect, FormEvent } from "react";
+import { useEffect } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
 import style from "./Newsletter.module.css";
 import { FormRow } from "../";
 import { useGlobalContext } from "../../context/useGlobalContext";
 
-let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+// let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Newsletter: React.FC = () => {
   const {

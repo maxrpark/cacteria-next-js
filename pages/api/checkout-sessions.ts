@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
+import { cartItem } from "../../ts/interfaces/interfaces";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-08-01",
@@ -10,17 +11,7 @@ export const MIN_AMOUNT = 5.0;
 export const MAX_AMOUNT = 5000.0;
 export const AMOUNT_STEP = 5.0;
 
-export function formatAmountForStripe(
-  amount: number,
-  currency: string
-): number {
-  // let numberFormat = new Intl.NumberFormat(["en-US"], {
-  //   style: "currency",
-  //   currency: currency,
-  //   currencyDisplay: "symbol",
-  // });
-  console.log(amount * 100);
-
+export function formatAmountForStripe(amount: number): number {
   return Math.round(amount * 100);
 }
 
@@ -29,14 +20,18 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "POST") {
-    const { amount }: { amount: number } = req.body;
+    const { cartItems } = req.body;
+
+    const cart_total = cartItems.reduce((acc: number, curr: cartItem) => {
+      let itemTotal = curr.amount * curr.price;
+      acc = acc + itemTotal;
+      return acc;
+    }, 0);
 
     try {
-      // Create PaymentIntent from body params.
       const params: Stripe.PaymentIntentCreateParams = {
         payment_method_types: ["card"],
-        amount: formatAmountForStripe(amount, CURRENCY),
-        // amount,
+        amount: formatAmountForStripe(cart_total),
         currency: CURRENCY,
       };
       const payment_intent: Stripe.PaymentIntent =

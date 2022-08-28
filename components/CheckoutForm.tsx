@@ -2,6 +2,7 @@ import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
 import { FormRow } from "./";
 import { useCartContext } from "../context/useCartContext";
+import { useGlobalContext } from "../context/useGlobalContext";
 import { useRouter } from "next/router";
 import style from "./CheckoutForm.module.css";
 
@@ -19,9 +20,10 @@ const customerValues: CheckOutValues = {
 
 const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
   const { clearCart } = useCartContext();
+  const { handleFormChange, createOrder, costumerCheckoutInfo } =
+    useGlobalContext();
   const router = useRouter();
 
-  const [customerDetails, setCustomerDetails] = useState(customerValues);
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -29,10 +31,6 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
 
   const stripe = useStripe();
   const elements = useElements();
-
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCustomerDetails({ ...customerDetails, [e.target.name]: e.target.value });
-  };
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
@@ -45,7 +43,9 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
     setIsError(false);
     const cardElement = elements.getElement(CardElement);
 
+    // createOrder();
     if (cardElement) {
+      // createOrder();
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
@@ -97,15 +97,15 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
         <FormRow
           name='email'
           type='email'
-          formName='customerDetails'
-          value={customerDetails.email}
+          formName='costumerCheckoutInfo'
+          value={costumerCheckoutInfo.email}
           handleChange={handleFormChange}
         />
         <FormRow
           name='name'
           type='text'
-          formName='customerDetails'
-          value={customerDetails.name}
+          formName='costumerCheckoutInfo'
+          value={costumerCheckoutInfo.name}
           handleChange={handleFormChange}
         />
         <CardElement className='form-control' />

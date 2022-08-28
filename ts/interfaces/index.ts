@@ -1,3 +1,3 @@
-import { newsletterFieldsInt } from "./formInterfaces";
+import { newsletterFieldsInt, costumerCheckoutInfoInt } from "./formInterfaces";
 
-export type { newsletterFieldsInt };
+export type { newsletterFieldsInt, costumerCheckoutInfoInt };

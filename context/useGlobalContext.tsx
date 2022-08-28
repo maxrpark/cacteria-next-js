@@ -1,7 +1,7 @@
 import React, { FC, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import global_reducer from "../reducers/global_reducer";
-import { newsletterFieldsInt } from "../ts/interfaces";
+import { newsletterFieldsInt, costumerCheckoutInfoInt } from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
 import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
@@ -12,7 +12,9 @@ type Props = {
 interface globalContextInterface {
   isLoading: boolean;
   newsLetterFormValues: newsletterFieldsInt;
+  costumerCheckoutInfo: costumerCheckoutInfoInt;
   subscribeToNewsletter: () => void;
+  createOrder: () => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -21,6 +23,10 @@ const initialState: GlobalInitialState = {
   newsLetterFormValues: {
     name: "",
     email: "",
+  },
+  costumerCheckoutInfo: {
+    email: "",
+    name: "",
   },
 };
 
@@ -65,9 +71,13 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     }
   };
 
+  const createOrder = async () => {
+    console.log("hello");
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ ...state, subscribeToNewsletter, handleFormChange }}
+      value={{ ...state, subscribeToNewsletter, handleFormChange, createOrder }}
     >
       {children}
     </GlobalContext.Provider>

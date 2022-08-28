@@ -4,25 +4,13 @@ import { FaTrash } from "react-icons/fa";
 import { useCartContext } from "../../context/useCartContext";
 interface Props {
   id: string;
-  category: string;
-  desc: string;
-  feature: string;
   name: string;
   url: string;
   price: number;
   amount: number;
 }
-const CartItem: React.FC<Props> = ({
-  id,
-  category,
-  desc,
-  feature,
-  name,
-  url,
-  price,
-  amount,
-}) => {
-  const { removeCartItem, toggleItemAmount, addToCart } = useCartContext();
+const CartItem: React.FC<Props> = ({ id, name, url, price, amount }) => {
+  const { removeCartItem, toggleItemAmount } = useCartContext();
   const increase = () => {
     toggleItemAmount(id, "inc");
   };
