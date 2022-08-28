@@ -5,7 +5,7 @@ import Link from "next/link";
 import { PageTitle, CartItem, CartTotal } from "../components";
 import { cartItem } from "../ts/interfaces/interfaces";
 
-const cart: NextPage = () => {
+const CartPage: NextPage = () => {
   const { cart, total_amount } = useCartContext();
   const [cartItems, setCartItems] = useState() as any;
 
@@ -47,4 +47,4 @@ const cart: NextPage = () => {
   );
 };
 
-export default cart;
+export default CartPage;

@@ -15,7 +15,7 @@ interface Props {
   featuredProducts: Product[];
 }
 
-const Home: NextPage<Props> = ({ featuredProducts }) => {
+const HomePage: NextPage<Props> = ({ featuredProducts }) => {
   return (
     <div>
       <HeroHome />
@@ -62,4 +62,4 @@ export async function getStaticProps() {
   };
 }
 
-export default Home;
+export default HomePage;

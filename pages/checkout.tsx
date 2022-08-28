@@ -4,8 +4,10 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm, PageTitle } from "../components";
 import { useCartContext } from "../context/useCartContext";
+import { NextPage } from "next";
 let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-const checkout = () => {
+
+const CheckoutPage: NextPage = () => {
   const { total_amount } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
 
@@ -44,4 +46,4 @@ const checkout = () => {
   );
 };
 
-export default checkout;
+export default CheckoutPage;

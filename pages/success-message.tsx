@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 
-const successMessage: NextPage = () => {
+const SuccessMessagePage: NextPage = () => {
   return (
     <main className='container page-height d-flex flex-column justify-content-center'>
       <div className='text-center'>
@@ -14,4 +14,4 @@ const successMessage: NextPage = () => {
   );
 };
 
-export default successMessage;
+export default SuccessMessagePage;
