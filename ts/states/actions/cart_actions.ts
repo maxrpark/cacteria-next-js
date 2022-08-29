@@ -1,4 +1,4 @@
-import { cartItem } from "../../interfaces/interfaces";
+import { CartItemInt } from "../../interfaces/interfaces";
 import { ActionsType } from "../action-types";
 
 interface ToggleAmountPayload {
@@ -7,7 +7,7 @@ interface ToggleAmountPayload {
 }
 interface ADD_TO_CARD {
   type: ActionsType.ADD_TO_CART;
-  payload: cartItem;
+  payload: CartItemInt;
 }
 interface COUNT_CART_TOTALS {
   type: ActionsType.COUNT_CART_TOTALS;
