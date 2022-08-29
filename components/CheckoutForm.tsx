@@ -51,14 +51,12 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
           // if(hasDiscountApplied){
           //   // updateDiscountToke()
           // }
+          setMessage("Payment succeeded! Soon you will be redirected");
           setTimeout(() => {
             clearCart();
             router.replace("/success-message");
           }, 2000);
 
-          setMessage(
-            "Payment succeeded! Check your email to see your orders details"
-          );
           break;
         case "processing":
           setMessage("Your payment is processing.");

@@ -53,7 +53,7 @@
 
 - [x] Create layout
 - [x] Create api/checkout-sessions (STRIPE)
-- [ ] Send confirmation email after purchase
+- [x] Send confirmation email after purchase
 - [x] Clear cart
 
 ### Success Page

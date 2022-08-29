@@ -1,4 +1,5 @@
 import type { NextPage } from "next";
+import Link from "next/link";
 
 const SuccessMessagePage: NextPage = () => {
   return (
@@ -8,7 +9,9 @@ const SuccessMessagePage: NextPage = () => {
         <p className='lead'>
           Please check your email, to see your purchase details.
         </p>
-        <button className='btn btn-secondary mt-2'>Back Home</button>
+        <Link href={"/"}>
+          <button className='btn btn-secondary mt-2'>Back Home</button>
+        </Link>
       </div>
     </main>
   );
