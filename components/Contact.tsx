@@ -1,6 +1,15 @@
 import style from "./Contact.module.css";
+import { FormRow } from "../components";
+import { useGlobalContext } from "../context/useGlobalContext";
+
+const contactFormValues = {
+  name: "",
+  email: "",
+  subject: "",
+};
 
 const Contact: React.FC = () => {
+  const { handleFormChange } = useGlobalContext();
   return (
     <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
       <div className={` order-md-2 col-lg-7 ${style.contactFormArea}`}>
@@ -8,33 +17,48 @@ const Contact: React.FC = () => {
         <form className=''>
           <div className='form-group my-2'>
             <label htmlFor='exampleFormControlInput1'>Name</label>
-            <input
+            <FormRow
+              name='name'
               type='text'
-              className='form-control'
-              id='exampleFormControlInput2'
-              placeholder='your name'
+              formName='contactFormValues'
+              value={contactFormValues.name}
+              handleChange={handleFormChange}
             />
           </div>
           <div className='form-group my-2'>
             <label htmlFor='exampleFormControlInput2'>Email address</label>
-            <input
+            {/* <input
               type='email'
               className='form-control'
               id='exampleFormControlInput2'
               placeholder='name@example.com'
+            /> */}
+            <FormRow
+              name='email'
+              type='email'
+              formName='contactFormValues'
+              value={contactFormValues.email}
+              handleChange={handleFormChange}
             />
           </div>
           <div className='form-group my-2'>
-            <label htmlFor='exampleFormControlInput3'>Subject</label>
-            <input
+            <label htmlFor='exampleFormControlInput3'>subject</label>
+            {/* <input
               type='text'
               className='form-control'
               id='exampleFormControlInput3'
               placeholder='title'
+            /> */}
+            <FormRow
+              name='subject'
+              type='text'
+              formName='contactFormValues'
+              value={contactFormValues.subject}
+              handleChange={handleFormChange}
             />
           </div>
           <div className='form-group my-2'>
-            <label htmlFor='exampleFormControlTextarea1'>Your messege</label>
+            <label htmlFor='exampleFormControlTextarea1'>Your message</label>
             <textarea
               className={`${style.textarea} form-control`}
               id='exampleFormControlTextarea1'

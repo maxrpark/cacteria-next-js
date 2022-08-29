@@ -77,18 +77,20 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
 
   const createOrder = async (total: number, cart_items: CartItemInt[]) => {
     try {
-      const res = await axios.post("/api/create-order", {
+      await axios.post("/api/create-order", {
         costumer_details: state.costumerCheckoutInfo,
         total,
         cart_items,
       });
-      console.log(res);
-      const res2 = await axios.post("/api/success-purchase", {
+
+      await axios.post("/api/success-purchase", {
         costumer_details: state.costumerCheckoutInfo,
         total_amount: total,
         cart_items,
       });
-      console.log(res2);
+      // dispatch({
+      //   type: ActionsType.ORDER_SUCCESS,
+      // });
     } catch (error) {
       console.log(error);
     }
