@@ -56,9 +56,7 @@ const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
       <Filters allCategories={allCategories} handleClick={handleClick} />
       <div className='row g-0'>
         {products.map((item) => {
-          return (
-            <SingleGridProduct key={item.id} item={{ ...item, amount: 1 }} />
-          );
+          return <SingleGridProduct key={item.id} item={{ ...item }} />;
         })}
       </div>
     </main>

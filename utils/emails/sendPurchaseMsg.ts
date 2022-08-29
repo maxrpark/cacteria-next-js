@@ -1,22 +1,21 @@
 import sendEmail from "./sendEmail";
-import { cartItem } from "../../ts/interfaces/interfaces";
+import { CartItemInt, costumerCheckoutInfoInt } from "../../ts/interfaces";
 
 interface successEmailInterface {
-  email: "string";
-  name: "";
-  cart: cartItem[];
+  costumer_details: costumerCheckoutInfoInt;
+  cart_items: CartItemInt[];
   total_amount: number;
 }
 
 const sendPurchaseEmail = ({
-  email,
-  name,
-  cart,
+  costumer_details,
+  cart_items,
   total_amount,
 }: successEmailInterface) => {
-  const orderDetails = cart.map((el: cartItem) => {
-    const { name, price, amount } = el;
-    return /*html*/ `
+  const orderDetails = cart_items
+    .map((el: CartItemInt) => {
+      const { name, price, amount } = el;
+      return /*html*/ `
       <div
             style="
                 display: grid;
@@ -30,9 +29,10 @@ const sendPurchaseEmail = ({
             <p style="margin: 0">$${amount * price}  </p>
         </div>
     `;
-  });
+    })
+    .join("");
   const msg = /*html*/ `
-  <p>Hello ${name}!</p>
+  <p>Hello ${costumer_details.name}!</p>
   <p>Thank you for your purchase, we are already working on it.</p>
   <div
       style="
@@ -86,7 +86,7 @@ const sendPurchaseEmail = ({
 
   `;
   return sendEmail({
-    to: email,
+    to: costumer_details.email,
     subject: "We are preparing your order",
     html: msg,
   });

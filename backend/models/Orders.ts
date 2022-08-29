@@ -36,6 +36,7 @@ interface OrderInterface extends Document {
   hasDiscount: boolean;
   cart_items: CartItemInt[];
   costumer_details: costumerCheckoutInfoInt;
+  status: string;
 }
 
 const OrderSchema = new Schema<OrderInterface>({
@@ -46,6 +47,11 @@ const OrderSchema = new Schema<OrderInterface>({
   hasDiscount: {
     type: Boolean,
     default: false,
+  },
+  status: {
+    type: String,
+    enum: ["pending", "success", "canceled"],
+    default: "pending",
   },
   cart_items: [CartItemsSchema],
   costumer_details: CostumerCheckOutSchema,

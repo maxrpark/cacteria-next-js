@@ -3,15 +3,15 @@ import { StatusCodes } from "http-status-codes";
 import { sendPurchaseEmail } from "../../utils/emails";
 
 const sendPurchaseEmailMsg: NextApiHandler = async (req, res) => {
-  const { email, name, total_amount, cart } = req.body;
+  const { costumer_details, total_amount, cart_items } = req.body;
 
-  if (!email || !name || !total_amount || !cart) {
+  if (!costumer_details || !total_amount || !cart_items) {
     return res
       .status(StatusCodes.BAD_REQUEST)
       .json({ msg: "please provide all values" });
   } else {
     try {
-      await sendPurchaseEmail({ name, email, cart, total_amount });
+      await sendPurchaseEmail({ costumer_details, cart_items, total_amount });
       res.status(StatusCodes.OK).json({ msg: "please check your email" });
     } catch (error) {
       res.status(StatusCodes.OK).json({ msg: error });

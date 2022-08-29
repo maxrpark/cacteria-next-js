@@ -48,10 +48,13 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
         case "succeeded":
           setIsSuccess(true);
           createOrder(stripeTotal, cart);
-          // setTimeout(() => {
-          //   clearCart();
-          //   router.replace("/success-message");
-          // }, 2000);
+          // if(hasDiscountApplied){
+          //   // updateDiscountToke()
+          // }
+          setTimeout(() => {
+            clearCart();
+            router.replace("/success-message");
+          }, 2000);
 
           setMessage(
             "Payment succeeded! Check your email to see your orders details"

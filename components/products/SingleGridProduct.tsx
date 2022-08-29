@@ -3,17 +3,25 @@ import Link from "next/link";
 import { BsSearch } from "react-icons/bs";
 import { CgMoreVertical } from "react-icons/cg";
 import { useCartContext } from "../../context/useCartContext";
-import { cartItem } from "../../ts/interfaces/interfaces";
+import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
 import ShareIconsProduct from "../product/ShareIconsProduct";
 import style from "./SingleGridProduct.module.css";
 
 interface Props {
-  item: cartItem;
+  item: Product;
 }
 
 const SingleGridProduct: React.FC<Props> = ({ item }) => {
   const { id, url, name, price } = item;
   const { addToCart } = useCartContext();
+
+  const cartItem: CartItemInt = {
+    id,
+    name,
+    image: url,
+    price,
+    amount: 1,
+  };
 
   return (
     <div
@@ -53,7 +61,7 @@ const SingleGridProduct: React.FC<Props> = ({ item }) => {
             <ShareIconsProduct productID={id} />
             <button
               style={{ maxWidth: "110px" }}
-              onClickCapture={() => addToCart(item)}
+              onClickCapture={() => addToCart(cartItem)}
               className='btn btn-secondary btn-dm'
             >
               add to cart
