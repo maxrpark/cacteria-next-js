@@ -10,13 +10,16 @@ let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
+  const [stripeTotal, setStripeTotal] = useState(0);
 
   const getPaymentIntent = async () => {
     try {
       let res = await axios.post("/api/checkout-sessions", {
         cartItems: cart,
       });
-      setClientSecret(res.data);
+
+      setClientSecret(res.data.client_secret);
+      setStripeTotal(res.data.amount / 100);
     } catch (error) {
       console.log(error);
     }
@@ -40,7 +43,7 @@ const CheckoutPage: NextPage = () => {
       <PageTitle title={"checkout"} />
       <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
       <Elements stripe={stripePromise} options={{ clientSecret }}>
-        <CheckoutForm clientSecret={clientSecret} />
+        <CheckoutForm clientSecret={clientSecret} stripeTotal={stripeTotal} />
       </Elements>
     </main>
   );

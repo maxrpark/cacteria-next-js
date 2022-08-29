@@ -1,7 +1,11 @@
 import React, { FC, useContext, useReducer, useEffect } from "react";
 import axios from "axios";
 import global_reducer from "../reducers/global_reducer";
-import { newsletterFieldsInt, costumerCheckoutInfoInt } from "../ts/interfaces";
+import {
+  newsletterFieldsInt,
+  costumerCheckoutInfoInt,
+  CartItemInt,
+} from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
 import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
@@ -14,7 +18,7 @@ interface globalContextInterface {
   newsLetterFormValues: newsletterFieldsInt;
   costumerCheckoutInfo: costumerCheckoutInfoInt;
   subscribeToNewsletter: () => void;
-  createOrder: () => void;
+  createOrder: (total: number, cart_items: CartItemInt[]) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
@@ -71,8 +75,18 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const createOrder = async () => {
-    console.log("hello");
+  const createOrder = async (total: number, cart_items: CartItemInt[]) => {
+    console.log(total, cart_items);
+    try {
+      const res = await axios.post("/api/create-order", {
+        costumer_details: state.costumerCheckoutInfo,
+        total,
+        cart_items,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (

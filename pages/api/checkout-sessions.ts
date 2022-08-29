@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
-import { cartItem } from "../../ts/interfaces/interfaces";
+import { CartItemInt } from "../../ts/interfaces/interfaces";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-08-01",
@@ -22,7 +22,7 @@ export default async function handler(
   if (req.method === "POST") {
     const { cartItems } = req.body;
 
-    const cart_total = cartItems.reduce((acc: number, curr: cartItem) => {
+    const cart_total = cartItems.reduce((acc: number, curr: CartItemInt) => {
       let itemTotal = curr.amount * curr.price;
       acc = acc + itemTotal;
       return acc;
@@ -37,7 +37,7 @@ export default async function handler(
       const payment_intent: Stripe.PaymentIntent =
         await stripe.paymentIntents.create(params);
 
-      res.status(200).json(payment_intent.client_secret);
+      res.status(200).json(payment_intent);
     } catch (err) {
       res.status(500).json({ statusCode: 500, message: err });
     }

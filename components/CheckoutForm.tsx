@@ -8,10 +8,11 @@ import style from "./CheckoutForm.module.css";
 
 interface Props {
   clientSecret: any;
+  stripeTotal: number;
 }
 
-const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
-  const { clearCart } = useCartContext();
+const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
+  const { clearCart, cart } = useCartContext();
   const { handleFormChange, createOrder, costumerCheckoutInfo } =
     useGlobalContext();
   const router = useRouter();
@@ -35,22 +36,22 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret }) => {
     setIsError(false);
     const cardElement = elements.getElement(CardElement);
 
-    // createOrder();
     if (cardElement) {
-      // createOrder();
       const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
         payment_method: {
           card: cardElement,
         },
       });
+      try {
+      } catch (error) {}
       switch (paymentIntent?.status) {
         case "succeeded":
           setIsSuccess(true);
-
-          setTimeout(() => {
-            clearCart();
-            router.replace("/success-message");
-          }, 2000);
+          createOrder(stripeTotal, cart);
+          // setTimeout(() => {
+          //   clearCart();
+          //   router.replace("/success-message");
+          // }, 2000);
 
           setMessage(
             "Payment succeeded! Check your email to see your orders details"
