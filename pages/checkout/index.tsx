@@ -5,7 +5,9 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import { NextPage } from "next";
-let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
+let stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY as string
+);
 
 const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
