@@ -48,6 +48,7 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
         }
         return { ...item };
       });
+      console.log(updatedCart);
 
       return { ...state, cart: updatedCart };
 
