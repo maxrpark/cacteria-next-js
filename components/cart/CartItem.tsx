@@ -13,7 +13,6 @@ const CartItem: React.FC<Props> = ({ id, name, image, price, amount }) => {
   const { removeCartItem, toggleItemAmount } = useCartContext();
   const increase = () => {
     toggleItemAmount(id, "inc");
-    console.log(id);
   };
   const decrease = () => {
     toggleItemAmount(id, "dec");

@@ -31,6 +31,8 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
 
     case ActionsType.TOGGLE_ITEM_AMOUNT:
       const { id, type } = action.payload;
+      console.log(id, type);
+
       const updatedCart = state.cart.map((item: CartItemInt) => {
         if (item.id === id) {
           if (type === "inc") {
