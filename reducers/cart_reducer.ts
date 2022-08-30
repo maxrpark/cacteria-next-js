@@ -31,14 +31,18 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
 
     case ActionsType.TOGGLE_ITEM_AMOUNT:
       const { id, type } = action.payload;
-      console.log(id, type);
 
       const updatedCart = state.cart.map((item: CartItemInt) => {
         if (item.id === id) {
+          console.log(item);
+
           if (type === "inc") {
+            console.log("inc");
+
             let newAmount = item.amount++;
             return { ...item, amount: newAmount };
           } else if (type === "dec") {
+            console.log("dec");
             let newAmount = item.amount--;
             if (newAmount < 1) {
               newAmount = 1;
