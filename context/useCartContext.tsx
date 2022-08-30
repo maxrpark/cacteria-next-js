@@ -78,6 +78,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   useEffect(() => {
     dispatch({ type: ActionsType.COUNT_CART_TOTALS });
     localStorage.setItem("cart-cacteria", JSON.stringify(state.cart));
+    console.log("cart updated");
   }, [state.cart]);
 
   return (

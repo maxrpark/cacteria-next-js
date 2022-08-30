@@ -34,24 +34,22 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
 
       const updatedCart = state.cart.map((item: CartItemInt) => {
         if (item.id === id) {
-          console.log(item);
-
           if (type === "inc") {
-            console.log("inc");
-
-            let newAmount = item.amount++;
+            let newAmount = item.amount + 1;
             return { ...item, amount: newAmount };
           } else if (type === "dec") {
-            console.log("dec");
-            let newAmount = item.amount--;
+            let newAmount = item.amount - 1;
             if (newAmount < 1) {
               newAmount = 1;
             }
             return { ...item, amount: newAmount };
           }
+          console.log(item);
         }
+
         return { ...item };
       });
+
       console.log(updatedCart);
 
       return { ...state, cart: updatedCart };
