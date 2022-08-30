@@ -2,14 +2,8 @@ import style from "./Contact.module.css";
 import { FormRow } from "../components";
 import { useGlobalContext } from "../context/useGlobalContext";
 
-const contactFormValues = {
-  name: "",
-  email: "",
-  subject: "",
-};
-
 const Contact: React.FC = () => {
-  const { handleFormChange } = useGlobalContext();
+  const { handleFormChange, contactFormValues } = useGlobalContext();
   return (
     <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
       <div className={` order-md-2 col-lg-7 ${style.contactFormArea}`}>
@@ -27,12 +21,6 @@ const Contact: React.FC = () => {
           </div>
           <div className='form-group my-2'>
             <label htmlFor='exampleFormControlInput2'>Email address</label>
-            {/* <input
-              type='email'
-              className='form-control'
-              id='exampleFormControlInput2'
-              placeholder='name@example.com'
-            /> */}
             <FormRow
               name='email'
               type='email'
@@ -43,12 +31,6 @@ const Contact: React.FC = () => {
           </div>
           <div className='form-group my-2'>
             <label htmlFor='exampleFormControlInput3'>subject</label>
-            {/* <input
-              type='text'
-              className='form-control'
-              id='exampleFormControlInput3'
-              placeholder='title'
-            /> */}
             <FormRow
               name='subject'
               type='text'
@@ -61,7 +43,10 @@ const Contact: React.FC = () => {
             <label htmlFor='exampleFormControlTextarea1'>Your message</label>
             <textarea
               className={`${style.textarea} form-control`}
-              id='exampleFormControlTextarea1'
+              value={contactFormValues.content}
+              name='content'
+              id='contactFormValues'
+              onChange={handleFormChange}
             ></textarea>
           </div>
         </form>

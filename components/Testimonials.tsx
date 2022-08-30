@@ -35,7 +35,9 @@ const Testimonials: React.FC = () => {
     if (mainContainer.current) {
       setMinXFunc();
     }
+
     draggableCarrousel();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mainContainer.current, minX]);
   return (
     <section

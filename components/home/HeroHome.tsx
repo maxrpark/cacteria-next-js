@@ -33,6 +33,7 @@ const HeroHome: React.FC = () => {
             src='/static/images/greenhouse.jpg'
             width={400}
             height={400}
+            alt='our garden'
           ></Image>
         </div>
       </div>

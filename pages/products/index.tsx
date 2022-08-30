@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../../ts/interfaces/interfaces";
-import { ChangeEvent, useLayoutEffect, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import { Filters, PageTitle, SingleGridProduct } from "../../components";
 
 const { gsap } = require("gsap/dist/gsap");
@@ -44,10 +44,10 @@ const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
     });
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     updateFilterAnimation(products, filters);
   }, [filters]);
-  useLayoutEffect(() => {
+  useEffect(() => {
     productsAnimation();
   }, []);
   return (

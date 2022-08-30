@@ -3,3 +3,8 @@ export interface newsletterFieldsInt {
   email: string;
 }
 export interface costumerCheckoutInfoInt extends newsletterFieldsInt {}
+
+export interface contactFormInfoInt extends newsletterFieldsInt {
+  subject: string;
+  content: string;
+}

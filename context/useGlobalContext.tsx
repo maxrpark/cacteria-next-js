@@ -1,9 +1,10 @@
-import React, { FC, useContext, useReducer, useEffect } from "react";
+import React, { FC, useContext, useReducer } from "react";
 import axios from "axios";
 import global_reducer from "../reducers/global_reducer";
 import {
   newsletterFieldsInt,
   costumerCheckoutInfoInt,
+  contactFormInfoInt,
   CartItemInt,
 } from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
@@ -17,9 +18,10 @@ interface globalContextInterface {
   isLoading: boolean;
   newsLetterFormValues: newsletterFieldsInt;
   costumerCheckoutInfo: costumerCheckoutInfoInt;
+  contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
   createOrder: (total: number, cart_items: CartItemInt[]) => void;
-  handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
 }
 
 const initialState: GlobalInitialState = {
@@ -32,6 +34,12 @@ const initialState: GlobalInitialState = {
     email: "",
     name: "",
   },
+  contactFormValues: {
+    name: "",
+    email: "",
+    subject: "",
+    content: "",
+  },
 };
 
 const GlobalContext = React.createContext({} as globalContextInterface);
@@ -42,7 +50,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     initialState as GlobalInitialState
   );
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     const payload: HandleFormInt = {
       name: e.target.name,
       value: e.target.value,
