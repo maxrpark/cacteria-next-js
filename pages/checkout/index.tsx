@@ -11,7 +11,6 @@ const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
   const [stripeTotal, setStripeTotal] = useState(0);
-  console.log(process.env.NEXT_PUBLIC_GATO);
 
   const getPaymentIntent = async () => {
     try {
