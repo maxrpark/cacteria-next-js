@@ -27,6 +27,7 @@ const CheckoutPage: NextPage = () => {
   };
   const getStripeFunc = async () => {
     const result = await getStripe();
+
     setStripePromise(result as any);
   };
 
@@ -50,9 +51,9 @@ const CheckoutPage: NextPage = () => {
     <main className='container page-height'>
       <PageTitle title={"checkout"} />
       <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
-      {/* <Elements stripe={stripePromise} options={{ clientSecret }}> */}
-      <CheckoutForm clientSecret={clientSecret} stripeTotal={stripeTotal} />
-      {/* </Elements> */}
+      <Elements stripe={stripePromise as any} options={{ clientSecret }}>
+        <CheckoutForm clientSecret={clientSecret} stripeTotal={stripeTotal} />
+      </Elements>
     </main>
   );
 };
