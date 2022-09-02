@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { CartItemInt } from "../../ts/interfaces/interfaces";
+`${process.env.PUBLISHABLE_KEY}`;
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-08-01",
@@ -39,9 +40,7 @@ export default async function handler(
 
       res.status(200).json(payment_intent);
     } catch (err) {
-      res
-        .status(500)
-        .json({ statusCode: 500, message: process.env.STRIPE_SECRET_KEY });
+      res.status(500).json({ statusCode: 500, message: err });
     }
   } else {
     res.setHeader("Allow", "POST");
