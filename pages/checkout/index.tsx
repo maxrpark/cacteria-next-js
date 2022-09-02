@@ -5,13 +5,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import { NextPage } from "next";
-import getStripe from "../../utils/getStripe";
+let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
   const [stripeTotal, setStripeTotal] = useState(0);
-  const [stripePromise, setStripePromise] = useState("");
+  console.log(process.env.NEXT_PUBLIC_GATO);
 
   const getPaymentIntent = async () => {
     try {
@@ -25,15 +25,7 @@ const CheckoutPage: NextPage = () => {
       console.log(error);
     }
   };
-  const getStripeFunc = async () => {
-    const result = await getStripe();
 
-    setStripePromise(result as any);
-  };
-
-  useEffect(() => {
-    getStripeFunc();
-  }, []);
   useEffect(() => {
     if (total_amount) {
       getPaymentIntent();
@@ -51,7 +43,7 @@ const CheckoutPage: NextPage = () => {
     <main className='container page-height'>
       <PageTitle title={"checkout"} />
       <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
-      <Elements stripe={stripePromise as any} options={{ clientSecret }}>
+      <Elements stripe={stripePromise} options={{ clientSecret }}>
         <CheckoutForm clientSecret={clientSecret} stripeTotal={stripeTotal} />
       </Elements>
     </main>
