@@ -6,14 +6,13 @@ import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import { NextPage } from "next";
 
-let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-
-console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
-
 const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
   const [stripeTotal, setStripeTotal] = useState(0);
+  let stripePromise = loadStripe(
+    process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
+  );
 
   const getPaymentIntent = async () => {
     try {
