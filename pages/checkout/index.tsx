@@ -5,6 +5,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
 import { NextPage } from "next";
+import getStripe from "../../utils/getStripe";
 
 const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
@@ -15,6 +16,8 @@ const CheckoutPage: NextPage = () => {
   );
 
   console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  const max = getStripe();
+  console.log(max);
 
   const getPaymentIntent = async () => {
     try {
