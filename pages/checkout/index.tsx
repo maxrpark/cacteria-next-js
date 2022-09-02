@@ -14,6 +14,8 @@ const CheckoutPage: NextPage = () => {
     process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!
   );
 
+  console.log(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+
   const getPaymentIntent = async () => {
     try {
       let res = await axios.post("/api/checkout-sessions", {
