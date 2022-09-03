@@ -13,17 +13,16 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <title>Cacteria</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
       </Head>
       <GlobalProvider>
         <CartProvider>
           <Navbar />
-          {/* <div className='container'> */}
           <Component {...pageProps} />
-          {/* </div> */}
+          <Footer />
         </CartProvider>
       </GlobalProvider>
-      <Footer />
     </>
   );
 }

@@ -30,6 +30,9 @@ import SingleProduct from "./product/SingleProduct";
 import ShareIconsProduct from "./product/ShareIconsProduct";
 import Filters from "./product/Filters";
 
+// Layouts
+import ProductLayout from "./layouts/ProductLayout";
+
 export {
   Navbar,
   Footer,
@@ -52,4 +55,5 @@ export {
   SingleProduct,
   CartTotal,
   Filters,
+  ProductLayout,
 };

@@ -6,6 +6,7 @@ import {
   PageTitle,
   ShareIconsSingleProduct,
   SingleProduct,
+  ProductLayout,
 } from "../../components";
 
 interface Props {
@@ -14,11 +15,18 @@ interface Props {
 
 const ProductPage: NextPage<Props> = ({ product }) => {
   return (
-    <main className='container m-auto page-height'>
-      <PageTitle title={product.name} name={product.name} />
-      <SingleProduct {...product} />
-      <ShareIconsSingleProduct productID={product.id} />
-    </main>
+    <ProductLayout
+      title={product.name}
+      name={product.name}
+      img={product.url}
+      dsc={product.desc}
+    >
+      <main className='container m-auto page-height'>
+        <PageTitle title={product.name} name={product.name} />
+        <SingleProduct {...product} />
+        <ShareIconsSingleProduct productID={product.id} />
+      </main>
+    </ProductLayout>
   );
 };
 
