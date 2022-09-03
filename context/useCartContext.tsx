@@ -31,7 +31,7 @@ interface CartContextInterface {
   clearCart: () => void;
 }
 
-const InitialState = {
+const InitialState: CartInitialState = {
   cart: getLocalStorage(),
   total_items: 0,
   total_amount: 0,

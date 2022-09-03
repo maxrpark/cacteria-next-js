@@ -1,57 +1,31 @@
 import React, { useState, useEffect } from "react";
-import {
-  signIn,
-  signOut,
-  // useSession,
-  getSession,
-} from "next-auth/react";
+import type { NextPage } from "next";
+import { signOut } from "next-auth/react";
 import { FormRow } from "../../components";
+import { useAdminContext } from "../../context";
 
 const loginData = {
   email: "",
   password: "",
 };
 
-const AdminPage = () => {
-  const [useCredentials, setUseCredentials] = useState(loginData);
-  const [user, setUser] = useState<any>();
-  const [isLoading, setIsLoading] = useState(true);
-  // const { data: session, status } = useSession();
-
-  const isLoggedIn = async () => {
-    const res = await getSession();
-    setIsLoading(true);
-    if (res?.user !== null) {
-      const user = res?.user;
-      setUser(user);
-      setIsLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    isLoggedIn();
-  }, []);
+const AdminPage: NextPage = () => {
+  const { checkSession, handleLogIn, isLoading, user } = useAdminContext();
+  const [userCredentials, setUserCredentials] = useState(loginData);
 
   const handleFormChange = (e: any) => {
     const name = e.target.name;
     const value = e.target.value;
-    setUseCredentials((oldValue) => {
+    setUserCredentials((oldValue) => {
       let updated = { ...oldValue, [name]: value };
-
       return updated;
     });
   };
 
-  const handleLogIn = async () => {
-    const res = await signIn("credentials", {
-      redirect: false,
-      ...useCredentials,
-    });
-    console.log(res);
-  };
-  const checkSession = async () => {
-    console.log(user);
-  };
+  useEffect(() => {
+    checkSession();
+  }, []);
+
   if (isLoading) {
     return <h2>Loading...</h2>;
   }
@@ -65,7 +39,7 @@ const AdminPage = () => {
               name='email'
               type='email'
               formName='newsLetterFormValues'
-              value={useCredentials.email}
+              value={userCredentials.email}
               handleChange={handleFormChange}
             />
           </div>
@@ -74,7 +48,7 @@ const AdminPage = () => {
               name='password'
               type='text'
               formName='newsLetterFormValues'
-              value={useCredentials.password}
+              value={userCredentials.password}
               handleChange={handleFormChange}
             />
           </div>
@@ -83,7 +57,7 @@ const AdminPage = () => {
           type='submit'
           onClick={(e) => {
             e.preventDefault();
-            handleLogIn();
+            handleLogIn(userCredentials);
           }}
           className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'
         >
@@ -102,16 +76,8 @@ const AdminPage = () => {
   }
   return (
     <div>
-      <button onClick={handleLogIn} className='btn btn-secondary'>
-        login
-      </button>
-      <button onClick={checkSession} className='btn btn-secondary'>
-        check user
-      </button>
-      <button
-        onClick={() => signOut({ callbackUrl: "/" })}
-        className='btn btn-secondary'
-      >
+      <h2>Hello {user.name}</h2>
+      <button onClick={() => signOut()} className='btn btn-secondary'>
         logout
       </button>
     </div>

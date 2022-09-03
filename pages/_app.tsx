@@ -3,8 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/global.css";
 import type { AppProps } from "next/app";
 import { Footer, Navbar } from "../components";
-import { CartProvider } from "../context/useCartContext";
-import { GlobalProvider } from "../context/useGlobalContext";
+
+import { CartProvider, GlobalProvider, AdminProvider } from "../context";
 import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,11 +27,13 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <SessionProvider>
         <GlobalProvider>
-          <CartProvider>
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
-          </CartProvider>
+          <AdminProvider>
+            <CartProvider>
+              <Navbar />
+              <Component {...pageProps} />
+              <Footer />
+            </CartProvider>
+          </AdminProvider>
         </GlobalProvider>
       </SessionProvider>
     </>
