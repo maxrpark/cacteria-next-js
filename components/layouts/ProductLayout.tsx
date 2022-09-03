@@ -20,10 +20,24 @@ const ProductLayout: React.FC<Props> = ({
     <>
       <Head>
         <title>{title}</title>
+        <meta name='description' content={dsc} />
+
+        {/*<!-- Google / Search Engine Tags -->*/}
+        <meta itemProp='name' content={title} />
+        <meta itemProp='description' content={dsc} />
+        <meta itemProp='image' content={img} />
+
+        {/* facebook */}
         <meta property='og:title' content={title} />
         <meta property='og:description' content={`Take a look at ${name}`} />
         <meta property='og:image' content={img} />
         <meta name='description' content={dsc} />
+
+        {/*<!-- Twitter Meta Tags -->*/}
+        <meta name='twitter:title' content={title} />
+        <meta name='twitter:description' content={`Take a look at ${name}`} />
+        <meta name='twitter:image' content={img} />
+        <meta name='twitter:card' content={dsc} />
       </Head>
       {children}
     </>
