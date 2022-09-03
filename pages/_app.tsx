@@ -5,6 +5,7 @@ import type { AppProps } from "next/app";
 import { Footer, Navbar } from "../components";
 import { CartProvider } from "../context/useCartContext";
 import { GlobalProvider } from "../context/useGlobalContext";
+import { SessionProvider } from "next-auth/react";
 import { useEffect } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -24,13 +25,15 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property='og:image' content='/static/images/greenhouse.jpg' />
         <meta name='description' content={`The best play for cactus lovers`} />
       </Head>
-      <GlobalProvider>
-        <CartProvider>
-          <Navbar />
-          <Component {...pageProps} />
-          <Footer />
-        </CartProvider>
-      </GlobalProvider>
+      <SessionProvider>
+        <GlobalProvider>
+          <CartProvider>
+            <Navbar />
+            <Component {...pageProps} />
+            <Footer />
+          </CartProvider>
+        </GlobalProvider>
+      </SessionProvider>
     </>
   );
 }

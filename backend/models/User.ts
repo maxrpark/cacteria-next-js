@@ -1,7 +1,7 @@
-import mongoose, { Document, Schema, Model, model } from "mongoose";
-import { User } from "../../ts/interfaces/interfaces";
+import { Document, Schema, Model, model } from "mongoose";
+import { UserInt } from "../../ts/interfaces";
 
-type UserSchemaInt = User & Document;
+type UserSchemaInt = UserInt & Document;
 
 const UserSchema = new Schema<UserSchemaInt>({
   name: {

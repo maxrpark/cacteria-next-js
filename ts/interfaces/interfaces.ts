@@ -39,7 +39,7 @@ export interface CompanyDetail {
   image: string;
 }
 
-export interface User {
+export interface UserInt {
   _id: string;
   name: string;
   email: string;
