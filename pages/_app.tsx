@@ -15,6 +15,14 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Head>
         <title>Cacteria</title>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
+
+        <meta property='og:title' content='Cacteria' />
+        <meta
+          property='og:description'
+          content={`The best play for cactus lovers`}
+        />
+        <meta property='og:image' content='/static/images/greenhouse.jpg' />
+        <meta name='description' content={`The best play for cactus lovers`} />
       </Head>
       <GlobalProvider>
         <CartProvider>
