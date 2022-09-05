@@ -1,9 +1,8 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
-
-import bcrypt from "bcryptjs";
 import connectDB from "../../../backend/connectDB/connectDB";
 import User from "../../../backend/models/User";
+import { LoginFormInt } from "../../../ts/interfaces/formInterfaces";
 
 export default NextAuth({
   secret: process.env.JWT_SECRET,
@@ -16,8 +15,8 @@ export default NextAuth({
 
   providers: [
     CredentialsProvider({
-      async authorize(credentials: any) {
-        const { email, password } = credentials;
+      async authorize(credentials) {
+        const { email, password } = credentials as LoginFormInt;
         await connectDB(process.env.MONGO_URL as string);
         const user = await User.findOne({ email });
 

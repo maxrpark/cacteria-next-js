@@ -8,3 +8,8 @@ export interface contactFormInfoInt extends newsletterFieldsInt {
   subject: string;
   content: string;
 }
+
+export interface LoginFormInt {
+  email: string;
+  password: string;
+}

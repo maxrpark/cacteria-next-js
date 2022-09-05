@@ -1,5 +1,9 @@
 import mongoose, { Schema, Document, model } from "mongoose";
-import { costumerCheckoutInfoInt, CartItemInt } from "../../ts/interfaces";
+import {
+  costumerCheckoutInfoInt,
+  CartItemInt,
+  OrderInterface,
+} from "../../ts/interfaces";
 
 const CostumerCheckOutSchema = new Schema<costumerCheckoutInfoInt>({
   name: {
@@ -31,15 +35,17 @@ const CartItemsSchema = new Schema<CartItemInt>({
   },
 });
 
-interface OrderInterface extends Document {
-  total: number;
-  hasDiscount: boolean;
-  cart_items: CartItemInt[];
-  costumer_details: costumerCheckoutInfoInt;
-  status: string;
-}
+// interface OrderInterface extends Document {
+//   // total: number;
+//   // hasDiscount: boolean;
+//   // cart_items: CartItemInt[];
+//   // costumer_details: costumerCheckoutInfoInt;
+//   // status: string;
+// }
 
-const OrderSchema = new Schema<OrderInterface>({
+type OrderISchemaInt = OrderInterface & Document;
+
+const OrderSchema = new Schema<OrderISchemaInt>({
   total: {
     type: Number,
     required: true,
@@ -57,10 +63,10 @@ const OrderSchema = new Schema<OrderInterface>({
   costumer_details: CostumerCheckOutSchema,
 });
 
-let Order: mongoose.Model<OrderInterface>;
+let Order: mongoose.Model<OrderISchemaInt>;
 try {
-  Order = model<OrderInterface>("Order");
+  Order = model<OrderISchemaInt>("Order");
 } catch (error) {
-  Order = model<OrderInterface>("Order", OrderSchema);
+  Order = model<OrderISchemaInt>("Order", OrderSchema);
 }
 export default Order;

@@ -1,4 +1,4 @@
-import Product from "../../pages/products/[id]";
+import { costumerCheckoutInfoInt } from "./";
 
 export interface Product {
   id: string;
@@ -15,6 +15,15 @@ export interface CartItemInt {
   image: string;
   price: number;
   amount: number;
+}
+
+export interface OrderInterface {
+  _id?: string;
+  total: number;
+  hasDiscount: boolean;
+  cart_items: CartItemInt[];
+  costumer_details: costumerCheckoutInfoInt;
+  status: string;
 }
 
 export interface productFields {

@@ -1,34 +1,52 @@
-import React, { useEffect } from "react";
 import type { NextPage } from "next";
-import { signOut } from "next-auth/react";
-import { useAdminContext } from "../../context";
-import { LoginForm } from "../../components";
+import { GetServerSideProps } from "next";
+import connectDB from "../../backend/connectDB/connectDB";
+import Order from "../../backend/models/Orders";
+import { signOut, getSession } from "next-auth/react";
+import { OrderInterface } from "../../ts/interfaces/interfaces";
 
-const AdminPage: NextPage = () => {
-  const { checkSession, isLoading, user } = useAdminContext();
+interface Props {
+  user: any;
+  orders: OrderInterface[];
+}
+const AdminPage: NextPage<Props> = ({ user, orders }) => {
+  console.log(orders);
 
-  useEffect(() => {
-    checkSession();
-  }, []);
-
-  if (isLoading) {
-    return (
-      <main className='page-height d-flex justify-content-center align-items-center'>
-        Loading...
-      </main>
-    );
-  }
-  if (!user?.name) {
-    return <LoginForm />;
-  }
   return (
     <main className='page-height'>
-      <h2>Hello {user.name}</h2>
+      <h2>Hello {user!.name}</h2>
       <button onClick={() => signOut()} className='btn btn-secondary'>
         logout
       </button>
+      {orders.map((order: OrderInterface) => {
+        return <div key={order._id}>{order.costumer_details.name}</div>;
+      })}
     </main>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const res = await getSession(ctx);
+
+  if (res?.user !== undefined) {
+    await connectDB(process.env.MONGO_URL as string);
+    const orders = await Order.find({});
+
+    return {
+      props: {
+        user: res.user,
+        orders: JSON.parse(JSON.stringify(orders)),
+      },
+    };
+  }
+
+  return {
+    redirect: {
+      permanent: true,
+      destination: "/login",
+    },
+    props: {},
+  };
 };
 
 export default AdminPage;

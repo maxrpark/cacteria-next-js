@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { FormRow } from "../";
 import { useAdminContext } from "../../context";
-const loginData = {
+import { LoginFormInt } from "../../ts/interfaces/formInterfaces";
+
+const loginData: LoginFormInt = {
   email: "",
   password: "",
 };
@@ -10,7 +12,7 @@ const LoginForm: React.FC = () => {
   const [userCredentials, setUserCredentials] = useState(loginData);
   const { handleLogIn, isLoading } = useAdminContext();
 
-  const handleFormChange = (e: any) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
     const value = e.target.value;
     setUserCredentials((oldValue) => {
