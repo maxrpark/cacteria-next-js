@@ -30,6 +30,10 @@ import SingleProduct from "./product/SingleProduct";
 import ShareIconsProduct from "./product/ShareIconsProduct";
 import Filters from "./product/Filters";
 
+// Admin
+
+import LoginForm from "./admin/LoginForm";
+
 // Layouts
 import ProductLayout from "./layouts/ProductLayout";
 
@@ -56,4 +60,5 @@ export {
   CartTotal,
   Filters,
   ProductLayout,
+  LoginForm,
 };

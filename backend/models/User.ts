@@ -1,7 +1,12 @@
 import { Document, Schema, Model, model } from "mongoose";
+import bcrypt from "bcryptjs";
 import { UserInt } from "../../ts/interfaces";
 
-type UserSchemaInt = UserInt & Document;
+interface userModel extends UserInt {
+  comparePassword: (candidatePassword: string) => string;
+}
+
+type UserSchemaInt = userModel & Document;
 
 const UserSchema = new Schema<UserSchemaInt>({
   name: {
@@ -23,6 +28,19 @@ const UserSchema = new Schema<UserSchemaInt>({
     type: Date,
   },
 });
+
+UserSchema.pre("save", async function () {
+  if (!this.isModified("password")) return;
+  const salt = await bcrypt.genSalt(10);
+  this.password = await bcrypt.hash(this.password, salt);
+});
+
+UserSchema.methods.comparePassword = async function (
+  candidatePassword: string
+) {
+  let isMatch = await bcrypt.compare(candidatePassword, this.password);
+  return isMatch;
+};
 
 let User: Model<UserSchemaInt>;
 try {

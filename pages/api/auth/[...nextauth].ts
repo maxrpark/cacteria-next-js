@@ -1,65 +1,39 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+
+import bcrypt from "bcryptjs";
 import connectDB from "../../../backend/connectDB/connectDB";
 import User from "../../../backend/models/User";
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-  NextAuth(req, res, {
+export default NextAuth({
+  secret: process.env.JWT_SECRET,
+  session: {
+    strategy: "jwt",
+  },
+  jwt: {
     secret: process.env.JWT_SECRET,
-    session: {
-      strategy: "jwt",
-    },
-    jwt: {
-      secret: process.env.JWT_SECRET,
-    },
+  },
 
-    providers: [
-      CredentialsProvider({
-        async authorize(credentials: any) {
-          const { email, password } = credentials;
-          await connectDB(process.env.MONGO_URL as string);
-          const user = await User.findOne({ email });
+  providers: [
+    CredentialsProvider({
+      async authorize(credentials: any) {
+        const { email, password } = credentials;
+        await connectDB(process.env.MONGO_URL as string);
+        const user = await User.findOne({ email });
 
-          if (!user) {
-            throw new Error("Invalid credentials");
-          }
-          console.log(user);
+        if (!user) {
+          throw new Error("Invalid credentials");
+        }
 
-          return user;
-        },
-        credentials: {},
-      }),
-    ],
-  });
-};
+        const isPasswordCorrect = await user.comparePassword(password);
 
-// export default (req: NextApiRequest, res: NextApiResponse) => {
-//   NextAuth(req, res, {
-//     secret: process.env.JWT_SECRET,
-//     session: {
-//       strategy: "jwt",
-//     },
-//     jwt: {
-//       secret: process.env.JWT_SECRET,
-//     },
+        if (!isPasswordCorrect) {
+          throw new Error("Invalid credentials");
+        }
 
-//     providers: [
-//       CredentialsProvider({
-//         async authorize(credentials: any) {
-//           const { email, password } = credentials;
-//           await connectDB(process.env.MONGO_URL as string);
-//           const user = await User.findOne({ email });
-
-//           if (!user) {
-//             throw new Error("Invalid credentials");
-//           }
-//           console.log(user);
-
-//           return user;
-//         },
-//         credentials: {},
-//       }),
-//     ],
-//   });
-// };
+        return user;
+      },
+      credentials: {},
+    }),
+  ],
+});
