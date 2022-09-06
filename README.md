@@ -63,14 +63,13 @@
 
 ### Auth
 
-- [ ] Next auth
-- [ ] Create Login admin page
-- [ ] Create user
-- [ ] Create api and connect to mongoDB
+- [x] Next auth
+- [x] Create Login admin page
+- [x] Create user
+- [x] Create api and connect to mongoDB
 
 ### Admin dashboard
 
 - [ ] Create layout
 - [ ] See purchases
 - [ ] See list of user
-- [ ] Stats
