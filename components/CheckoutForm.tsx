@@ -9,13 +9,17 @@ import style from "./CheckoutForm.module.css";
 interface Props {
   clientSecret: any;
   stripeTotal: number;
+  orderDetails: any;
 }
 
-const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
-  const { clearCart, cart } = useCartContext();
+const CheckoutForm: React.FC<Props> = ({
+  clientSecret,
+  stripeTotal,
+  orderDetails,
+}) => {
+  const { cart } = useCartContext();
   const { handleFormChange, createOrder, costumerCheckoutInfo } =
     useGlobalContext();
-  const router = useRouter();
 
   const [message, setMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -37,25 +41,21 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
     const cardElement = elements.getElement(CardElement);
 
     if (cardElement) {
-      const { paymentIntent } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-          card: cardElement,
-        },
-      });
+      const { paymentIntent } = await stripe.confirmCardPayment(
+        orderDetails.clientSecret,
+        {
+          payment_method: {
+            card: cardElement,
+          },
+        }
+      );
       try {
       } catch (error) {}
       switch (paymentIntent?.status) {
         case "succeeded":
           setIsSuccess(true);
-          createOrder(stripeTotal, cart);
-          // if(hasDiscountApplied){
-          //   // updateDiscountToke()
-          // }
+          createOrder(orderDetails);
           setMessage("Payment succeeded! Soon you will be redirected");
-          setTimeout(() => {
-            clearCart();
-            // router.replace("/success-message");
-          }, 2000);
 
           break;
         case "processing":

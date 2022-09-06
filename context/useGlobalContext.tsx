@@ -24,7 +24,7 @@ interface globalContextInterface {
   costumerCheckoutInfo: costumerCheckoutInfoInt;
   contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
-  createOrder: (total: number, cart_items: CartItemInt[]) => void;
+  createOrder: (cart_items: any) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
   clearCookies: () => void;
 }
@@ -91,18 +91,17 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const createOrder = async (total: number, cart_items: CartItemInt[]) => {
+  const createOrder = async (orderDetails: any) => {
     try {
       await axios.post("/api/create-order", {
         costumer_details: state.costumerCheckoutInfo,
-        total,
-        cart_items,
+        ...orderDetails,
       });
       Cookies.set("isOrderCompleted", "isCompleted");
       await axios.post("/api/success-purchase", {
         costumer_details: state.costumerCheckoutInfo,
-        total_amount: total,
-        cart_items,
+        total_amount: orderDetails.total,
+        cart_items: orderDetails.cart_items,
       });
       router.replace("/success-message");
 
@@ -118,6 +117,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     Cookies.remove("isOrderCompleted");
     Cookies.remove("canCheckOut");
     router.push("/");
+    console.log("hye");
   };
 
   return (

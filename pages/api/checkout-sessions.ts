@@ -38,7 +38,15 @@ export default async function handler(
       const payment_intent: Stripe.PaymentIntent =
         await stripe.paymentIntents.create(params);
 
-      res.status(200).json(payment_intent);
+      console.log();
+
+      const intent = {
+        clientSecret: payment_intent.client_secret,
+        total: payment_intent.amount / 100,
+        cart_items: cartItems,
+      };
+
+      res.status(200).json(intent);
     } catch (err) {
       res.status(500).json({ statusCode: 500, message: err });
     }

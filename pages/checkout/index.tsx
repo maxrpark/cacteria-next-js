@@ -11,15 +11,17 @@ const CheckoutPage: NextPage = () => {
   const { total_amount, cart } = useCartContext();
   const [clientSecret, setClientSecret] = useState("");
   const [stripeTotal, setStripeTotal] = useState(0);
+  const [orderDetails, setOrderDetails] = useState();
 
   const getPaymentIntent = async () => {
     try {
       let res = await axios.post("/api/checkout-sessions", {
         cartItems: cart,
       });
-
-      setClientSecret(res.data.client_secret);
-      setStripeTotal(res.data.amount / 100);
+      setOrderDetails(res.data);
+      setClientSecret(res.data.clientSecret);
+      setStripeTotal(res.data.total);
+      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
@@ -43,7 +45,11 @@ const CheckoutPage: NextPage = () => {
       <PageTitle title={"checkout"} />
       <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
       <Elements stripe={stripePromise} options={{ clientSecret }}>
-        <CheckoutForm clientSecret={clientSecret} stripeTotal={stripeTotal} />
+        <CheckoutForm
+          orderDetails={orderDetails}
+          clientSecret={clientSecret}
+          stripeTotal={stripeTotal}
+        />
       </Elements>
     </main>
   );

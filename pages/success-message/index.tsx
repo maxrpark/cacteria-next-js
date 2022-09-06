@@ -1,8 +1,13 @@
 import type { NextPage } from "next";
 import { GetServerSideProps } from "next";
-import { useGlobalContext } from "../../context";
+import { useGlobalContext, useCartContext } from "../../context";
 const SuccessMessagePage: NextPage = () => {
   const { clearCookies } = useGlobalContext();
+  const { clearCart } = useCartContext();
+  const handleClick = () => {
+    clearCookies();
+    clearCart();
+  };
 
   return (
     <main className='container page-height d-flex flex-column justify-content-center'>
@@ -12,7 +17,7 @@ const SuccessMessagePage: NextPage = () => {
           Please check your email, to see your purchase details.
         </p>
 
-        <button onClick={clearCookies} className='btn btn-secondary mt-2'>
+        <button onClick={handleClick} className='btn btn-secondary mt-2'>
           Back Home
         </button>
       </div>

@@ -1,5 +1,5 @@
 import { AdminProvider, useAdminContext } from "./useAdminContext";
-import { CartProvider } from "./useCartContext";
+import { CartProvider, useCartContext } from "./useCartContext";
 import { GlobalProvider, useGlobalContext } from "./useGlobalContext";
 
 export {
@@ -8,4 +8,5 @@ export {
   AdminProvider,
   useAdminContext,
   useGlobalContext,
+  useCartContext,
 };
