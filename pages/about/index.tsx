@@ -1,7 +1,18 @@
 import type { NextPage } from "next";
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
+const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
+gsap.registerPlugin(ScrollTrigger);
+
 import { PageTitle, SectionTitle, Testimonials } from "../../components";
 
 const About: NextPage = () => {
+  useEffect(() => {
+    return () => {
+      ScrollTrigger.getAll().forEach((t: any) => t.kill());
+    };
+  }, []);
   return (
     <main className='container page-height'>
       <PageTitle title='about' />

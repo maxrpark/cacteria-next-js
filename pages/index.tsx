@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../ts/interfaces/interfaces";
+import { gsap } from "gsap";
+const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
+gsap.registerPlugin(ScrollTrigger);
+
 import {
   FeaturedProduct,
   HeroHome,
@@ -16,6 +21,12 @@ interface Props {
 }
 
 const HomePage: NextPage<Props> = ({ featuredProducts }) => {
+  useEffect(() => {
+    return () => {
+      ScrollTrigger.getAll().forEach((t: any) => t.kill());
+    };
+  }, []);
+
   return (
     <div>
       <HeroHome />
