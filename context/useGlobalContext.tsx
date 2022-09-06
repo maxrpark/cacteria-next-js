@@ -104,6 +104,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
         total_amount: total,
         cart_items,
       });
+      router.replace("/success-message");
 
       dispatch({
         type: ActionsType.ORDER_SUCCESS,

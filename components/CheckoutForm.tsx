@@ -54,7 +54,7 @@ const CheckoutForm: React.FC<Props> = ({ clientSecret, stripeTotal }) => {
           setMessage("Payment succeeded! Soon you will be redirected");
           setTimeout(() => {
             clearCart();
-            router.replace("/success-message");
+            // router.replace("/success-message");
           }, 2000);
 
           break;
