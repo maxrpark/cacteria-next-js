@@ -16,8 +16,8 @@
 - [x] Contact layout
 - [ ] Notification Component
 - [ ] Contact form create api
-- [ ] Navbar
-- [ ] Footer
+- [x] Navbar
+- [x] Footer
 - [ ] Protected routes (success page and checkout)
 
 ### Home Page
@@ -72,4 +72,3 @@
 
 - [ ] Create layout
 - [ ] See purchases
-- [ ] See list of user
