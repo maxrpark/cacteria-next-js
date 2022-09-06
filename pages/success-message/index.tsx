@@ -1,7 +1,9 @@
 import type { NextPage } from "next";
-import Link from "next/link";
-
+import { GetServerSideProps } from "next";
+import { useGlobalContext } from "../../context";
 const SuccessMessagePage: NextPage = () => {
+  const { clearCookies } = useGlobalContext();
+
   return (
     <main className='container page-height d-flex flex-column justify-content-center'>
       <div className='text-center'>
@@ -9,12 +11,29 @@ const SuccessMessagePage: NextPage = () => {
         <p className='lead'>
           Please check your email, to see your purchase details.
         </p>
-        <Link href={"/"}>
-          <button className='btn btn-secondary mt-2'>Back Home</button>
-        </Link>
+
+        <button onClick={clearCookies} className='btn btn-secondary mt-2'>
+          Back Home
+        </button>
       </div>
     </main>
   );
 };
 
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const orderSucceeded = req.cookies.isOrderCompleted;
+
+  if (orderSucceeded !== "isCompleted") {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/",
+      },
+      props: {},
+    };
+  }
+  return {
+    props: {},
+  };
+};
 export default SuccessMessagePage;

@@ -1,6 +1,7 @@
 import React, { FC, useContext, useReducer } from "react";
 import axios from "axios";
 import global_reducer from "../reducers/global_reducer";
+import { useRouter } from "next/router";
 import {
   newsletterFieldsInt,
   costumerCheckoutInfoInt,
@@ -11,21 +12,26 @@ import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
 import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
 
+import Cookies from "js-cookie";
+
 type Props = {
   children: React.ReactNode;
 };
 interface globalContextInterface {
   isLoading: boolean;
+  orderSucceeded: boolean;
   newsLetterFormValues: newsletterFieldsInt;
   costumerCheckoutInfo: costumerCheckoutInfoInt;
   contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
   createOrder: (total: number, cart_items: CartItemInt[]) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
+  clearCookies: () => void;
 }
 
 const initialState: GlobalInitialState = {
   isLoading: false,
+  orderSucceeded: false,
   newsLetterFormValues: {
     name: "",
     email: "",
@@ -49,6 +55,8 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     global_reducer,
     initialState as GlobalInitialState
   );
+
+  const router = useRouter();
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
     const payload: HandleFormInt = {
@@ -90,23 +98,36 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
         total,
         cart_items,
       });
-
+      Cookies.set("isOrderCompleted", "isCompleted");
       await axios.post("/api/success-purchase", {
         costumer_details: state.costumerCheckoutInfo,
         total_amount: total,
         cart_items,
       });
-      // dispatch({
-      //   type: ActionsType.ORDER_SUCCESS,
-      // });
+
+      dispatch({
+        type: ActionsType.ORDER_SUCCESS,
+      });
     } catch (error) {
       console.log(error);
     }
   };
 
+  const clearCookies = () => {
+    Cookies.remove("isOrderCompleted");
+    Cookies.remove("canCheckOut");
+    router.push("/");
+  };
+
   return (
     <GlobalContext.Provider
-      value={{ ...state, subscribeToNewsletter, handleFormChange, createOrder }}
+      value={{
+        ...state,
+        subscribeToNewsletter,
+        handleFormChange,
+        createOrder,
+        clearCookies,
+      }}
     >
       {children}
     </GlobalContext.Provider>

@@ -4,7 +4,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
-import { NextPage } from "next";
+import { GetServerSideProps, NextPage } from "next";
 let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const CheckoutPage: NextPage = () => {
@@ -47,6 +47,23 @@ const CheckoutPage: NextPage = () => {
       </Elements>
     </main>
   );
+};
+
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const canUserCheckout = req.cookies.canUserCheckout;
+
+  if (canUserCheckout !== "canCheckout") {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/",
+      },
+      props: {},
+    };
+  }
+  return {
+    props: {},
+  };
 };
 
 export default CheckoutPage;

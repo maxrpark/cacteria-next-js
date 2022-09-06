@@ -3,6 +3,7 @@ import cart_reducer from "../reducers/cart_reducer";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
 import { ActionsType } from "../ts/states/action-types";
 import { CartItemInt } from "../ts/interfaces/interfaces";
+import Cookies from "js-cookie";
 
 let getLocalStorage = () => {
   if (typeof window !== "undefined") {
@@ -28,6 +29,7 @@ interface CartContextInterface {
   addToCart: (product: CartItemInt) => void;
   removeCartItem: (id: string) => void;
   toggleItemAmount: (id: string, type: string) => void;
+  clearCookies: () => void;
   clearCart: () => void;
 }
 
@@ -47,6 +49,11 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   );
 
   const addToCart = (product: CartItemInt) => {
+    if (state.cart.length === 0) {
+      Cookies.set("canUserCheckout", "canCheckout");
+    }
+    console.log(state.cart.length);
+
     dispatch({
       type: ActionsType.ADD_TO_CART,
       payload: {
@@ -73,7 +80,10 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     dispatch({
       type: ActionsType.CLEAR_CART,
     });
+    clearCookies();
   };
+
+  const clearCookies = () => Cookies.remove("canUserCheckout");
 
   useEffect(() => {
     dispatch({ type: ActionsType.COUNT_CART_TOTALS });
@@ -88,6 +98,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
         removeCartItem,
         toggleItemAmount,
         clearCart,
+        clearCookies,
       }}
     >
       {children}

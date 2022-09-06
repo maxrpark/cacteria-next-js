@@ -26,6 +26,11 @@ const global_reducer = (
         ...state,
         isLoading: true,
       };
+    case ActionsType.ORDER_SUCCESS:
+      return {
+        ...state,
+        orderSucceeded: true,
+      };
     case ActionsType.NEWSLETTER_SUBSCRIPTION_SUCCESS:
       return {
         ...state,

@@ -18,7 +18,7 @@
 - [ ] Contact form create api
 - [x] Navbar
 - [x] Footer
-- [ ] Protected routes (success page and checkout)
+- [x] Protected routes (success page and checkout)
 
 ### Home Page
 

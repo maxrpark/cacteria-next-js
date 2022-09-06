@@ -6,13 +6,19 @@ import { PageTitle, CartItem, CartTotal } from "../../components";
 import { CartItemInt } from "../../ts/interfaces/interfaces";
 
 const CartPage: NextPage = () => {
-  const { cart, total_amount } = useCartContext();
+  const { cart, total_amount, clearCookies } = useCartContext();
   const [cartItems, setCartItems] = useState() as any;
 
   useEffect(() => {
     setCartItems(cart);
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  useEffect(() => {
+    if (cart.length === 0) {
+      clearCookies();
+    }
+  }, [cart]);
 
   if (!cartItems) {
     return (
