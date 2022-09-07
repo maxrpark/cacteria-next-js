@@ -72,7 +72,15 @@
 
 - [x] Create layout
 - [x] See purchases
+- [ ] Styles modal
+- [ ] Styles orders
 
 ## extras
 
+- [x] Add types useGlobal create order
+- [x] Add types useGlobal create order
+- [x] Add types useGlobal create order
+- [ ] Login message
+- [ ] Subscribe message
+- [ ] Subscribe message
 - [x] Add types useGlobal create order
