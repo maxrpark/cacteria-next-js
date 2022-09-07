@@ -22,10 +22,17 @@ const admin_reducer = (
         ...state,
         isLoading: false,
       };
-    case ActionsType.SET_ADMIN_SELECTED_ORDER:
+    case ActionsType.SHOW_ORDER_MODAL:
       return {
         ...state,
         selectedOrder: action.payload,
+        showOrderModal: true,
+      };
+    case ActionsType.HIDE_ORDER_MODAL:
+      return {
+        ...state,
+        selectedOrder: null,
+        showOrderModal: false,
       };
     default:
       return state;

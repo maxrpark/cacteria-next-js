@@ -1,12 +1,23 @@
+import { useAdminContext } from "../../context";
+import ModalContent from "./ModalContent";
+
 const OrderModal: React.FC = () => {
+  const { showOrderModal, closeOrderModal } = useAdminContext();
   return (
-    <div className='d-none'>
-      <div
-        style={{ background: "rgba(0,0,0, 0.5)" }}
-        className='position-fixed h-100 w-100 top-0 left-0 d-flex justify-content-center align-items-center'
+    <div
+      className={`${showOrderModal ? "d-block" : "d-none"} position-relative`}
+    >
+      <button
+        onClick={closeOrderModal}
+        style={{ zIndex: 1, top: "20px", right: "50px" }}
+        type='button'
+        className='close position-fixed bg-transparent border-0'
       >
-        <div className='bg-white opacity-100  position-relative'>Hello</div>
-      </div>
+        <span className='display-4 text-light' aria-hidden='true'>
+          &times;
+        </span>
+      </button>
+      <ModalContent />
     </div>
   );
 };

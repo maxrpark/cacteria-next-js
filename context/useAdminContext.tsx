@@ -30,15 +30,18 @@ interface UserPayload {
 
 interface AdminContextInterface {
   isLoading: boolean;
+  showOrderModal: boolean;
   user: UserPayload | undefined;
   selectedOrder: OrderInterface | null;
   checkSession: () => void;
   handleLogIn: (userCredentials: userCredentialsInt) => void;
   showSelectedOrder: (order: OrderInterface) => void;
+  closeOrderModal: () => void;
 }
 
 const initialState: AdminInitialState = {
   isLoading: false,
+  showOrderModal: false,
   user: undefined,
   selectedOrder: null,
 };
@@ -79,8 +82,13 @@ export const AdminProvider: FC<Props> = ({ children }) => {
 
   const showSelectedOrder = (order: OrderInterface) => {
     dispatch({
-      type: ActionsType.SET_ADMIN_SELECTED_ORDER,
+      type: ActionsType.SHOW_ORDER_MODAL,
       payload: order,
+    });
+  };
+  const closeOrderModal = () => {
+    dispatch({
+      type: ActionsType.HIDE_ORDER_MODAL,
     });
   };
 
@@ -91,7 +99,13 @@ export const AdminProvider: FC<Props> = ({ children }) => {
 
   return (
     <AdminContext.Provider
-      value={{ ...state, checkSession, handleLogIn, showSelectedOrder }}
+      value={{
+        ...state,
+        checkSession,
+        handleLogIn,
+        showSelectedOrder,
+        closeOrderModal,
+      }}
     >
       {children}
     </AdminContext.Provider>

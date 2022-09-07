@@ -12,13 +12,17 @@ interface CHECK_USER_START {
 interface CHECK_USER_END {
   type: ActionsType.CHECK_USER_END;
 }
-interface SET_ADMIN_SELECTED_ORDER {
-  type: ActionsType.SET_ADMIN_SELECTED_ORDER;
+interface SHOW_ORDER_MODAL {
+  type: ActionsType.SHOW_ORDER_MODAL;
   payload: OrderInterface;
+}
+interface HIDE_ORDER_MODAL {
+  type: ActionsType.HIDE_ORDER_MODAL;
 }
 
 export type Actions =
   | SET_USER
   | CHECK_USER_START
   | CHECK_USER_END
-  | SET_ADMIN_SELECTED_ORDER;
+  | SHOW_ORDER_MODAL
+  | HIDE_ORDER_MODAL;
