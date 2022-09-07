@@ -6,7 +6,7 @@ import {
   newsletterFieldsInt,
   costumerCheckoutInfoInt,
   contactFormInfoInt,
-  CartItemInt,
+  OrderInterface,
 } from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
@@ -24,7 +24,7 @@ interface globalContextInterface {
   costumerCheckoutInfo: costumerCheckoutInfoInt;
   contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
-  createOrder: (cart_items: any) => void;
+  createOrder: (cart_items: OrderInterface) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
   clearCookies: () => void;
 }
@@ -91,18 +91,23 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     }
   };
 
-  const createOrder = async (orderDetails: any) => {
+  const createOrder = async (orderDetails: OrderInterface) => {
     try {
       await axios.post("/api/create-order", {
-        costumer_details: state.costumerCheckoutInfo,
         ...orderDetails,
+        costumer_details: state.costumerCheckoutInfo,
       });
-      Cookies.set("isOrderCompleted", "isCompleted");
-      await axios.post("/api/success-purchase", {
+
+      // set cookies for sending email in success-message page
+      const order_details_confirmation = {
         costumer_details: state.costumerCheckoutInfo,
         total_amount: orderDetails.total,
         cart_items: orderDetails.cart_items,
-      });
+      };
+      Cookies.set(
+        "isOrderCompleted",
+        JSON.stringify(order_details_confirmation)
+      );
       router.replace("/success-message");
 
       dispatch({
@@ -117,7 +122,6 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     Cookies.remove("isOrderCompleted");
     Cookies.remove("canCheckOut");
     router.push("/");
-    console.log("hye");
   };
 
   return (

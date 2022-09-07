@@ -1,13 +1,24 @@
+import axios from "axios";
 import type { NextPage } from "next";
 import { GetServerSideProps } from "next";
 import { useGlobalContext, useCartContext } from "../../context";
-const SuccessMessagePage: NextPage = () => {
+import { useEffect } from "react";
+
+interface Props {
+  sendEmailResponse: string;
+}
+const SuccessMessagePage: NextPage<Props> = ({ sendEmailResponse }) => {
+  console.log(sendEmailResponse);
+
   const { clearCookies } = useGlobalContext();
   const { clearCart } = useCartContext();
   const handleClick = () => {
     clearCookies();
-    clearCart();
   };
+
+  useEffect(() => {
+    clearCart();
+  }, []);
 
   return (
     <main className='container page-height d-flex flex-column justify-content-center'>
@@ -28,7 +39,7 @@ const SuccessMessagePage: NextPage = () => {
 export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   const orderSucceeded = req.cookies.isOrderCompleted;
 
-  if (orderSucceeded !== "isCompleted") {
+  if (!orderSucceeded) {
     return {
       redirect: {
         permanent: true,
@@ -37,8 +48,15 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
       props: {},
     };
   }
+  const orderDetails = JSON.parse(orderSucceeded);
+  const res = await axios.post("http://localhost:3000/api/success-purchase", {
+    ...orderDetails,
+  });
+
   return {
-    props: {},
+    props: {
+      sendEmailResponse: await res.data.msg,
+    },
   };
 };
 export default SuccessMessagePage;

@@ -75,4 +75,4 @@
 
 ## extras
 
-- [ ] Add types useGlobal create order
+- [x] Add types useGlobal create order

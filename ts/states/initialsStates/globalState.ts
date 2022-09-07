@@ -2,6 +2,7 @@ import {
   newsletterFieldsInt,
   costumerCheckoutInfoInt,
   contactFormInfoInt,
+  OrderInterface,
 } from "../../interfaces";
 
 export interface GlobalInitialState {

@@ -49,9 +49,9 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
   );
 
   const addToCart = (product: CartItemInt) => {
-    if (state.cart.length === 0) {
-      Cookies.set("canUserCheckout", "canCheckout");
-    }
+    // if (state.cart.length === 0) {
+    Cookies.set("canUserCheckout", "canCheckout");
+    // }
     console.log(state.cart.length);
 
     dispatch({

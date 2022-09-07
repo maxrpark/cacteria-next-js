@@ -11,7 +11,6 @@ const CartPage: NextPage = () => {
 
   useEffect(() => {
     setCartItems(cart);
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   useEffect(() => {
