@@ -5,7 +5,7 @@ const OrderModal: React.FC = () => {
   const { showOrderModal, closeOrderModal } = useAdminContext();
   return (
     <div
-      className={`${showOrderModal ? "d-block" : "d-none"} position-relative`}
+      className={`${showOrderModal ? "d-block" : "d-none"} position-relative `}
     >
       <button
         onClick={closeOrderModal}

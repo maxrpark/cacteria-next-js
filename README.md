@@ -72,8 +72,8 @@
 
 - [x] Create layout
 - [x] See purchases
-- [ ] Styles modal
-- [ ] Styles orders
+- [x] Styles modal
+- [x] Styles orders
 
 ## extras
 

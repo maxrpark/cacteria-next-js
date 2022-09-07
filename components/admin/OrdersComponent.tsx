@@ -8,35 +8,37 @@ interface Props {
 const OrdersComponent: React.FC<Props> = ({ orders }) => {
   const { showSelectedOrder } = useAdminContext();
   return (
-    <>
-      <div className='d-flex justify-content-between'>
-        <p>Name</p>
-        <p>Total</p>
-        <p>Date</p>
-        <p>Details</p>
+    <section style={{ maxWidth: "960px" }} className='m-auto'>
+      <h2 className='mt-3 '>Orders</h2>
+      <hr className='m-0 mb-3' />
+      <div className='row justify-content-between text-center'>
+        <p className='col-4 text-start'>Name</p>
+        <p className='col-3 d-none d-md-block'>Date</p>
+        <p className='col-3'>Total</p>
+        <p className='col-2'>Details</p>
       </div>
       {orders.map((order: OrderInterface) => {
         const createdAtFormatted = moment(order.createdAt).format("MMM Do YY");
         return (
           <div
             key={order._id}
-            className='d-flex justify-content-between align-items-center'
+            className='row justify-content-between align-items-center my-2 text-center'
           >
-            <p className='m-0'>{order.costumer_details.name}</p>
-            <p className='m-0'>{order.total}</p>
-            <p className='m-0'>{createdAtFormatted}</p>
+            <p className='col-4 text-start'>{order.costumer_details.name}</p>
+            <p className='col-3 d-none d-md-block '>{createdAtFormatted}</p>
+            <p className='col-3 '>${order.total}</p>
             <button
               onClick={() =>
                 showSelectedOrder({ ...order, createdAt: createdAtFormatted })
               }
-              className='btn btn-outline-secondary btn-sm'
+              className='col-2 btn btn-outline-secondary btn-sm'
             >
               More
             </button>
           </div>
         );
       })}
-    </>
+    </section>
   );
 };
 

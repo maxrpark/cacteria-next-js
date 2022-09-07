@@ -20,8 +20,6 @@ const AdminPage: NextPage<Props> = ({ user, orders }) => {
           Logout
         </button>
       </div>
-      <h2 className='mt-3'>Orders</h2>
-      <hr className='m-0 mb-3' />
       <OrdersComponent orders={orders} />
       <OrderModal />
     </main>

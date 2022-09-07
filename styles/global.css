@@ -27,6 +27,11 @@ a:hover {
   min-height: 90vh;
 }
 
+.order-admin-modal {
+  min-width: 50px;
+  text-align: center;
+}
+
 /* COMPANY DETAILS */
 
 .details-container {
