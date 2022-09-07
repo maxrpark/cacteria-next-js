@@ -51,7 +51,7 @@ const LoginForm: React.FC = () => {
             e.preventDefault();
             handleLogIn(userCredentials);
           }}
-          className='btn btn-outline-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold'
+          className='btn btn-secondary  text-capitalize px-4 mt-2 me-md-2 fw-bold w-100'
         >
           {isLoading ? (
             <span

@@ -70,8 +70,8 @@
 
 ### Admin dashboard
 
-- [ ] Create layout
-- [ ] See purchases
+- [x] Create layout
+- [x] See purchases
 
 ## extras
 

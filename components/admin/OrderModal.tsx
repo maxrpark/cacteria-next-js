@@ -9,7 +9,7 @@ const OrderModal: React.FC = () => {
     >
       <button
         onClick={closeOrderModal}
-        style={{ zIndex: 1, top: "20px", right: "50px" }}
+        style={{ zIndex: 1, top: "10px", right: "20px" }}
         type='button'
         className='close position-fixed bg-transparent border-0'
       >

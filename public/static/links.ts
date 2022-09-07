@@ -9,6 +9,7 @@ export const navLinks = [
   { id: 2, name: "products", href: "/products" },
   { id: 3, name: "about", href: "/about" },
   { id: 4, name: "contact", href: "/contact" },
+  { id: 5, name: "admin", href: "/admin" },
 ];
 
 export const footerLinks = [

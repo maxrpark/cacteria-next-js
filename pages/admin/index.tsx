@@ -13,11 +13,15 @@ interface Props {
 }
 const AdminPage: NextPage<Props> = ({ user, orders }) => {
   return (
-    <main className='page-height'>
-      <h2>Hello {user!.name}</h2>
-      <button onClick={() => signOut()} className='btn btn-secondary'>
-        logout
-      </button>
+    <main className='page-height container'>
+      <div className='d-flex justify-content-between gap-2 p-3 my-1'>
+        <h2 className='m-0 text-center w-100'>Hello {user!.name}</h2>
+        <button onClick={() => signOut()} className='btn btn-dark btn-sm'>
+          Logout
+        </button>
+      </div>
+      <h2 className='mt-3'>Orders</h2>
+      <hr className='m-0 mb-3' />
       <OrdersComponent orders={orders} />
       <OrderModal />
     </main>

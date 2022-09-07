@@ -24,7 +24,7 @@ export interface OrderInterface {
   cart_items: CartItemInt[];
   costumer_details: costumerCheckoutInfoInt;
   status: string;
-  createAt?: string;
+  createdAt?: string;
 }
 
 export interface productFields {
