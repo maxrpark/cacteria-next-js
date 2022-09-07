@@ -22,6 +22,11 @@ const admin_reducer = (
         ...state,
         isLoading: false,
       };
+    case ActionsType.SET_ADMIN_SELECTED_ORDER:
+      return {
+        ...state,
+        selectedOrder: action.payload,
+      };
     default:
       return state;
   }

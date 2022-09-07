@@ -35,14 +35,6 @@ const CartItemsSchema = new Schema<CartItemInt>({
   },
 });
 
-// interface OrderInterface extends Document {
-//   // total: number;
-//   // hasDiscount: boolean;
-//   // cart_items: CartItemInt[];
-//   // costumer_details: costumerCheckoutInfoInt;
-//   // status: string;
-// }
-
 type OrderISchemaInt = OrderInterface & Document;
 
 const OrderSchema = new Schema<OrderISchemaInt>(

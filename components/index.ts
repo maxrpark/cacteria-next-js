@@ -33,6 +33,8 @@ import Filters from "./product/Filters";
 // Admin
 
 import LoginForm from "./admin/LoginForm";
+import OrdersComponent from "./admin/OrdersComponent";
+import OrderModal from "./admin/OrderModal";
 
 // Layouts
 import ProductLayout from "./layouts/ProductLayout";
@@ -61,4 +63,6 @@ export {
   Filters,
   ProductLayout,
   LoginForm,
+  OrdersComponent,
+  OrderModal,
 };

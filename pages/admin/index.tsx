@@ -5,6 +5,8 @@ import Order from "../../backend/models/Orders";
 import { signOut, getSession } from "next-auth/react";
 import { OrderInterface } from "../../ts/interfaces/interfaces";
 
+import { OrdersComponent, OrderModal } from "../../components";
+
 interface Props {
   user: any;
   orders: OrderInterface[];
@@ -16,13 +18,8 @@ const AdminPage: NextPage<Props> = ({ user, orders }) => {
       <button onClick={() => signOut()} className='btn btn-secondary'>
         logout
       </button>
-      {orders.map((order: OrderInterface) => {
-        return (
-          <div key={order._id}>
-            <div>{order.costumer_details.name}</div>
-          </div>
-        );
-      })}
+      <OrdersComponent orders={orders} />
+      <OrderModal />
     </main>
   );
 };

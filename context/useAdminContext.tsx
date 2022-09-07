@@ -11,6 +11,7 @@ import admin_reducer from "../reducers/admin_reducer";
 import { ActionsType } from "../ts/states/action-types";
 import { AdminInitialState } from "../ts/states/initialsStates";
 import { useRouter } from "next/router";
+import { OrderInterface } from "../ts/interfaces/interfaces";
 
 type Props = {
   children: ReactNode;
@@ -30,13 +31,16 @@ interface UserPayload {
 interface AdminContextInterface {
   isLoading: boolean;
   user: UserPayload | undefined;
+  selectedOrder: OrderInterface | null;
   checkSession: () => void;
   handleLogIn: (userCredentials: userCredentialsInt) => void;
+  showSelectedOrder: (order: OrderInterface) => void;
 }
 
 const initialState: AdminInitialState = {
   isLoading: false,
   user: undefined,
+  selectedOrder: null,
 };
 
 const AdminContext = createContext({} as AdminContextInterface);
@@ -73,13 +77,22 @@ export const AdminProvider: FC<Props> = ({ children }) => {
     }
   };
 
+  const showSelectedOrder = (order: OrderInterface) => {
+    dispatch({
+      type: ActionsType.SET_ADMIN_SELECTED_ORDER,
+      payload: order,
+    });
+  };
+
   useEffect(() => {
     checkSession();
     console.log(state.user);
   }, []);
 
   return (
-    <AdminContext.Provider value={{ ...state, checkSession, handleLogIn }}>
+    <AdminContext.Provider
+      value={{ ...state, checkSession, handleLogIn, showSelectedOrder }}
+    >
       {children}
     </AdminContext.Provider>
   );
