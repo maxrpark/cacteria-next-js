@@ -10,8 +10,6 @@ interface Props {
   orders: OrderInterface[];
 }
 const AdminPage: NextPage<Props> = ({ user, orders }) => {
-  console.log(orders);
-
   return (
     <main className='page-height'>
       <h2>Hello {user!.name}</h2>
@@ -19,7 +17,11 @@ const AdminPage: NextPage<Props> = ({ user, orders }) => {
         logout
       </button>
       {orders.map((order: OrderInterface) => {
-        return <div key={order._id}>{order.costumer_details.name}</div>;
+        return (
+          <div key={order._id}>
+            <div>{order.costumer_details.name}</div>
+          </div>
+        );
       })}
     </main>
   );

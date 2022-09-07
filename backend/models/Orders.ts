@@ -45,23 +45,28 @@ const CartItemsSchema = new Schema<CartItemInt>({
 
 type OrderISchemaInt = OrderInterface & Document;
 
-const OrderSchema = new Schema<OrderISchemaInt>({
-  total: {
-    type: Number,
-    required: true,
+const OrderSchema = new Schema<OrderISchemaInt>(
+  {
+    total: {
+      type: Number,
+      required: true,
+    },
+    hasDiscount: {
+      type: Boolean,
+      default: false,
+    },
+    status: {
+      type: String,
+      enum: ["pending", "success", "canceled"],
+      default: "pending",
+    },
+    cart_items: [CartItemsSchema],
+    costumer_details: CostumerCheckOutSchema,
   },
-  hasDiscount: {
-    type: Boolean,
-    default: false,
-  },
-  status: {
-    type: String,
-    enum: ["pending", "success", "canceled"],
-    default: "pending",
-  },
-  cart_items: [CartItemsSchema],
-  costumer_details: CostumerCheckOutSchema,
-});
+  {
+    timestamps: true,
+  }
+);
 
 let Order: mongoose.Model<OrderISchemaInt>;
 try {
