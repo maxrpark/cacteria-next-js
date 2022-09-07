@@ -1,9 +1,7 @@
 import { useAdminContext } from "../../context";
-import { CartItemInt } from "../../ts/interfaces";
 
 const ModalContent: React.FC = () => {
   const { selectedOrder } = useAdminContext();
-  console.log(selectedOrder);
 
   return (
     <div

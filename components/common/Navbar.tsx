@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 const Navbar: React.FC = () => {
   const router = useRouter();
   const { total_items } = useCartContext();
-  console.log(router.pathname);
 
   return (
     <>

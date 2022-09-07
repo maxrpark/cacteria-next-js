@@ -52,7 +52,6 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     // if (state.cart.length === 0) {
     Cookies.set("canUserCheckout", "canCheckout");
     // }
-    console.log(state.cart.length);
 
     dispatch({
       type: ActionsType.ADD_TO_CART,

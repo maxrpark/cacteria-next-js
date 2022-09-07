@@ -8,8 +8,6 @@ interface Props {
   sendEmailResponse: string;
 }
 const SuccessMessagePage: NextPage<Props> = ({ sendEmailResponse }) => {
-  console.log(sendEmailResponse);
-
   const { clearCookies } = useGlobalContext();
   const { clearCart } = useCartContext();
   const handleClick = () => {
@@ -49,9 +47,12 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
     };
   }
   const orderDetails = JSON.parse(orderSucceeded);
-  const res = await axios.post("http://localhost:3000/api/success-purchase", {
-    ...orderDetails,
-  });
+  const res = await axios.post(
+    "https://cacteria-next-js.vercel.app/api/success-purchase",
+    {
+      ...orderDetails,
+    }
+  );
 
   return {
     props: {

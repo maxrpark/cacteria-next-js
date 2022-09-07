@@ -38,8 +38,6 @@ export default async function handler(
       const payment_intent: Stripe.PaymentIntent =
         await stripe.paymentIntents.create(params);
 
-      console.log();
-
       const intent = {
         clientSecret: payment_intent.client_secret,
         total: payment_intent.amount / 100,

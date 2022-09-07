@@ -44,13 +44,10 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
             }
             return { ...item, amount: newAmount };
           }
-          console.log(item);
         }
 
         return { ...item };
       });
-
-      console.log(updatedCart);
 
       return { ...state, cart: updatedCart };
 
