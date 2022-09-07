@@ -28,7 +28,7 @@ const ModalContent: React.FC = () => {
         </div>
         {selectedOrder?.cart_items.map((item) => {
           return (
-            <div className='d-flex justify-content-between'>
+            <div key={item.id} className='d-flex justify-content-between'>
               <p style={{ minWidth: "50px" }} className='text-center'>
                 {item.name}
               </p>
