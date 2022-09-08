@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { FormRow } from "../";
-import { useAdminContext } from "../../context";
+import { AlertMessage, FormRow } from "../";
+import { useAdminContext, useGlobalContext } from "../../context";
 import { LoginFormInt } from "../../ts/interfaces/formInterfaces";
-
+const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const loginData: LoginFormInt = {
   email: "",
   password: "",
@@ -11,6 +11,22 @@ const loginData: LoginFormInt = {
 const LoginForm: React.FC = () => {
   const [userCredentials, setUserCredentials] = useState(loginData);
   const { handleLogIn, isLoading } = useAdminContext();
+  const { alertMessageFunc, alertMessage } = useGlobalContext();
+
+  const handleFormSubmit = async () => {
+    if (!userCredentials.email || !userCredentials.password) {
+      alertMessageFunc("Please provide all values", "danger");
+
+      return;
+    } else if (!regex.test(userCredentials.email)) {
+      alertMessageFunc("Please enter a valid email", "danger");
+      return;
+    }
+    const res = await handleLogIn(userCredentials);
+    if (res.status === 401) {
+      alertMessageFunc(res.error, "danger");
+    }
+  };
 
   const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const name = e.target.name;
@@ -45,11 +61,12 @@ const LoginForm: React.FC = () => {
             />
           </div>
         </div>
+        {alertMessage.message && <AlertMessage {...alertMessage} />}
         <button
           type='submit'
           onClick={(e) => {
             e.preventDefault();
-            handleLogIn(userCredentials);
+            handleFormSubmit();
           }}
           className='btn btn-secondary  text-capitalize px-4 mt-2 me-md-2 fw-bold w-100'
         >

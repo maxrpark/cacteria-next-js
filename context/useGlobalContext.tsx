@@ -31,6 +31,7 @@ interface globalContextInterface {
   createOrder: (cart_items: OrderInterface) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
   clearCookies: () => void;
+  alertMessageFunc: (message: string, type: string) => void;
 }
 
 const initialState: GlobalInitialState = {
@@ -165,6 +166,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
         handleFormChange,
         createOrder,
         clearCookies,
+        alertMessageFunc,
       }}
     >
       {children}

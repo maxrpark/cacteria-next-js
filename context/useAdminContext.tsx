@@ -34,7 +34,7 @@ interface AdminContextInterface {
   user: UserPayload | undefined;
   selectedOrder: OrderInterface | null;
   checkSession: () => void;
-  handleLogIn: (userCredentials: userCredentialsInt) => void;
+  handleLogIn: (userCredentials: userCredentialsInt) => any;
   showSelectedOrder: (order: OrderInterface) => void;
   closeOrderModal: () => void;
 }
@@ -78,6 +78,7 @@ export const AdminProvider: FC<Props> = ({ children }) => {
       router.push("/admin");
       checkSession();
     }
+    return res;
   };
 
   const showSelectedOrder = (order: OrderInterface) => {
