@@ -10,8 +10,8 @@ const FeaturedProduct: React.FC<Props> = ({ product }) => {
   const { name, url, desc, id } = product;
 
   return (
-    <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4'>
-      <div className='card w-100 h-100'>
+    <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4 '>
+      <div className='card w-100 h-100 cursor'>
         <Image
           priority
           src={url}

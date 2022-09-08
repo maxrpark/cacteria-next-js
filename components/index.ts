@@ -41,6 +41,7 @@ import ProductLayout from "./layouts/ProductLayout";
 
 // iu
 import AlertMessage from "./ui/AlertMessage";
+import CartIcon from "./ui/CartIcon";
 
 export {
   Navbar,
@@ -69,4 +70,5 @@ export {
   OrdersComponent,
   OrderModal,
   AlertMessage,
+  CartIcon,
 };

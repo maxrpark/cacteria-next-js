@@ -1,10 +1,10 @@
 import Link from "next/link";
-import { useCartContext } from "../../context/useCartContext";
 import { navLinks } from "../../public/static/links";
 import { useRouter } from "next/router";
+
+import CartIcon from "../ui/CartIcon";
 const Navbar: React.FC = () => {
   const router = useRouter();
-  const { total_items } = useCartContext();
 
   return (
     <>
@@ -52,6 +52,7 @@ const Navbar: React.FC = () => {
                 );
               })}
             </ul>
+            <CartIcon />
           </div>
         </div>
       </nav>

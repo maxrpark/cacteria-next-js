@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
         <iframe
           src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d194355.24797206852!2d-104.56681764188923!3d28.482651393505257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x84043a3b88685353%3A0xed64b4be6b099811!2zTcOpeGljbw!5e0!3m2!1ses-419!2skr!4v1659585952588!5m2!1ses-419!2skr'
           width='100%'
-          height='450'
+          height='490'
           style={{ border: "0" }}
           loading='lazy'
           referrerPolicy='no-referrer-when-downgrade'
