@@ -57,3 +57,8 @@ export interface UserInt {
   passwordToken: string;
   passwordTokenExpirationDate: Date;
 }
+
+export interface AlertMessageInt {
+  message: string;
+  type: string;
+}

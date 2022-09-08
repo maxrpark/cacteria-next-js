@@ -7,6 +7,7 @@ import {
   costumerCheckoutInfoInt,
   contactFormInfoInt,
   OrderInterface,
+  AlertMessageInt,
 } from "../ts/interfaces";
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
@@ -14,11 +15,14 @@ import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
 
 import Cookies from "js-cookie";
 
+const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Props = {
   children: React.ReactNode;
 };
 interface globalContextInterface {
   isLoading: boolean;
+  showMessage: boolean;
+  alertMessage: AlertMessageInt;
   orderSucceeded: boolean;
   newsLetterFormValues: newsletterFieldsInt;
   costumerCheckoutInfo: costumerCheckoutInfoInt;
@@ -32,6 +36,7 @@ interface globalContextInterface {
 const initialState: GlobalInitialState = {
   isLoading: false,
   orderSucceeded: false,
+  showMessage: false,
   newsLetterFormValues: {
     name: "",
     email: "",
@@ -45,6 +50,10 @@ const initialState: GlobalInitialState = {
     email: "",
     subject: "",
     content: "",
+  },
+  alertMessage: {
+    message: "",
+    type: "",
   },
 };
 
@@ -71,6 +80,15 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
   };
 
   const subscribeToNewsletter = async () => {
+    if (!state.newsLetterFormValues.email || !state.newsLetterFormValues.name) {
+      alertMessageFunc("Please provide all values", "danger");
+
+      return;
+    } else if (!regex.test(state.newsLetterFormValues.email)) {
+      alertMessageFunc("Please enter a valid email", "danger");
+      return;
+    }
+
     dispatch({
       type: ActionsType.FORM_SUBMITTED,
     });
@@ -116,6 +134,21 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const alertMessageFunc = (message: string, type: string) => {
+    dispatch({
+      type: ActionsType.SHOW_ALERT_MESSAGE,
+      payload: {
+        message,
+        type,
+      },
+    });
+    setTimeout(() => {
+      dispatch({
+        type: ActionsType.HIDE_ALERT_MESSAGE,
+      });
+    }, 3000);
   };
 
   const clearCookies = () => {

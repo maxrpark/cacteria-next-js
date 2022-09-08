@@ -3,6 +3,7 @@ import {
   costumerCheckoutInfoInt,
   contactFormInfoInt,
   OrderInterface,
+  AlertMessageInt,
 } from "../../interfaces";
 
 export interface GlobalInitialState {
@@ -11,4 +12,6 @@ export interface GlobalInitialState {
   newsLetterFormValues: newsletterFieldsInt;
   costumerCheckoutInfo: costumerCheckoutInfoInt;
   contactFormValues: contactFormInfoInt;
+  alertMessage: AlertMessageInt;
+  showMessage: boolean;
 }

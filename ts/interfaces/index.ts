@@ -3,7 +3,12 @@ import {
   costumerCheckoutInfoInt,
   contactFormInfoInt,
 } from "./formInterfaces";
-import { CartItemInt, UserInt, OrderInterface } from "./interfaces";
+import {
+  CartItemInt,
+  UserInt,
+  OrderInterface,
+  AlertMessageInt,
+} from "./interfaces";
 
 export type {
   newsletterFieldsInt,
@@ -12,4 +17,5 @@ export type {
   contactFormInfoInt,
   UserInt,
   OrderInterface,
+  AlertMessageInt,
 };

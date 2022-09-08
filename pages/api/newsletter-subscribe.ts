@@ -14,7 +14,7 @@ const subscribeEmail = async (req: NextApiRequest, res: NextApiResponse) => {
     if (!email || !name) {
       return res
         .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: "please provide all values" });
+        .json({ msg: "Please provide all values" });
     }
 
     try {
@@ -34,9 +34,13 @@ const subscribeEmail = async (req: NextApiRequest, res: NextApiResponse) => {
           email,
           code: newDiscount.code,
         });
-        res.status(StatusCodes.OK).json({ msg: "success" });
+        res.status(StatusCodes.OK).json({
+          msg: "You had subscribed to our newsletter, please check your email.",
+        });
       } else {
-        res.status(StatusCodes.BAD_REQUEST).json({ msg: "Already subscribed" });
+        res
+          .status(StatusCodes.BAD_REQUEST)
+          .json({ msg: "You are already already subscribed to this list" });
       }
     } catch (error: any) {
       res.status(StatusCodes.BAD_REQUEST).json({ msg: error.message });

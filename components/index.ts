@@ -39,6 +39,9 @@ import OrderModal from "./admin/OrderModal";
 // Layouts
 import ProductLayout from "./layouts/ProductLayout";
 
+// iu
+import AlertMessage from "./ui/AlertMessage";
+
 export {
   Navbar,
   Footer,
@@ -65,4 +68,5 @@ export {
   LoginForm,
   OrdersComponent,
   OrderModal,
+  AlertMessage,
 };

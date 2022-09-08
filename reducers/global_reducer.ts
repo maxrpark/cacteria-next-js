@@ -45,6 +45,21 @@ const global_reducer = (
         ...state,
         isLoading: false,
       };
+    case ActionsType.SHOW_ALERT_MESSAGE:
+      return {
+        ...state,
+        showMessage: true,
+        alertMessage: action.payload,
+        isLoading: false,
+      };
+    case ActionsType.HIDE_ALERT_MESSAGE:
+      return {
+        ...state,
+        alertMessage: {
+          message: "",
+          type: "",
+        },
+      };
     default:
       return state;
   }
