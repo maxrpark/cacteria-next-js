@@ -46,7 +46,7 @@ const CheckoutPage: NextPage = () => {
       <h2 className='text-center m-3'>Total amount : ${total_amount}</h2>
       <Elements stripe={stripePromise} options={{ clientSecret }}>
         <CheckoutForm
-          orderDetails={orderDetails}
+          orderDetails={orderDetails!}
           clientSecret={clientSecret}
           stripeTotal={stripeTotal}
         />

@@ -40,7 +40,7 @@ const subscribeEmail = async (req: NextApiRequest, res: NextApiResponse) => {
       } else {
         res
           .status(StatusCodes.BAD_REQUEST)
-          .json({ msg: "You are already already subscribed to this list" });
+          .json({ msg: "You are already subscribed to this list" });
       }
     } catch (error: any) {
       res.status(StatusCodes.BAD_REQUEST).json({ msg: error.message });

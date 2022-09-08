@@ -84,7 +84,7 @@
 - [x] Subscribe message
 - [x] Contact message
 - [x] Add types useGlobal create order
-- [ ] Subscribe email api message
-- [ ] Change image
+- [x] Subscribe email api message
+- [x] Change image
 - [ ] Re-organize files
 - [ ] Re-organize interfaces

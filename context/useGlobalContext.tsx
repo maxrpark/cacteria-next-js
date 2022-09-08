@@ -29,7 +29,11 @@ interface globalContextInterface {
   contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
   createOrder: (cart_items: OrderInterface) => void;
-  handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  handleFormChange: (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => void;
   handleContactForm: () => void;
   clearCookies: () => void;
   alertMessageFunc: (message: string, type: string) => void;
@@ -69,7 +73,11 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
 
   const router = useRouter();
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFormChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
     const payload: HandleFormInt = {
       name: e.target.name,
       value: e.target.value,
@@ -103,8 +111,10 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
         type: ActionsType.NEWSLETTER_SUBSCRIPTION_SUCCESS,
       });
       console.log(res);
+      alertMessageFunc(`${res.data.msg}`, "success");
     } catch (error: any) {
       console.log(error.response.data.msg);
+      alertMessageFunc(`${error.response.data.msg}`, "danger");
       dispatch({
         type: ActionsType.NEWSLETTER_SUBSCRIPTION_ERROR,
       });

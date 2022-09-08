@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import AmountButtons from "../AmountButtons";
 import { useCartContext } from "../../context/useCartContext";
 import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
+import Image from "next/image";
 
 const SingleProduct: React.FC<Product> = ({
   name,
@@ -43,7 +44,9 @@ const SingleProduct: React.FC<Product> = ({
   return (
     <section className='row '>
       <div className='col-12 col-lg-8'>
-        <img src={url} alt='' />
+        <div className=''>
+          <Image src={url} height={570} width={890} />
+        </div>
       </div>
       <div className='col-12 col-lg-4 d-flex flex-column justify-content-between align-items-center p-4 pb-0'>
         <div>

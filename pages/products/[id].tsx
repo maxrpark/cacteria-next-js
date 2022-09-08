@@ -41,32 +41,52 @@ export const getStaticPaths = async () => {
 
   return {
     paths,
-    fallback: false,
+    fallback: "blocking",
   };
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const id = context.params?.id;
-  const res = await axios(`https://cacteria.netlify.app/api/product/?id=${id}`);
-  const data = await res.data;
+  let singleProduct: Product | null;
 
-  const { name, desc, price, category, feature } = data.fields;
-  const url = data.fields.image[0].url;
+  try {
+    const res = await axios(
+      `https://cacteria.netlify.app/api/product/?id=${id}`
+    );
+    const data = await res.data;
 
-  const singleProduct: Product = {
-    id: data.id,
-    category,
-    desc,
-    feature,
-    name,
-    url,
-    price,
-  };
+    const { name, desc, price, category, feature } = data.fields;
+    const url = data.fields.image[0].url;
+
+    singleProduct = {
+      id: data.id,
+      category,
+      desc,
+      feature,
+      name,
+      url,
+      price,
+    };
+  } catch (error) {
+    singleProduct = null;
+  }
+
+  if (!singleProduct) {
+    return {
+      props: {},
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+      revalidate: 10,
+    };
+  }
 
   return {
     props: {
       product: singleProduct,
     },
+    revalidate: 10,
   };
 };
 

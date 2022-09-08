@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import { testimonials } from "./../public/data";
 import { ImQuotesRight } from "react-icons/im";
 const { gsap } = require("gsap/dist/gsap");
@@ -57,15 +58,12 @@ const Testimonials: React.FC = () => {
                 style={{ height: "400px", width: "90vw", maxWidth: "500px" }}
                 className='single-testimony card flex-shrink-0 d-flex justify-content align-items-center p-3'
               >
-                <div>
-                  <img
-                    style={{
-                      height: "190px",
-                      width: "190px",
-                    }}
-                    className='rounded-circle shadow'
+                <div className='rounded-circle shadow d-flex'>
+                  <Image
                     src={el.image}
-                    alt=''
+                    height={"190px"}
+                    width={"190px"}
+                    className='rounded-circle'
                   />
                 </div>
                 <div className='details text-center' style={{ width: "300px" }}>
