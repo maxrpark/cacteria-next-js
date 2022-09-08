@@ -45,7 +45,7 @@ const SingleProduct: React.FC<Product> = ({
     <section className='row '>
       <div className='col-12 col-lg-8'>
         <div className=''>
-          <Image src={url} height={570} width={890} />
+          <Image src={url} height={570} width={890} alt={name} />
         </div>
       </div>
       <div className='col-12 col-lg-4 d-flex flex-column justify-content-between align-items-center p-4 pb-0'>

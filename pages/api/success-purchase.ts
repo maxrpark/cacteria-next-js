@@ -4,7 +4,6 @@ import { sendPurchaseEmail } from "../../utils/emails";
 
 const sendPurchaseEmailMsg: NextApiHandler = async (req, res) => {
   const { costumer_details, total_amount, cart_items } = req.body;
-  console.log(costumer_details, total_amount, cart_items);
 
   if (!costumer_details || !total_amount || !cart_items) {
     return res

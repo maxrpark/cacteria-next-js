@@ -31,6 +31,7 @@ const CheckoutPage: NextPage = () => {
     if (total_amount) {
       getPaymentIntent();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [total_amount]);
 
   if (!clientSecret) {

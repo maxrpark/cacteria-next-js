@@ -17,6 +17,7 @@ const CartPage: NextPage = () => {
     if (cart.length === 0) {
       clearCookies();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cart]);
 
   if (!cartItems) {

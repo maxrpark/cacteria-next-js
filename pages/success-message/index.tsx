@@ -16,6 +16,7 @@ const SuccessMessagePage: NextPage<Props> = ({ sendEmailResponse }) => {
 
   useEffect(() => {
     clearCart();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

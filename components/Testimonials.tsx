@@ -63,6 +63,7 @@ const Testimonials: React.FC = () => {
                     src={el.image}
                     height={"190px"}
                     width={"190px"}
+                    alt={el.name}
                     className='rounded-circle'
                   />
                 </div>

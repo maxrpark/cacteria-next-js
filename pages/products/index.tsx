@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import axios from "axios";
 import { Product } from "../../ts/interfaces/interfaces";
-import { ChangeEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Filters, PageTitle, SingleGridProduct } from "../../components";
 
 const { gsap } = require("gsap/dist/gsap");
@@ -46,9 +46,11 @@ const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
 
   useEffect(() => {
     updateFilterAnimation(products, filters);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filters]);
   useEffect(() => {
     productsAnimation();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <main className='container products-wrapper m-auto page-height'>
