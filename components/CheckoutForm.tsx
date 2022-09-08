@@ -3,21 +3,16 @@ import { FormEvent, useState } from "react";
 import { FormRow } from "./";
 import { useCartContext } from "../context/useCartContext";
 import { useGlobalContext } from "../context/useGlobalContext";
-import { useRouter } from "next/router";
 import style from "./CheckoutForm.module.css";
+import { OrderInterface } from "../ts/interfaces";
 
 interface Props {
-  clientSecret: any;
+  clientSecret: string;
   stripeTotal: number;
-  orderDetails: any;
+  orderDetails: OrderInterface;
 }
 
-const CheckoutForm: React.FC<Props> = ({
-  clientSecret,
-  stripeTotal,
-  orderDetails,
-}) => {
-  const { cart } = useCartContext();
+const CheckoutForm: React.FC<Props> = ({ orderDetails }) => {
   const { handleFormChange, createOrder, costumerCheckoutInfo } =
     useGlobalContext();
 
@@ -42,7 +37,7 @@ const CheckoutForm: React.FC<Props> = ({
 
     if (cardElement) {
       const { paymentIntent } = await stripe.confirmCardPayment(
-        orderDetails.clientSecret,
+        orderDetails.clientSecret!,
         {
           payment_method: {
             card: cardElement,

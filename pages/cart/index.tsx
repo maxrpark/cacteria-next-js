@@ -7,7 +7,7 @@ import { CartItemInt } from "../../ts/interfaces/interfaces";
 
 const CartPage: NextPage = () => {
   const { cart, total_amount, clearCookies } = useCartContext();
-  const [cartItems, setCartItems] = useState() as any;
+  const [cartItems, setCartItems] = useState<CartItemInt[]>([]);
 
   useEffect(() => {
     setCartItems(cart);

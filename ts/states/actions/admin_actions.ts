@@ -3,7 +3,11 @@ import { OrderInterface } from "../../interfaces/interfaces";
 
 interface SET_USER {
   type: ActionsType.SET_USER;
-  payload: any;
+  payload: {
+    name: string;
+    email: string;
+    image: string;
+  };
 }
 
 interface CHECK_USER_START {

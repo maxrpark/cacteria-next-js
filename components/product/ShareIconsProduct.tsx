@@ -43,7 +43,6 @@ const ShareIconsProduct: React.FC<Props> = ({ productID }) => {
       <>
         {shareIcons.map((icon: any) => {
           const { Wrapper, Icon, url, id, hashtag } = icon;
-
           return (
             <div key={id} className='shareIcon'>
               <Wrapper url={url + productID} hashtag={hashtag}>

@@ -29,7 +29,7 @@ interface globalContextInterface {
   contactFormValues: contactFormInfoInt;
   subscribeToNewsletter: () => void;
   createOrder: (cart_items: OrderInterface) => void;
-  handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
+  handleFormChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   handleContactForm: () => void;
   clearCookies: () => void;
   alertMessageFunc: (message: string, type: string) => void;
@@ -69,7 +69,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
 
   const router = useRouter();
 
-  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement> | any) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const payload: HandleFormInt = {
       name: e.target.name,
       value: e.target.value,

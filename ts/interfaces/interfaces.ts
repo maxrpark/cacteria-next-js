@@ -25,6 +25,7 @@ export interface OrderInterface {
   costumer_details: costumerCheckoutInfoInt;
   status: string;
   createdAt?: string;
+  clientSecret?: string;
 }
 
 export interface productFields {

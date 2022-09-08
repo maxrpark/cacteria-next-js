@@ -61,7 +61,7 @@ export const AdminProvider: FC<Props> = ({ children }) => {
     if (res?.user !== undefined) {
       dispatch({
         type: ActionsType.SET_USER,
-        payload: res?.user,
+        payload: res?.user as UserPayload,
       });
     }
     dispatch({

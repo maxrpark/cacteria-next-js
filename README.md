@@ -14,7 +14,7 @@
 - [x] Section Title
 - [x] Testimonial
 - [x] Contact layout
-- [ ] Notification Component
+- [x] Notification Component
 - [ ] Contact form create api
 - [x] Navbar
 - [x] Footer
@@ -82,5 +82,9 @@
 - [x] Add types useGlobal create order
 - [x] Login message
 - [x] Subscribe message
-- [ ] Contact message
+- [x] Contact message
 - [x] Add types useGlobal create order
+- [ ] Subscribe email api message
+- [ ] Change image
+- [ ] Re-organize files
+- [ ] Re-organize interfaces

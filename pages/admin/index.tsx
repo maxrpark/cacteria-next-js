@@ -8,10 +8,15 @@ import { OrderInterface } from "../../ts/interfaces/interfaces";
 import { OrdersComponent, OrderModal } from "../../components";
 
 interface Props {
-  user: any;
+  user: {
+    email: string;
+    name: string;
+  };
   orders: OrderInterface[];
 }
 const AdminPage: NextPage<Props> = ({ user, orders }) => {
+  console.log(user);
+
   return (
     <main className='page-height container'>
       <div className='d-flex justify-content-between gap-2 p-3 my-1'>
