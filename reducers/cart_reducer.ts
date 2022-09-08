@@ -2,6 +2,7 @@ import { Actions } from "../ts/states/actions/cart_actions";
 import { ActionsType } from "../ts/states/action-types";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
 import { CartItemInt } from "../ts/interfaces/interfaces";
+import { toast } from "react-toastify";
 
 const cart_reducer = (state: CartInitialState, action: Actions) => {
   switch (action.type) {
@@ -9,6 +10,17 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       const tempItem = state.cart.find(
         (item: CartItemInt) => item.id === action.payload.id
       );
+      toast("Added to cart", {
+        hideProgressBar: true,
+        autoClose: 2000,
+        type: "success",
+        toastId: "success1",
+        position: "bottom-right",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       if (tempItem) {
         const tempCart = state.cart.map((item: CartItemInt) => {
           if (item.id === action.payload.id) {

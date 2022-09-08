@@ -95,7 +95,6 @@ export const AdminProvider: FC<Props> = ({ children }) => {
 
   useEffect(() => {
     checkSession();
-    console.log(state.user);
   }, []);
 
   return (

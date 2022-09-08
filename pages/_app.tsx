@@ -3,6 +3,8 @@ import "bootstrap/dist/css/bootstrap.css";
 import "../styles/global.css";
 import type { AppProps } from "next/app";
 import { Footer, Navbar } from "../components";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 import { CartProvider, GlobalProvider, AdminProvider } from "../context";
 import { SessionProvider } from "next-auth/react";
@@ -31,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <CartProvider>
               <Navbar />
               <Component {...pageProps} />
+              <ToastContainer theme='colored' />
               <Footer />
             </CartProvider>
           </AdminProvider>
