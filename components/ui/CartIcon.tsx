@@ -11,6 +11,11 @@ const CartIcon: React.FC = () => {
           width: "fit-content",
         }}
         className='position-relative cursor'
+        data-bs-toggle='collapse'
+        data-bs-target='#navbarSupportedContent'
+        aria-controls='navbarSupportedContent'
+        aria-expanded='false'
+        aria-label='Toggle navigation'
       >
         {total_items > 0 && (
           <small

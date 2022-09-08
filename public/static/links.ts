@@ -5,7 +5,6 @@ import {
 } from "react-icons/ai";
 
 export const navLinks = [
-  // { id: 1, name: "home", href: "/" },
   { id: 2, name: "products", href: "/products" },
   { id: 3, name: "about", href: "/about" },
   { id: 4, name: "contact", href: "/contact" },
