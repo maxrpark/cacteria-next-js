@@ -30,6 +30,7 @@ interface globalContextInterface {
   subscribeToNewsletter: () => void;
   createOrder: (cart_items: OrderInterface) => void;
   handleFormChange: (e: React.ChangeEvent<HTMLInputElement> | any) => void;
+  handleContactForm: () => void;
   clearCookies: () => void;
   alertMessageFunc: (message: string, type: string) => void;
 }
@@ -157,6 +158,28 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
     Cookies.remove("canCheckOut");
     router.push("/");
   };
+  const handleContactForm = () => {
+    if (
+      !state.contactFormValues.email ||
+      !state.contactFormValues.name ||
+      !state.contactFormValues.subject ||
+      !state.contactFormValues.content
+    ) {
+      alertMessageFunc("Please provide all values", "danger");
+
+      return;
+    } else if (!regex.test(state.contactFormValues.email)) {
+      alertMessageFunc("Please enter a valid email", "danger");
+      return;
+    }
+    alertMessageFunc(
+      "Thank you for your message with get back to you soon!",
+      "success"
+    );
+    dispatch({
+      type: ActionsType.CLEAR_FORM_VALUES,
+    });
+  };
 
   return (
     <GlobalContext.Provider
@@ -167,6 +190,7 @@ export const GlobalProvider: FC<Props> = ({ children }) => {
         createOrder,
         clearCookies,
         alertMessageFunc,
+        handleContactForm,
       }}
     >
       {children}

@@ -31,6 +31,9 @@ interface SHOW_ALERT_MESSAGE {
 interface HIDE_ALERT_MESSAGE {
   type: ActionsType.HIDE_ALERT_MESSAGE;
 }
+interface CLEAR_FORM_VALUES {
+  type: ActionsType.CLEAR_FORM_VALUES;
+}
 
 export type Actions =
   | HANDLE_FORM_INPUT
@@ -39,4 +42,5 @@ export type Actions =
   | NEWSLETTER_SUBSCRIPTION_ERROR
   | SHOW_ALERT_MESSAGE
   | HIDE_ALERT_MESSAGE
+  | CLEAR_FORM_VALUES
   | ORDER_SUCCESS;

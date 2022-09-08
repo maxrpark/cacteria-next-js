@@ -1,9 +1,15 @@
 import style from "./Contact.module.css";
 import { FormRow } from "../components";
 import { useGlobalContext } from "../context/useGlobalContext";
+import AlertMessage from "./ui/AlertMessage";
 
 const Contact: React.FC = () => {
-  const { handleFormChange, contactFormValues } = useGlobalContext();
+  const {
+    contactFormValues,
+    alertMessage,
+    handleContactForm,
+    handleFormChange,
+  } = useGlobalContext();
   return (
     <section className='row container m-auto mt-4 justify-content-between section-divition p-3'>
       <div className={` order-md-2 col-lg-7 ${style.contactFormArea}`}>
@@ -48,6 +54,17 @@ const Contact: React.FC = () => {
               id='contactFormValues'
               onChange={handleFormChange}
             ></textarea>
+            {alertMessage.message && <AlertMessage {...alertMessage} />}
+            <button
+              type='submit'
+              onClick={(e) => {
+                e.preventDefault();
+                handleContactForm();
+              }}
+              className='btn btn-secondary text-capitalize px-4 mt-2 me-md-2 fw-bold btn-block w-100'
+            >
+              Submit
+            </button>
           </div>
         </form>
       </div>

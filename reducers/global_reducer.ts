@@ -45,6 +45,16 @@ const global_reducer = (
         ...state,
         isLoading: false,
       };
+    case ActionsType.CLEAR_FORM_VALUES:
+      return {
+        ...state,
+        contactFormValues: {
+          name: "",
+          email: "",
+          subject: "",
+          content: "",
+        },
+      };
     case ActionsType.SHOW_ALERT_MESSAGE:
       return {
         ...state,
