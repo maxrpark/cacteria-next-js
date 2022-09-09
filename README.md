@@ -2,7 +2,17 @@
 
 ## Stack
 
-- Next.js
+- Next.js and typescript
+
+##
+
+It is my first big Next.js Project I try to use as many features as I could.
+
+- Next Image and Link
+- getServerSideProps,getStaticPaths and getStaticProps
+- API Routes
+- Layouts
+- Next Auth
 
 ## Things to do
 
@@ -86,5 +96,5 @@
 - [x] Add types useGlobal create order
 - [x] Subscribe email api message
 - [x] Change image
-- [ ] Re-organize files
-- [ ] Re-organize interfaces
+- [x] Re-organize files
+- [x] Re-organize interfaces

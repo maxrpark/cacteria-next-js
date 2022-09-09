@@ -1,10 +1,4 @@
-import { OrderInterface } from "../../interfaces";
-
-interface UserPayload {
-  name: string;
-  email: string;
-  image: string;
-}
+import { OrderInterface, UserPayload } from "../../interfaces";
 
 export interface AdminInitialState {
   isLoading: boolean;

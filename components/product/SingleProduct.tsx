@@ -5,15 +5,7 @@ import { useCartContext } from "../../context/useCartContext";
 import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
 import Image from "next/image";
 
-const SingleProduct: React.FC<Product> = ({
-  name,
-  desc,
-  price,
-  category,
-  feature,
-  url,
-  id,
-}) => {
+const SingleProduct: React.FC<Product> = ({ name, desc, price, url, id }) => {
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 

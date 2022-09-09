@@ -58,6 +58,16 @@ export interface UserInt {
   passwordToken: string;
   passwordTokenExpirationDate: Date;
 }
+export interface userCredentialsInt {
+  email: string;
+  password: string;
+}
+
+export interface UserPayload {
+  name: string;
+  email: string;
+  image: string;
+}
 
 export interface AlertMessageInt {
   message: string;

@@ -1,4 +1,5 @@
 import { getSession, signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 import {
   useContext,
   useReducer,
@@ -10,23 +11,15 @@ import {
 import admin_reducer from "../reducers/admin_reducer";
 import { ActionsType } from "../ts/states/action-types";
 import { AdminInitialState } from "../ts/states/initialsStates";
-import { useRouter } from "next/router";
-import { OrderInterface } from "../ts/interfaces/interfaces";
+import {
+  OrderInterface,
+  UserPayload,
+  userCredentialsInt,
+} from "../ts/interfaces/interfaces";
 
 type Props = {
   children: ReactNode;
 };
-
-interface userCredentialsInt {
-  email: string;
-  password: string;
-}
-
-interface UserPayload {
-  name: string;
-  email: string;
-  image: string;
-}
 
 interface AdminContextInterface {
   isLoading: boolean;
@@ -50,7 +43,6 @@ const AdminContext = createContext({} as AdminContextInterface);
 
 export const AdminProvider: FC<Props> = ({ children }) => {
   const [state, dispatch] = useReducer(admin_reducer, initialState);
-
   const router = useRouter();
 
   const checkSession = async () => {

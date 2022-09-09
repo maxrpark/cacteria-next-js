@@ -8,6 +8,8 @@ import {
   UserInt,
   OrderInterface,
   AlertMessageInt,
+  UserPayload,
+  userCredentialsInt,
 } from "./interfaces";
 
 export type {
@@ -18,4 +20,6 @@ export type {
   UserInt,
   OrderInterface,
   AlertMessageInt,
+  UserPayload,
+  userCredentialsInt,
 };

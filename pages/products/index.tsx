@@ -80,8 +80,8 @@ export async function getStaticProps() {
         products: data,
         allCategories,
       },
-      // revalidate: 360, // In seconds
-      revalidate: 10, // In seconds
+      revalidate: 360, // In seconds
+      // revalidate: 10, // In seconds
     };
   } catch (error) {
     console.log(error);
