@@ -18,8 +18,12 @@ const sendPurchaseEmail = ({
       return /*html*/ `
       <div
             style="
-                display: grid;
-                grid-template-columns: 1fr 1fr 1fr 1fr;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: distribute;
+                justify-content: space-around;
+                width: 100%;
                 text-align: center;
             "
         >
@@ -47,8 +51,12 @@ const sendPurchaseEmail = ({
       <div style="margin: 0.5rem">
           <div
               style="
-                  display: grid;
-                  grid-template-columns: 1fr 1fr 1fr 1fr;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: distribute;
+                    justify-content: space-around;
+                  width: 100%;
                   text-align: center;
                   color: #89a894;
                   margin: 1rem 0;
@@ -68,11 +76,14 @@ const sendPurchaseEmail = ({
 
       <div
           style="
-              display: flex;
-              justify-content: space-between;
-              padding: 1rem;
-              background: #89a894;
-              margin-top: 1rem;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -ms-flex-pack: distribute;
+                justify-content: space-between;
+                padding: 1rem;
+                background: #89a894;
+                margin-top: 1rem;
           "
       >
           <h4 style="margin: 0">Total</h4>
