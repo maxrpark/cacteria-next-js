@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import SingleDetailsSection from "./SingleDetailsSection";
 import { companyDetails } from "../../public/data";
 import { companyDetailsAnimations } from "../../utils/animations";
-import style from "./CompanyDetails.module.css";
 
 const CompanyDetails: React.FC = () => {
   const sections = useRef<HTMLDivElement[]>([]);

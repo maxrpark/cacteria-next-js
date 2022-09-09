@@ -1,13 +1,6 @@
-import FeaturedProduct from "./products/FeaturedProduct";
-import Testimonials from "./ui/Testimonials";
 import Contact from "./Contact/Contact";
 
-// common
-
 import SectionTitle from "./SectionTitle/SectionTitle";
-import AmountButtons from "./ui/AmountButtons";
-
-import ShareIconsSingleProduct from "./products/ShareIconsSingleProduct";
 
 // home
 import HeroHome from "./home/HeroHome";
@@ -23,12 +16,13 @@ import CartTotal from "./cart/CartTotal";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
 
 // Product
+import FeaturedProduct from "./products/FeaturedProduct";
 import SingleProduct from "./product/SingleProduct";
 import ShareIconsProduct from "./product/ShareIconsProduct";
 import Filters from "./product/Filters";
+import ShareIconsSingleProduct from "./products/ShareIconsSingleProduct";
 
 // Admin
-
 import LoginForm from "./admin/LoginForm";
 import OrdersComponent from "./admin/OrdersComponent";
 import OrderModal from "./admin/OrderModal";
@@ -39,39 +33,41 @@ import ProductLayout from "./layouts/ProductLayout";
 // iu
 
 import AlertMessage from "./ui/AlertMessage";
-import CartIcon from "./ui/CartIcon";
-import Navbar from "./ui/Navbar";
-import Footer from "./ui/Footer";
+import AmountButtons from "./ui/AmountButtons";
 import BreadCrumbs from "./ui/BreadCrumbs";
-import PageTitle from "./ui/PageTitle";
+import CartIcon from "./ui/CartIcon";
+import Footer from "./ui/Footer";
 import FormRow from "./ui/FormRow";
+import Navbar from "./ui/Navbar";
+import PageTitle from "./ui/PageTitle";
+import Testimonials from "./ui/Testimonials";
 
 export {
-  Navbar,
-  Footer,
-  FeaturedProduct,
-  HeroHome,
-  CompanyDetails,
-  Newsletter,
-  Testimonials,
-  Contact,
-  SectionTitle,
-  SingleGridProduct,
-  BreadCrumbs,
+  AlertMessage,
   AmountButtons,
-  PageTitle,
+  BreadCrumbs,
+  CartIcon,
   CartItem,
+  CartTotal,
   CheckoutForm,
+  CompanyDetails,
+  Contact,
+  FeaturedProduct,
+  Filters,
+  Footer,
   FormRow,
+  HeroHome,
+  LoginForm,
+  Navbar,
+  Newsletter,
+  OrderModal,
+  OrdersComponent,
+  PageTitle,
+  ProductLayout,
+  SectionTitle,
   ShareIconsProduct,
   ShareIconsSingleProduct,
+  SingleGridProduct,
   SingleProduct,
-  CartTotal,
-  Filters,
-  ProductLayout,
-  LoginForm,
-  OrdersComponent,
-  OrderModal,
-  AlertMessage,
-  CartIcon,
+  Testimonials,
 };

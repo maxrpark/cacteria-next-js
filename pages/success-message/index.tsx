@@ -1,8 +1,9 @@
-import axios from "axios";
 import type { NextPage } from "next";
 import { GetServerSideProps } from "next";
-import { useGlobalContext, useCartContext } from "../../context";
 import { useEffect } from "react";
+
+import axios from "axios";
+import { useGlobalContext, useCartContext } from "../../context";
 
 interface Props {
   sendEmailResponse: string;

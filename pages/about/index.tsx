@@ -1,6 +1,5 @@
-import type { NextPage } from "next";
-
 import { useEffect } from "react";
+import type { NextPage } from "next";
 import { gsap } from "gsap";
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
 gsap.registerPlugin(ScrollTrigger);

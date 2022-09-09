@@ -1,6 +1,6 @@
 import React from "react";
-import axios from "axios";
 import type { GetStaticProps, NextPage } from "next";
+import axios from "axios";
 import { SingleProductInt, Product } from "../../ts/interfaces/interfaces";
 import {
   PageTitle,

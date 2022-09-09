@@ -1,5 +1,8 @@
 import { costumerCheckoutInfoInt } from "./";
-
+export interface AlertMessageInt {
+  message: string;
+  type: string;
+}
 export interface Product {
   id: string;
   category: string;
@@ -67,9 +70,4 @@ export interface UserPayload {
   name: string;
   email: string;
   image: string;
-}
-
-export interface AlertMessageInt {
-  message: string;
-  type: string;
 }

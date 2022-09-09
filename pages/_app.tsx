@@ -1,14 +1,17 @@
+import { useEffect } from "react";
+import type { AppProps } from "next/app";
+import { SessionProvider } from "next-auth/react";
 import Head from "next/head";
+
+import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "../styles/global.css";
-import type { AppProps } from "next/app";
-import { Footer, Navbar } from "../components";
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
 
 import { CartProvider, GlobalProvider, AdminProvider } from "../context";
-import { SessionProvider } from "next-auth/react";
-import { useEffect } from "react";
+
+import { Footer, Navbar } from "../components";
+import { ToastContainer } from "react-toastify";
+
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
@@ -22,7 +25,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta property='og:title' content='Cacteria' />
         <meta
           property='og:description'
-          content={`The best play for cactus lovers`}
+          content={`The best place for cactus lovers`}
         />
         <meta property='og:image' content='/static/images/greenhouse.jpg' />
         <meta name='description' content={`The best play for cactus lovers`} />

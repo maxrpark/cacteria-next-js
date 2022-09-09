@@ -1,7 +1,8 @@
-import type { NextPage } from "next";
 import { useEffect, useState } from "react";
-import { useCartContext } from "../../context/useCartContext";
+
+import type { NextPage } from "next";
 import Link from "next/link";
+import { useCartContext } from "../../context/useCartContext";
 import { PageTitle, CartItem, CartTotal } from "../../components";
 import { CartItemInt } from "../../ts/interfaces/interfaces";
 

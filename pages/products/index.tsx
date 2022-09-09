@@ -1,14 +1,15 @@
+import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import axios from "axios";
+
 import { Product } from "../../ts/interfaces/interfaces";
-import { useEffect, useState } from "react";
+
 import { Filters, PageTitle, SingleGridProduct } from "../../components";
 
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
-const { Flip } = require("gsap/dist/Flip");
 
-gsap.registerPlugin(ScrollTrigger, Flip);
+gsap.registerPlugin(ScrollTrigger);
 import { updateFilterAnimation } from "../../utils/animations";
 
 interface Props {
@@ -53,7 +54,7 @@ const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <main className='container products-wrapper m-auto page-height'>
+    <main className='container products-wrapper m-auto mb-5 page-height'>
       <PageTitle title='Our Products' />
       <Filters allCategories={allCategories} handleClick={handleClick} />
       <div className='row g-0'>

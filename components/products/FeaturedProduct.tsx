@@ -7,7 +7,7 @@ interface Props {
 }
 
 const FeaturedProduct: React.FC<Props> = ({ product }) => {
-  const { name, url, desc, id } = product;
+  const { name, url, id } = product;
 
   return (
     <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4 '>

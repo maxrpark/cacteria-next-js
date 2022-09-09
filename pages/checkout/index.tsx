@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
+import { GetServerSideProps, NextPage } from "next";
 import axios from "axios";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
+
 import { CheckoutForm, PageTitle } from "../../components";
 import { useCartContext } from "../../context/useCartContext";
-import { GetServerSideProps, NextPage } from "next";
+
 let stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const CheckoutPage: NextPage = () => {

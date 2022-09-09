@@ -1,11 +1,8 @@
 import { useEffect } from "react";
 import { newsLetterAnimation } from "../../utils/animations";
 import style from "./Newsletter.module.css";
-import { FormRow } from "../";
+import { FormRow, AlertMessage } from "../";
 import { useGlobalContext } from "../../context/useGlobalContext";
-import AlertMessage from "../ui/AlertMessage";
-
-// let regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const Newsletter: React.FC = () => {
   const {
@@ -13,7 +10,6 @@ const Newsletter: React.FC = () => {
     handleFormChange,
     newsLetterFormValues,
     isLoading,
-    showMessage,
     alertMessage,
   } = useGlobalContext();
 
