@@ -36,7 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <CartProvider>
               <Navbar />
               <Component {...pageProps} />
-              <ToastContainer theme='colored' />
+              <ToastContainer theme='colored' newestOnTop={true} />
               <Footer />
             </CartProvider>
           </AdminProvider>

@@ -21,7 +21,7 @@ const CartTotal: React.FC<Props> = ({ total_amount }) => {
         <button className='btn btn-outline-secondary btn-lg btn-block'>
           Checkout
         </button>
-      </Link>
+      </Link>{" "}
     </div>
   );
 };

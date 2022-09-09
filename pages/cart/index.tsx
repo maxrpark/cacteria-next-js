@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useCartContext } from "../../context/useCartContext";
-import { PageTitle, CartItem, CartTotal } from "../../components";
+import {
+  PageTitle,
+  CartItem,
+  CartTotal,
+  CartOptionBtns,
+} from "../../components";
 import { CartItemInt } from "../../ts/interfaces/interfaces";
 
 const CartPage: NextPage = () => {
@@ -41,14 +46,16 @@ const CartPage: NextPage = () => {
     );
   }
   return (
-    <main className='container m-auto page-height position-relative'>
+    <main className='container m-auto page-height position-relative mb-5'>
       <PageTitle title={"cart"} />
       <div className='row p-2 justify-content-between'>
         <div className='col-lg-8'>
           {cart.map((item: CartItemInt) => {
             return <CartItem key={item.id} {...item} />;
           })}
+          <CartOptionBtns />
         </div>
+
         <CartTotal total_amount={total_amount} />
       </div>
     </main>

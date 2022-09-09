@@ -80,6 +80,7 @@ export const CartProvider: React.FC<Props> = ({ children }) => {
     dispatch({
       type: ActionsType.CLEAR_CART,
     });
+
     clearCookies();
   };
 

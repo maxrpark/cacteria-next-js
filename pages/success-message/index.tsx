@@ -50,8 +50,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req }) => {
   }
   const orderDetails = JSON.parse(orderSucceeded);
   const res = await axios.post(
-    // "https://cacteria-next-js.vercel.app/api/success-purchase",
-    "http://localhost:3000//api/success-purchase",
+    "https://cacteria-next-js.vercel.app/api/success-purchase",
+    // "http://localhost:3000//api/success-purchase",
     {
       ...orderDetails,
     }

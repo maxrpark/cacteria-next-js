@@ -10,17 +10,18 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       const tempItem = state.cart.find(
         (item: CartItemInt) => item.id === action.payload.id
       );
-      toast("Added to cart", {
-        hideProgressBar: true,
+
+      toast(`${action.payload.name} added to cart`, {
+        hideProgressBar: false,
         autoClose: 2000,
         type: "success",
-        toastId: "success1",
+        toastId: action.payload.name + action.payload.amount,
         position: "bottom-right",
         closeOnClick: true,
         pauseOnHover: true,
         draggable: true,
-        progress: undefined,
       });
+
       if (tempItem) {
         const tempCart = state.cart.map((item: CartItemInt) => {
           if (item.id === action.payload.id) {
@@ -64,6 +65,16 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       return { ...state, cart: updatedCart };
 
     case ActionsType.CLEAR_CART:
+      toast("Cart cleared", {
+        hideProgressBar: false,
+        autoClose: 3000,
+        type: "error",
+        toastId: "error1",
+        position: "bottom-right",
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
       return { ...state, cart: [] };
 
     case ActionsType.COUNT_CART_TOTALS:

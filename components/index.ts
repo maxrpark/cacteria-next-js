@@ -11,6 +11,7 @@ import SingleGridProduct from "./products/SingleGridProduct";
 // cart
 import CartItem from "./cart/CartItem";
 import CartTotal from "./cart/CartTotal";
+import CartOptionBtns from "./cart/CartOptionBtns";
 
 //
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
@@ -48,6 +49,7 @@ export {
   BreadCrumbs,
   CartIcon,
   CartItem,
+  CartOptionBtns,
   CartTotal,
   CheckoutForm,
   CompanyDetails,
