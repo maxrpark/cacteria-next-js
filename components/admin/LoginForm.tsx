@@ -41,6 +41,15 @@ const LoginForm: React.FC = () => {
     <main className='page-height d-flex justify-content-center align-items-center'>
       <form className='order-md-1 section-form col-md-6 container mx-auto'>
         <h3 className='text-center mb-4'>Cacteria </h3>
+        <div className='d-flex flex-column g-1 text-center m-2'>
+          <small>
+            email:
+            <span className='text-danger'> admin@cacteria.com</span>
+          </small>
+          <small>
+            password: <span className='text-danger'>admin</span>
+          </small>
+        </div>
         <div className='row gap-2'>
           <div className='col-12'>
             <FormRow

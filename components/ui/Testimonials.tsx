@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { testimonials } from "./../public/data";
+import { testimonials } from "../../public/data";
 import { ImQuotesRight } from "react-icons/im";
 const { gsap } = require("gsap/dist/gsap");
 const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");

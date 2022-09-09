@@ -1,7 +1,7 @@
 import style from "./Contact.module.css";
-import { FormRow } from "../components";
-import { useGlobalContext } from "../context/useGlobalContext";
-import AlertMessage from "./ui/AlertMessage";
+import { FormRow } from "..";
+import { useGlobalContext } from "../../context/useGlobalContext";
+import AlertMessage from "../ui/AlertMessage";
 
 const Contact: React.FC = () => {
   const {

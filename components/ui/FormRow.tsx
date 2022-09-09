@@ -17,7 +17,6 @@ const FormRow: React.FC<Props> = ({
 }) => {
   return (
     <div className='col-12'>
-      {/* <label htmlFor={name}>{labelText || name}</label> */}
       <input
         type={type}
         value={value}

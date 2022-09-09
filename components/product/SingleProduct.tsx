@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import AmountButtons from "../AmountButtons";
+import AmountButtons from "../ui/AmountButtons";
 import { useCartContext } from "../../context/useCartContext";
 import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
 import Image from "next/image";

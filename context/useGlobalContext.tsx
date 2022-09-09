@@ -1,7 +1,10 @@
 import React, { FC, useContext, useReducer } from "react";
-import axios from "axios";
-import global_reducer from "../reducers/global_reducer";
 import { useRouter } from "next/router";
+import axios from "axios";
+import Cookies from "js-cookie";
+
+import global_reducer from "../reducers/global_reducer";
+
 import {
   newsletterFieldsInt,
   costumerCheckoutInfoInt,
@@ -12,8 +15,6 @@ import {
 import { ActionsType } from "../ts/states/action-types/index";
 import { HandleFormInt } from "../ts/states/actions/global_actions";
 import { GlobalInitialState } from "../ts/states/initialsStates/globalState";
-
-import Cookies from "js-cookie";
 
 const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 type Props = {

@@ -1,10 +1,9 @@
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { FormEvent, useState } from "react";
-import { FormRow } from "./";
-import { useCartContext } from "../context/useCartContext";
-import { useGlobalContext } from "../context/useGlobalContext";
+import { FormRow } from "..";
+import { useGlobalContext } from "../../context/useGlobalContext";
 import style from "./CheckoutForm.module.css";
-import { OrderInterface } from "../ts/interfaces";
+import { OrderInterface } from "../../ts/interfaces";
 
 interface Props {
   clientSecret: string;

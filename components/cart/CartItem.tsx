@@ -1,7 +1,7 @@
-import AmountButtons from "../AmountButtons";
+import AmountButtons from "../ui/AmountButtons";
 import Image from "next/image";
 import { FaTrash } from "react-icons/fa";
-import { useCartContext } from "../../context/useCartContext";
+import { useCartContext } from "../../context";
 interface Props {
   id: string;
   name: string;

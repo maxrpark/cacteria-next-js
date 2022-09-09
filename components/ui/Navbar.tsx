@@ -17,7 +17,7 @@ const Navbar: React.FC = () => {
               aria-controls='navbarSupportedContent'
               aria-expanded='false'
               aria-label='Toggle navigation'
-              className='m-0'
+              className='m-0 cursor'
             >
               Cacteria
             </p>

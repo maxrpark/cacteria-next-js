@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useReducer } from "react";
+import Cookies from "js-cookie";
+
 import cart_reducer from "../reducers/cart_reducer";
 import { CartInitialState } from "../ts/states/initialsStates/cartState";
 import { ActionsType } from "../ts/states/action-types";
 import { CartItemInt } from "../ts/interfaces/interfaces";
-import Cookies from "js-cookie";
 
 let getLocalStorage = () => {
   if (typeof window !== "undefined") {

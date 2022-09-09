@@ -1,15 +1,12 @@
 import FeaturedProduct from "./products/FeaturedProduct";
-import Testimonials from "./Testimonials";
-import Contact from "./Contact";
+import Testimonials from "./ui/Testimonials";
+import Contact from "./Contact/Contact";
 
 // common
-import Navbar from "./common/Navbar";
-import Footer from "./common/Footer";
-import SectionTitle from "./SectionTitle";
-import BreadCrumbs from "./common/BreadCrumbs";
-import AmountButtons from "./AmountButtons";
-import PageTitle from "./common/PageTitle";
-import FormRow from "./common/FormRow";
+
+import SectionTitle from "./SectionTitle/SectionTitle";
+import AmountButtons from "./ui/AmountButtons";
+
 import ShareIconsSingleProduct from "./products/ShareIconsSingleProduct";
 
 // home
@@ -23,7 +20,7 @@ import CartItem from "./cart/CartItem";
 import CartTotal from "./cart/CartTotal";
 
 //
-import CheckoutForm from "./CheckoutForm";
+import CheckoutForm from "./CheckoutForm/CheckoutForm";
 
 // Product
 import SingleProduct from "./product/SingleProduct";
@@ -40,8 +37,14 @@ import OrderModal from "./admin/OrderModal";
 import ProductLayout from "./layouts/ProductLayout";
 
 // iu
+
 import AlertMessage from "./ui/AlertMessage";
 import CartIcon from "./ui/CartIcon";
+import Navbar from "./ui/Navbar";
+import Footer from "./ui/Footer";
+import BreadCrumbs from "./ui/BreadCrumbs";
+import PageTitle from "./ui/PageTitle";
+import FormRow from "./ui/FormRow";
 
 export {
   Navbar,
