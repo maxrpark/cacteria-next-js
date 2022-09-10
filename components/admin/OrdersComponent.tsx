@@ -8,8 +8,7 @@ interface Props {
 const OrdersComponent: React.FC<Props> = ({ orders }) => {
   const { showSelectedOrder } = useAdminContext();
   return (
-    <section style={{ maxWidth: "960px" }} className='m-auto'>
-      <h2 className='mt-3 '>Orders</h2>
+    <section style={{ maxWidth: "960px" }} className='mx-2 m-lg-auto '>
       <hr className='m-0 mb-3' />
       <div className='row justify-content-between text-center'>
         <p className='col-4 text-start'>Name</p>

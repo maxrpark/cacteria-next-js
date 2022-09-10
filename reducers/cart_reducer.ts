@@ -65,16 +65,6 @@ const cart_reducer = (state: CartInitialState, action: Actions) => {
       return { ...state, cart: updatedCart };
 
     case ActionsType.CLEAR_CART:
-      toast("Cart cleared", {
-        hideProgressBar: false,
-        autoClose: 3000,
-        type: "error",
-        toastId: "error1",
-        position: "bottom-right",
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
       return { ...state, cart: [] };
 
     case ActionsType.COUNT_CART_TOTALS:

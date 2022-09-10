@@ -15,8 +15,6 @@ interface Props {
   orders: OrderInterface[];
 }
 const AdminPage: NextPage<Props> = ({ user, orders }) => {
-  console.log(user);
-
   return (
     <main className='page-height container'>
       <div className='d-flex justify-content-between gap-2 p-3 my-1'>
@@ -25,7 +23,15 @@ const AdminPage: NextPage<Props> = ({ user, orders }) => {
           Logout
         </button>
       </div>
-      <OrdersComponent orders={orders} />
+      <h2 style={{ maxWidth: "960px" }} className='mt-3 m-auto '>
+        Orders
+      </h2>
+      <div
+        style={{ maxHeight: "600px" }}
+        className='m-auto overflow-scroll p-2'
+      >
+        <OrdersComponent orders={orders} />
+      </div>
       <OrderModal />
     </main>
   );
@@ -36,7 +42,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
   if (res?.user !== undefined) {
     await connectDB(process.env.MONGO_URL as string);
-    const orders = await Order.find({});
+    const orders = await Order.find({}).sort("-createdAt");
 
     return {
       props: {

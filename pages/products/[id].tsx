@@ -21,7 +21,7 @@ const ProductPage: NextPage<Props> = ({ product }) => {
       img={product.url}
       dsc={product.desc}
     >
-      <main className='container m-auto page-height'>
+      <main className='container m-auto my-5 page-height'>
         <PageTitle title={product.name} name={product.name} />
         <SingleProduct {...product} />
         <ShareIconsSingleProduct productID={product.id} />
