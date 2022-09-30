@@ -63,7 +63,7 @@ const LoginForm: React.FC = () => {
           <div className='col-12'>
             <FormRow
               name='password'
-              type='text'
+              type='password'
               formName='newsLetterFormValues'
               value={userCredentials.password}
               handleChange={handleFormChange}
