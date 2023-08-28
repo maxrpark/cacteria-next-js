@@ -12,6 +12,7 @@ const FeaturedProduct: React.FC<Props> = ({ product }) => {
   return (
     <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4 '>
       <div className='card w-100 h-100 cursor'>
+        {/* <div> */}
         <Image
           priority
           src={url}
@@ -20,6 +21,7 @@ const FeaturedProduct: React.FC<Props> = ({ product }) => {
           height={400}
           layout='responsive'
         />
+        {/* </div> */}
         <h2 className='text-center'>{name}</h2>
       </div>
     </Link>
