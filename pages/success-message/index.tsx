@@ -9,6 +9,8 @@ interface Props {
   sendEmailResponse: string;
 }
 const SuccessMessagePage: NextPage<Props> = ({ sendEmailResponse }) => {
+  console.log(sendEmailResponse);
+
   const { clearCookies } = useGlobalContext();
   const { clearCart } = useCartContext();
   const handleClick = () => {
