@@ -1,9 +1,9 @@
 const nodemailerConfig = {
-  host: "smtp.ethereal.email",
-  port: 587,
+  service: "gmail",
   auth: {
-    user: "jamil.bechtelar46@ethereal.email",
-    pass: "6PPcwuayT8EJUDxXdM",
+    user: "proyectoindit@gmail.com",
+    pass: process.env.APP_GMAIL,
   },
 };
+
 export default nodemailerConfig;

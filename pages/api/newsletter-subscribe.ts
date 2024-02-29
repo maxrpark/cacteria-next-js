@@ -34,6 +34,7 @@ const subscribeEmail = async (req: NextApiRequest, res: NextApiResponse) => {
           email,
           code: newDiscount.code,
         });
+
         res.status(StatusCodes.OK).json({
           msg: "You had subscribed to our newsletter, please check your email.",
         });
