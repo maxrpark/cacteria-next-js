@@ -1,7 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import Stripe from "stripe";
 import { CartItemInt } from "../../ts/interfaces/interfaces";
-`${process.env.PUBLISHABLE_KEY}`;
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2022-08-01",

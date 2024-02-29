@@ -11,7 +11,12 @@ const sendPurchaseEmailMsg: NextApiHandler = async (req, res) => {
       .json({ msg: "please provide all values" });
   } else {
     try {
-      await sendPurchaseEmail({ costumer_details, cart_items, total_amount });
+      await sendPurchaseEmail({
+        costumer_details,
+        cart_items,
+        total_amount,
+      });
+
       res.status(StatusCodes.OK).json({ msg: "please check your email" });
     } catch (error) {
       res.status(StatusCodes.OK).json({ msg: error });

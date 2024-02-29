@@ -23,7 +23,6 @@ const CheckoutPage: NextPage = () => {
       setOrderDetails(res.data);
       setClientSecret(res.data.clientSecret);
       setStripeTotal(res.data.total);
-      console.log(res.data);
     } catch (error) {
       console.log(error);
     }
