@@ -28,20 +28,20 @@ const Navbar: React.FC = () => {
             className='collapse navbar-collapse flex-grow-0'
             id='navbarSupportedContent'
           >
-            <ul className='navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex gap-lg-2'>
+            <ul className='navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex gap-lg-4'>
               {navLinks.map((link) => {
                 return (
                   <li key={link.id} className={`nav-item cursor`}>
                     <Link href={link.href} aria-current='page'>
                       <p
                         data-bs-toggle='collapse'
-                        data-bs-target='#navbarSupportedContent'
+                        // data-bs-target='#navbarSupportedContent'
                         aria-controls='navbarSupportedContent'
                         aria-expanded='false'
                         aria-label='Toggle navigation'
                         className={`${
                           router.pathname == link.href
-                            ? "text-dark px-2"
+                            ? "text-dark "
                             : "text-secondary"
                         } my-2 text-capitalize`}
                       >
