@@ -10,9 +10,9 @@ const CartIcon: React.FC = () => {
         style={{
           width: "fit-content",
         }}
-        className='position-relative cursor'
+        className='position-relative cursor ms-md-3'
         data-bs-toggle='collapse'
-        data-bs-target='#navbarSupportedContent'
+        // data-bs-target='#navbarSupportedContent'
         aria-controls='navbarSupportedContent'
         aria-expanded='false'
         aria-label='Toggle navigation'

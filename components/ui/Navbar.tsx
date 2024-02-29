@@ -28,7 +28,7 @@ const Navbar: React.FC = () => {
             className='collapse navbar-collapse flex-grow-0'
             id='navbarSupportedContent'
           >
-            <ul className='navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex gap-lg-4'>
+            <ul className='navbar-nav me-auto mb-2 mb-lg-0 d-lg-flex gap-lg-4 '>
               {navLinks.map((link) => {
                 return (
                   <li key={link.id} className={`nav-item cursor`}>
