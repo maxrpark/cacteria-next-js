@@ -12,13 +12,13 @@ interface Props {
 }
 
 const SingleGridProduct: React.FC<Props> = ({ item }) => {
-  const { id, url, name, price } = item;
+  const { id, photo, name, price } = item;
   const { addToCart } = useCartContext();
 
   const cartItem: CartItemInt = {
     id,
     name,
-    image: url,
+    image: photo,
     price,
     amount: 1,
   };
@@ -33,7 +33,7 @@ const SingleGridProduct: React.FC<Props> = ({ item }) => {
           <div>
             <Image
               priority
-              src={url}
+              src={photo}
               alt='Picture of the author'
               width={200}
               height={200}

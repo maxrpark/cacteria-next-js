@@ -5,14 +5,14 @@ import { useCartContext } from "../../context/useCartContext";
 import { CartItemInt, Product } from "../../ts/interfaces/interfaces";
 import Image from "next/image";
 
-const SingleProduct: React.FC<Product> = ({ name, desc, price, url, id }) => {
+const SingleProduct: React.FC<Product> = ({ name, desc, price, photo, id }) => {
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
 
   const item: CartItemInt = {
     id,
     name,
-    image: url,
+    image: photo,
     price,
     amount: 1,
   };
@@ -37,7 +37,7 @@ const SingleProduct: React.FC<Product> = ({ name, desc, price, url, id }) => {
     <section className='row '>
       <div className='col-12 col-lg-8'>
         <div className=''>
-          <Image src={url} height={570} width={890} alt={name} />
+          <Image src={photo} height={570} width={890} alt={name} />
         </div>
       </div>
       <div className='col-12 col-lg-4 d-flex flex-column justify-content-between align-items-center p-4 pb-0'>

@@ -1663,6 +1663,36 @@
   resolved "https://registry.npmjs.org/@stripe/stripe-js/-/stripe-js-1.35.0.tgz"
   integrity sha512-UIuzpbJqgXCTvJhY/aZYvBtaKdMfQgnIv6kkLlfRJ9smZcC4zoPvq3j7k9wobYI+idHAWP4BRiPnqA8lvzJCtg==
 
+"@studio-freight/hamo@^0.6.28":
+  version "0.6.28"
+  resolved "https://registry.npmjs.org/@studio-freight/hamo/-/hamo-0.6.28.tgz"
+  integrity sha512-LVXYJwPToVa4ZVIbFnicg8bmZF8xWebbdtx10/1HAQAjN8xGsTWAdc3BmUUOHtLWFvNJNLSuwdX24njrp7LF7g==
+  dependencies:
+    "@studio-freight/tempus" "^0.0.38"
+    just-debounce-it "^3.2.0"
+    nanoevents "^9.0.0"
+    zustand "^4.4.7"
+
+"@studio-freight/lenis@^1.0.35-dev.0":
+  version "1.0.39"
+  resolved "https://registry.npmjs.org/@studio-freight/lenis/-/lenis-1.0.39.tgz"
+  integrity sha512-63LPZD087kFSiNS3lF6Uve8fFeshQwNCXrl7DUocoeUYiElVTzr9a+dLodNBa0Yn5NZ4umAoQQ6LOosB5I6AAQ==
+
+"@studio-freight/react-lenis@^0.0.45":
+  version "0.0.45"
+  resolved "https://registry.npmjs.org/@studio-freight/react-lenis/-/react-lenis-0.0.45.tgz"
+  integrity sha512-/uwCzYU6A3iSHaaKhKHuMEz2urW8DX6Rc0997QOH3uqu5KcVZS0qA1uKkyhn2RSF9JXFmSB/t7pzKCCAN3rvcA==
+  dependencies:
+    "@studio-freight/hamo" "^0.6.28"
+    "@studio-freight/lenis" "^1.0.35-dev.0"
+    clsx "^2.0.0"
+    zustand "^4.4.7"
+
+"@studio-freight/tempus@^0.0.38":
+  version "0.0.38"
+  resolved "https://registry.npmjs.org/@studio-freight/tempus/-/tempus-0.0.38.tgz"
+  integrity sha512-AO1O2fEmfUqWGjEofmPNMQRlwgZ96eB5OFsVJjeH8/RKd1/Yf4zbPnXO+r2TD4aueA6X9JRCJU2GUprI9+m8uQ==
+
 "@surma/rollup-plugin-off-main-thread@^2.2.3":
   version "2.2.3"
   resolved "https://registry.npmjs.org/@surma/rollup-plugin-off-main-thread/-/rollup-plugin-off-main-thread-2.2.3.tgz"
@@ -2033,7 +2063,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@18.0.15":
+"@types/react@*", "@types/react@^16.8 || ^17.0 || ^18.0", "@types/react@>=16.8", "@types/react@18.0.15":
   version "18.0.15"
   resolved "https://registry.npmjs.org/@types/react/-/react-18.0.15.tgz"
   integrity sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==
@@ -3171,6 +3201,11 @@ clsx@^1.1.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/clsx/-/clsx-1.2.1.tgz"
   integrity sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==
+
+clsx@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/clsx/-/clsx-2.1.0.tgz"
+  integrity sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==
 
 co@^4.6.0:
   version "4.6.0"
@@ -5100,7 +5135,7 @@ ignore@^5.2.0:
   resolved "https://registry.npmjs.org/ignore/-/ignore-5.2.0.tgz"
   integrity sha512-CmxgYGiEPCLhfLnpPp1MoRmifwEIOgjcHXxOBjv7mY96c+eWScsOP9c112ZyLdWHi0FxHjI+4uVhKYp/gcdRmQ==
 
-immer@^9.0.7:
+immer@^9.0.7, immer@>=9.0.6:
   version "9.0.15"
   resolved "https://registry.npmjs.org/immer/-/immer-9.0.15.tgz"
   integrity sha512-2eB/sswms9AEUSkOm4SbV5Y7Vmt/bKRwByd52jfLkW4OLYeaTP3EEiJ9agqU0O/tq6Dk62Zfj+TJSqfm1rLVGQ==
@@ -6039,6 +6074,11 @@ jsonpointer@^5.0.0:
     array-includes "^3.1.5"
     object.assign "^4.1.2"
 
+just-debounce-it@^3.2.0:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/just-debounce-it/-/just-debounce-it-3.2.0.tgz"
+  integrity sha512-WXzwLL0745uNuedrCsCs3rpmfD6DBaf7uuVwaq98/8dafURfgQaBsSpjiPp5+CW6Vjltwy9cOGI6qE71b3T8iQ==
+
 kareem@2.4.1:
   version "2.4.1"
   resolved "https://registry.npmjs.org/kareem/-/kareem-2.4.1.tgz"
@@ -6417,6 +6457,11 @@ multicast-dns@^7.2.5:
   dependencies:
     dns-packet "^5.2.2"
     thunky "^1.0.2"
+
+nanoevents@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.npmjs.org/nanoevents/-/nanoevents-9.0.0.tgz"
+  integrity sha512-X8pU7IOpgKXVLPxYUI55ymXc8XuBE+uypfEyEFBtHkD1EX9KavYTVc+vXZHFyHKzA1TaZoVDqklLdQBBrxIuAw==
 
 nanoid@^3.3.4:
   version "3.3.4"
@@ -7673,7 +7718,7 @@ react-dev-utils@^12.0.1:
     strip-ansi "^6.0.1"
     text-table "^0.2.0"
 
-"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2 || ^18", "react-dom@^17.0.2 || ^18.0.0-0", react-dom@>=16, react-dom@>=17.0.0, react-dom@18.2.0:
+"react-dom@^16.8 || ^17.0 || ^18.0", "react-dom@^16.8.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2 || ^18", "react-dom@^17.0.2 || ^18.0.0-0", react-dom@^18.0.0, react-dom@^18.2.0, react-dom@>=16, react-dom@>=17.0.0, react-dom@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react-dom/-/react-dom-18.2.0.tgz"
   integrity sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==
@@ -7785,7 +7830,7 @@ react-toastify@^9.0.8:
   dependencies:
     clsx "^1.1.1"
 
-react@*, "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0-0", react@^18.2.0, "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16, react@>=17.0.0, react@18.2.0:
+react@*, "react@^16.8 || ^17.0 || ^18.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2 || ^18", "react@^17.0.2 || ^18.0.0-0", react@^18.0.0, react@^18.2.0, "react@>= 16", "react@>= 16.8.0 || 17.x.x || ^18.0.0-0", react@>=16, react@>=16.8, react@>=17.0.0, react@18.2.0:
   version "18.2.0"
   resolved "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   integrity sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==
@@ -9546,3 +9591,10 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/yocto-queue/-/yocto-queue-0.1.0.tgz"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zustand@^4.4.7:
+  version "4.5.1"
+  resolved "https://registry.npmjs.org/zustand/-/zustand-4.5.1.tgz"
+  integrity sha512-XlauQmH64xXSC1qGYNv00ODaQ3B+tNPoy22jv2diYiP4eoDKr9LA+Bh5Bc3gplTrFdb6JVI+N4kc1DZ/tbtfPg==
+  dependencies:
+    use-sync-external-store "1.2.0"

@@ -11,7 +11,7 @@ const newsLetterAnimation = () => {
       trigger: ".pin",
       start: "top 70%",
       end: "+=200px",
-      scrub: true,
+      scrub: 0.6,
     },
   });
 
@@ -26,7 +26,7 @@ const newsLetterAnimation = () => {
         (document.querySelector("#newsletter__single-section") as HTMLElement)!
           .offsetHeight,
       toggleActions: "play none reverse pause",
-      scrub: true,
+      scrub: 0.6,
       pin: ".pin",
     },
   });

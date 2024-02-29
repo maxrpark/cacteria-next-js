@@ -7,7 +7,7 @@ interface Props {
 }
 
 const FeaturedProduct: React.FC<Props> = ({ product }) => {
-  const { name, url, id } = product;
+  const { name, photo, id } = product;
 
   return (
     <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4 '>
@@ -15,7 +15,7 @@ const FeaturedProduct: React.FC<Props> = ({ product }) => {
         {/* <div> */}
         <Image
           priority
-          src={url}
+          src={photo}
           alt='Picture of the author'
           width={500}
           height={400}

@@ -18,7 +18,7 @@ const ProductPage: NextPage<Props> = ({ product }) => {
     <ProductLayout
       title={product.name}
       name={product.name}
-      img={product.url}
+      img={product.photo}
       dsc={product.desc}
     >
       <main className='container m-auto my-5 page-height'>
@@ -55,10 +55,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
     );
     const data = await res.data;
 
-    const { name, desc, price, category, feature } = data.fields;
+    const { name, desc, price, category, feature, photo } = data.fields;
     const url = data.fields.image[0].url;
 
     singleProduct = {
+      photo,
       id: data.id,
       category,
       desc,

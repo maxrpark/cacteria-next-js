@@ -10,6 +10,7 @@ export interface Product {
   feature: string;
   name: string;
   url: string;
+  photo: string;
   price: number;
 }
 export interface CartItemInt {

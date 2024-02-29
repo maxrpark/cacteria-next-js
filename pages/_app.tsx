@@ -11,6 +11,7 @@ import { CartProvider, GlobalProvider, AdminProvider } from "../context";
 
 import { Footer, Navbar } from "../components";
 import { ToastContainer } from "react-toastify";
+import LenisProvider from "../providers/LenisProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
@@ -34,10 +35,12 @@ function MyApp({ Component, pageProps }: AppProps) {
         <GlobalProvider>
           <AdminProvider>
             <CartProvider>
-              <Navbar />
-              <Component {...pageProps} />
-              <ToastContainer theme='colored' newestOnTop={true} />
-              <Footer />
+              <LenisProvider>
+                <Navbar />
+                <Component {...pageProps} />
+                <ToastContainer theme='colored' newestOnTop={true} />
+                <Footer />
+              </LenisProvider>
             </CartProvider>
           </AdminProvider>
         </GlobalProvider>
