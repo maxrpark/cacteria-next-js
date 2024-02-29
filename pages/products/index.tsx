@@ -11,6 +11,7 @@ const { ScrollTrigger } = require("gsap/dist/ScrollTrigger");
 
 gsap.registerPlugin(ScrollTrigger);
 import { updateFilterAnimation } from "../../utils/animations";
+import { duration } from "moment";
 
 interface Props {
   products: Product[];
@@ -22,13 +23,16 @@ const ProductsPage: NextPage<Props> = ({ products, allCategories }) => {
   const productsAnimation = () => {
     const tl = gsap.timeline({ delay: 0.5 });
     gsap.set(".product-single", {
-      y: 50,
+      y: (i: number) => 200 * (i + 1),
       opacity: 0,
     });
 
     tl.to(".product-single", {
       y: 0,
-      stagger: 0.03,
+      ease: "power.in",
+      stagger: {
+        amount: 0.5,
+      },
       opacity: 1,
     });
   };
