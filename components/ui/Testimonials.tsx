@@ -58,11 +58,14 @@ const Testimonials: React.FC = () => {
                 style={{ height: "400px", width: "90vw", maxWidth: "500px" }}
                 className='single-testimony card flex-shrink-0 d-flex justify-content align-items-center p-3'
               >
-                <div className='rounded-circle shadow d-flex'>
+                <div
+                  style={{ width: "190px", height: "190px" }}
+                  className='rounded-circle shadow d-flex'
+                >
                   <Image
                     src={el.image}
-                    height={"190px"}
-                    width={"190px"}
+                    height={190}
+                    width={190}
                     alt={el.name}
                     className='rounded-circle'
                   />

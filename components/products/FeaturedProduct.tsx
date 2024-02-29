@@ -10,7 +10,11 @@ const FeaturedProduct: React.FC<Props> = ({ product }) => {
   const { name, photo, id } = product;
 
   return (
-    <Link href={`/products/${id}`} className='col-12 col-md-6 col-lg-4 '>
+    <Link
+      href={`/products/${id}`}
+      style={{ display: "inline-block" }}
+      className='col-12 col-md-6 col-lg-4 w-100'
+    >
       <div className='card w-100 h-100 cursor'>
         {/* <div> */}
         <Image
